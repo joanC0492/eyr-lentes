@@ -1,0 +1,32 @@
+{% assign plugin = 'plugin.js' | asset_url  %}
+{{ plugin | script_tag }}
+{% comment %}
+{{ 'plugin.js' | asset_url | script_tag }}
+{{ 'timber.js' | asset_url | script_tag }}
+{% endcomment %}
+{% if settings.apollo_cart_type != "default" %}
+  {% include 'ajax-cart-template' %}
+{% endif %} 
+{% comment %}
+{% assign approversion = 'approversion.js' | asset_url  %}
+{{ approversion | split:'?' | first | script_tag }}
+{{ 'approversion.js' | asset_url | script_tag }}
+{% endcomment %}
+{{ 'approversion.js' | asset_url | script_tag }}
+<script src="{{ 'custom-js.js' | asset_url }}" async></script>
+
+<script>
+  $(document).ready(function() {    
+  	Shopify.Products.recordRecentlyViewed();
+    productVariantsChange();
+      if({{ settings.ap_collection_swatch_item }}){
+        addSwatchToItem();
+      }
+      jQuery("img").each(function(){
+        if(typeof jQuery(this).attr("alt") != 'undefined')
+        if(jQuery(this).attr("alt").length == 0){
+          jQuery(this).attr("alt","{{ shop.name }}");
+        }               
+     });     
+  });
+</script>

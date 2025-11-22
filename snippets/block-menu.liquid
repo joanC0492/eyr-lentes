@@ -1,0 +1,226 @@
+<!--Top Menu -->
+<div id="apollo-menu">
+        <nav id="cavas_menu" class="apollo-megamenu">
+            <div class="" role="navigation">
+                <div class="navbar-header">
+                    {% if settings.apollo_canvas_style == 'styleone' %}
+                        <button type="button" class="navbar-toggle btn-menu-canvas" data-toggle="offcanvas" data-target="#off-canvas-nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-bars"></span>
+                        </button>
+                  	{% elsif settings.apollo_canvas_style == 'styletwo' %}
+                        <a class="navbar-toggle btn-menu-canvas" href="#apollo-menucanvas" title="Toggle navigation">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="fa fa-bars"></span>
+                        </a>
+                  	{% endif %}
+                </div>
+                <div id="apollo-top-menu" class="collapse navbar-collapse hidden-xs hidden-sm">
+                    <ul class="nav navbar-nav megamenu">
+                     {%- assign mainMenu = settings.mainmenu -%}
+                      {% capture main_name %}{{ mainMenu }}{% endcapture %}
+                        {% for link in linklists[main_name].links %}             	
+                            {% assign hasMega = false %}
+                            {% assign intMega = 0 %}
+                            {% assign link_title = link.title | downcase %}
+                            {% assign fullwidth = '' %}
+                      		{% assign list_label_sale = settings.list_label_menu_sale | split: ',' | strip | downcase %}
+                            {% for i in (1..5) %}
+                                {% capture apmegamenu %}apmenuitem_enable_{{ i }}{% endcapture %}
+                                {% capture apmegamenu_title %}apmenuitem_title_{{ i }}{% endcapture %}
+                                {% assign megamenu_title = settings[apmegamenu_title] | strip | downcase %}
+                                {% if settings[apmegamenu] %}
+                                    {% if link_title == megamenu_title %}
+                                        {% assign hasMega = true %}
+                                        {% assign intMega = i %}                      					
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if hasMega %}
+                                {% capture apfullwidth %}apmenuitem_fullwidth_{{ intMega }}{% endcapture %}
+                      			
+                                {% if settings[apfullwidth] %}
+                                    {% assign fullwidth = 'full-width' %}
+                                {% else %}
+                                    {% assign fullwidth = 'aligned-center' %}
+                                {% endif %}
+                                <li class="parent dropdown {{ fullwidth }} {% if link.active %}active{% endif %}">
+                                    <a class="dropdown-toggle has-category" data-toggle="dropdown" href="{{ link.url }}" title="{{ link.title }}" target="_self">
+                                      {% assign title_link_menu = link.title | handle %}                                    
+                                      {% for i in (1..5) %}
+                                      {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                      {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                      {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                      {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                      {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                      {% if  title_submenu  == title_link_menu  %}
+                                      {% if  settings[id_submenu_label] != blank %}
+                                      <span class="label_menu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                      {% endif %}
+                                      {% endif %}
+                                      {% endfor %}
+                                        <span class="menu-title">{{ link.title }}</span><b class="caret"></b>
+                                    </a>
+                                    {% assign mega_link_handle = link.handle %}
+                                    {% include 'menu-megamenu' %}
+                                </li>
+                            {% else %}
+                                {% if linklists[link.handle] != empty %}             			
+                                    <li class="parent dropdown {% if link.active %}active{% endif %}">
+                                        <a class="dropdown-toggle has-category" data-toggle="dropdown" href="{{ link.url }}" title="{{ link.title }}" target="_self"> 
+                                          {% assign title_link_menu = link.title | handle %}                                    
+                                          {% for i in (1..5) %}
+                                          {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                          {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                          {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                          {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                          {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                          {% if  title_submenu  == title_link_menu  %}
+                                          {% if  settings[id_submenu_label] != blank %}
+                                          <span class="label_menu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                          {% endif %}
+                                          {% endif %}
+                                          {% endfor %}
+                                            <span class="menu-title">{{ link.title }}</span><b class="caret"></b>
+                                        </a>
+                                        <div class="dropdown-menu level1">
+                                            <div class="dropdown-menu-inner">
+                                                <div class="mega-col-inner">  
+                                                    <ul>
+                                                        {% for child_link in linklists[link.handle].links %}                                                      		
+                                                            {% if linklists[child_link.handle] != empty %}
+                                                                <li class="parent dropdown-submenu {% if child_link.active %}active{% endif %}">
+                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ child_link.url }}" title="{{ child_link.title }}">
+                                                                       <span class="">{{ child_link.title }}</span>
+                                                                      {% assign title_child_menu = child_link.title | handle %}                                    
+                                                                      {% for i in (1..5) %}
+                                                                      {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                                                      {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                                                      {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                                                      {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                                                      {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                                                      {% if  title_submenu  == title_child_menu  %}
+                                                                      {% if  settings[id_submenu_label] != blank %}
+                                                                      <span class="label_submenu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                                                      {% endif %}
+                                                                      {% endif %}
+                                                                      {% endfor %}
+                                                                      <b class="caret"></b>
+                                                                    </a>
+                                                                    <div class="dropdown-menu level2">
+                                                                        <div class="dropdown-menu-inner">
+                                                                            <div class="mega-col-inner">
+                                                                                <ul>
+                                                                                    {% for child_link1 in linklists[child_link.handle].links %}
+                                                                                        {% if linklists[child_link1.handle] != empty %}
+                                                                                            <li class="parent dropdown-submenu {% if child_link1.active %}active{% endif %}">
+                                                                                                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ child_link1.url }}" title="{{ child_link1.title }}">
+                                                                                                  <span class="">{{ child_link1.title }}</span>
+                                                                                                  {% assign title_child1_menu = child_link1.title | handle %}                                                                        {% assign title_child_menu = child_link.title | handle %}                                    
+                                                                                                  {% for i in (1..5) %}
+                                                                                                  {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                                                                                  {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                                                                                  {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                                                                                  {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                                                                                  {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                                                                                  {% if  title_submenu  == title_child1_menu  %}
+                                                                                                  {% if  settings[id_submenu_label] != blank %}
+                                                                                                  <span class="label_submenu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                                                                                  {% endif %}
+                                                                                                  {% endif %}
+                                                                                                  {% endfor %}
+                                                                                                  <b class="caret"></b>
+                                                                                                </a>
+                                                                                                <div class="dropdown-menu level3">
+                                                                                                    <div class="dropdown-menu-inner">
+                                                                                                        <div class="mega-col-inner">
+                                                                                                            <ul>
+                                                                                                                {% for child_link2 in linklists[child_link1.handle].links %}
+                                                                                                                    <li class="{% if child_link2.active %}active{% endif %}">
+                                                                                                                        <a class="" href="{{ child_link2.url }}" title="{{ child_link2.title }}">
+                                                                                                                            <span class="">{{ child_link2.title }}</span>
+                                                                                                                        </a>
+                                                                                                                    </li>
+                                                                                                                {% endfor %}
+                                                                                                            </ul>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        {% else %}
+                                                                                            <li class="{% if child_link1.active %}active{% endif %}">
+                                                                                                <a class="" href="{{ child_link1.url }}" title="{{ child_link1.title }}">
+                                                                                                   <span class="">{{ child_link1.title }}</span>
+                                                                                                  {% assign title_child1_menu = child_link1.title | handle %}                                                                        {% assign title_child_menu = child_link.title | handle %}                                    
+                                                                                                  {% for i in (1..5) %}
+                                                                                                  {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                                                                                  {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                                                                                  {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                                                                                  {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                                                                                  {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                                                                                  {% if  title_submenu  == title_child1_menu  %}
+                                                                                                  {% if  settings[id_submenu_label] != blank %}
+                                                                                                  <span class="label_submenu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                                                                                  {% endif %}
+                                                                                                  {% endif %}
+                                                                                                  {% endfor %}
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        {% endif %}
+                                                                                    {% endfor %}
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            {% else %}
+                                                                <li class="{% if child_link.active %}active{% endif %}">
+                                                                    <a class="" href="{{ child_link.url }}" title="{{ child_link.title }}">
+                                                                       <span class="">{{ child_link.title }}</span>
+                                                                      
+                                                                        {% assign title_child_menu = child_link.title | handle %}                                    
+                                                                      	{% for i in (1..5) %}
+                                                                      		{% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                      														{% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                                                        	{%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                                                        	{% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                                                        	{%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                                                        	{% if  title_submenu  == title_child_menu  %}
+                                                                        		<span class="label_submenu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                                                        	{% endif %}
+                                                                        {% endfor %}
+                                                                      
+                                                                    </a>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li class="{% if link.active %}active{% endif %}">
+                                        <a class="" href="{{ link.url }}" title="{{ link.title }}" target="_self">
+                                          {% assign title_link_menu = link.title | handle %}                                    
+                                          {% for i in (1..5) %}
+                                          {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                          {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                          {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                          {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                          {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                          {% if  title_submenu  == title_link_menu  %}
+                                          <span class="label_menu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                          {% endif %}
+                                          {% endfor %}
+                                          <span class="menu-title">{{ link.title }}</span>                                   
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</div>

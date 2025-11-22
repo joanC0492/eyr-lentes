@@ -1,0 +1,317 @@
+ {%- assign collection = collections[section.settings.collection_category_1] -%}
+{%- assign collection = collections[section.settings.collection_category_2] -%}
+{%- assign collection = collections[section.settings.collection_category_3] -%}
+{%- assign collection = collections[section.settings.collection_category_4] -%}
+
+{% if section.settings.home_producttabs_enable %}
+<div class="container">
+  <div class="row">
+  {%- assign block_row_productlist = section.settings.home_productlists_class1  %}
+  {% if section.settings.home_bannerleft_enable %}
+    <div class=" {{ block_row_productlist }}">
+      <div class="banner-left-productTabs">
+        <a href="{{ section.settings.link }}" title="{{ shop.name }}">
+          {{ section.settings.image | img_url: '1000x1000' | img_tag: 'feature-row__image', 'img-responsive'}}</a>
+        <div class="block">
+          <div class="title_block">{{ section.settings.home_bannerleft_title }}</div>
+          <div class="block_content">
+            <ul class="list-unstyled">
+              <li><a href="{{collection.url }}">{{section.settings.link_category_1}}</a></li>
+              <li><a href="{{ collection.url }}">{{section.settings.link_category_2}}</a></li>
+              <li><a href="{{ collection.url }}">{{section.settings.link_category_3}}</a></li>
+              <li><a href="{{ collection.url }}">{{section.settings.link_category_4}}</a></li>
+            </ul>
+            <p><a class="btn btn-outline" href="{{ section.settings.banner_btn_link }}">{{ section.settings.banner_btn_text }}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {%- assign block_row_productlist = section.settings.home_productlists_class2  %}
+  <div class="producttab {{ block_row_productlist }}">
+    {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
+    {% endif %}
+    {%- assign collection_produclists = collections[section.settings.collection].products -%}
+    {% if settings.apollo_count_down_enable and settings.apollo_count_down_collections %}
+      {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+    {% else %}
+      {% assign dealTime = false %}
+    {% endif %}
+    {% assign enable_dot = section.settings.enable_dot  %}
+    {% assign enable_nav = section.settings.enable_nav  %}
+    {% assign item_in_page = section.settings.home_producttabs_itempage | plus:0 %}
+    {% assign columns_product = section.settings.home_producttabs_columntab | plus:0 %}
+    {% assign product_in_tab = section.settings.home_producttabs_limit | plus:0 %}
+	{% assign slidesToScroll = section.settings.home_productlists_toscroll | plus:0 %}
+    {% assign product_type = section.settings.home_producttabs_type %}
+    {% assign product_interval = section.settings.home_producttabs_interval %}
+
+    {% assign protab_title_1 = section.settings.home_producttabs_titletab_1 %}
+    {% assign protab_title_2 = section.settings.home_producttabs_titletab_2 %}
+    {% assign protab_title_3 = section.settings.home_producttabs_titletab_3 %}
+    {% assign protab_title_4 = section.settings.home_producttabs_titletab_4 %}
+
+
+    {%- assign protab_collections_1 = collections[section.settings.home_producttabs_collection_1].products -%}
+    {%- assign protab_collections_2 = collections[section.settings.home_producttabs_collection_2].products -%}
+    {%- assign protab_collections_3 = collections[section.settings.home_producttabs_collection_3].products -%}
+    {%- assign protab_collections_4 = collections[section.settings.home_producttabs_collection_4].products -%}
+    {%- assign id_producttabs = section.settings.idproducttabs -%}
+  	{% assign proLazyLoad = false %}
+    {% include 'block-producttabs' with section.id %}
+  </div>
+</div>
+</div>
+{% endif %}
+{% schema %}
+{
+    "name": "Collection Product Tabs",
+  	"class": "index-section",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Banner"
+      },
+	  {
+        "type": "checkbox",
+        "id": "home_bannerleft_enable",
+        "label": "Enable",
+        "default": true
+      },
+	  {
+        "type": "text",
+        "id": "home_productlists_class1",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "banner"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link banner",
+        "info": "Optional"
+      },
+	  {
+        "type": "text",
+		"id": "home_bannerleft_title",
+		"label": "Text banner",
+		"default": "Choose Your Category"
+	  },
+	  {
+        "type": "link_list",
+        "id": "linklist",
+        "label": "Link list",
+        "info": "Optional"
+      },
+	  {
+        "type": "url",
+        "id": "banner_btn_link",
+        "label": "Button Link",
+        "info": "Optional"
+      },	  
+	  {
+        "type": "text",
+		"id": "banner_btn_text",
+		"label": "Text button",
+		"default": "Shop now!"
+	  },
+      {
+        "type": "text",
+        "id": "link_category_1",
+        "label": "Name category 1"
+      },
+       {
+        "type": "collection",
+        "id": "collection_category_1",
+        "label": "Collection Category 1"
+      },
+      {
+        "type": "text",
+        "id": "link_category_2",
+        "label": "Name category 2"
+      },
+        {
+        "type": "collection",
+        "id": "collection_category_2",
+        "label": "Collection Category 2"
+      },
+      {
+        "type": "text",
+        "id": "link_category_3",
+        "label": "Name category 3"
+      },
+        {
+        "type": "collection",
+        "id": "collection_category_3",
+        "label": "Collection Category 3"
+      },
+      {
+        "type": "text",
+        "id": "link_category_4",
+        "label": "Name category 4"
+       },
+      {
+        "type": "collection",
+        "id": "collection_category_4",
+        "label": "Collection Category 4"
+      },
+  	  {
+        "type": "header",
+        "content": "Product Tabs"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_producttabs_enable",
+        "label": "Enable",
+        "default": true
+      },
+	  {
+        "type": "text",
+        "id": "home_productlists_class2",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "select",
+        "id": "home_producttabs_type",
+        "label": "Product Tabs Display",
+        "options": [
+         
+          {
+            "value": "slick_carousel",
+            "label": "Slick Carousel"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_limit",
+        "label": "Limit",
+        "default": "16"
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_lazy",
+        "label": "Lazyload",
+        "default": "progressive"
+      },
+	  {
+        "type": "select",
+        "id": "enable_dot",
+        "label": "Navigator Type",
+        "default": "true",  
+        "options": [
+         {
+            "label": "None",
+            "value": "false"
+         },
+         {
+            "label": "Bullet",
+            "value": "true"
+         }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "enable_nav",
+        "label": "Arrows Style",
+        "default": "true",  
+        "options": [
+          {
+            "label": "None",
+            "value": "false"
+          },
+          {
+            "label": "Next & Preview",
+            "value": "true"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_itempage",
+        "label": "Items Per Page",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_columntab",
+        "label": "Columns In Tab",
+        "default": "4",
+        "info": "Sample: 1, 2, 3, 4, 6, 12"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll",
+        "label": "Slider To Scroll",
+        "default": "4",
+        "info": "for slick slider ex: 1, 2, 3, 4 .."
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_interval",
+        "label": "Interval",
+        "default": "8000",
+        "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_titletab_1",
+        "label": "Title Tab 1",
+        "default": "All items"
+      },
+      {
+        "type": "collection",
+        "id": "home_producttabs_collection_1",
+        "label": "Collection Tab 1"
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_titletab_2",
+        "label": "Title Tab 2",
+        "default": "Clothing"
+      },
+      {
+        "type": "collection",
+        "id": "home_producttabs_collection_2",
+        "label": "Collection Tab 2"
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_titletab_3",
+        "label": "Title Tab 3",
+        "default": "Digital"
+      },
+      {
+        "type": "collection",
+        "id": "home_producttabs_collection_3",
+        "label": "Collection Tab 3"
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_titletab_4",
+        "label": "Title Tab 4",
+        "default": "Interior"
+      },
+      {
+        "type": "collection",
+        "id": "home_producttabs_collection_4",
+        "label": "Collection Tab 4"
+      }
+ 
+  ],
+  "presets": [
+    {
+    "name": "Collection Product Tabs",
+    "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

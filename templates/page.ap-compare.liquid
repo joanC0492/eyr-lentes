@@ -1,0 +1,223 @@
+{% include 'breadcrumb' %}
+<div id="ap_cp_page">
+  <div class="ap-cp-share col-md-12 col-sm-12 col-xs-12">
+    <p>{{ 'layout.compare.page_title' | t }}</p>
+    <div class="ap-cp-social">
+      <table class="ap-cp-table-share">
+        <tbody>
+          <tr>
+            <!--Facebook-->
+            <td class="ap-cp-fb">
+              <script>
+                (function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=115476608547153";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk')
+                );
+              </script>
+              <div class="fb-share-button" data-href=" " data-layout="button"></div>
+            </td>
+
+            <!--Tweet-->
+            <td class="ap-cp-tt">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-text="PRODUCT COMPARISON" data-count="horizontal" data-url=" ">Tweet</a>
+              <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+            </td>	
+            <!--Google-->
+            <td class="ap-cp-gg">
+              <link rel="canonical" href=" " />
+              <script src="https://apis.google.com/js/platform.js" async defer></script>
+              <div class="g-plus" data-action="share" data-annotation="none" data-href=" "></div>
+            </td>	
+            <!--Pinterest-->
+            <td class="ap-cp-pts">
+              <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+              <a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button"
+                 data-pin-url=" "
+                 data-pin-media=" "
+                 data-pin-description="Product Comparison"
+                 ></a>
+            </td>	
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- end ap-cp-social-->
+  </div><!-- end ap-cp-share-->
+  <div class='col-md-12 col-sm-12 col-xs-12'>	
+    <p class="ap-cp-no-product" style="display: none;">{{ 'layout.compare.item_notfound' | t }}</p>
+    <div class="table-responsive">
+      <table border="1" id="ap_cp_table">
+        <tr class="ap-page-img">
+          <td class="ap-page-firs-td">{{ 'layout.compare.page_image' | t }}</td>
+        </tr>	
+        <tr class="ap-page-type">
+          <td class="ap-page-firs-td">{{ 'layout.compare.page_type' | t }}</td>
+        </tr>
+        <tr class="ap-page-variants">
+          <td class="ap-page-firs-td">{{ 'layout.compare.page_variant' | t }}</td>
+        </tr>
+        <tr class="ap-page-vendor">
+          <td class="ap-page-firs-td">{{ 'layout.compare.page_vendor' | t }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>	
+</div><!-- end ap_cp_page-->
+<script type="text/javascript">
+  function getCookieVal (offset) {
+    var endstr = document.cookie.indexOf (";", offset);
+    if (endstr == -1)
+      endstr = document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+  }
+  function GetCookie (name) {
+    var arg = name + "=";
+    var alen = arg.length;
+    var clen = document.cookie.length;
+    var i = 0;
+    while (i < clen) {
+      var j = i + alen;
+      if (document.cookie.substring(i, j) == arg)
+        return getCookieVal (j);
+      i = document.cookie.indexOf(" ", i) + 1;
+      if (i == 0) break;
+    }
+    return null;
+  }
+  // Get Url Share social
+  var aplistCookieShare = GetCookie("apCpProduct");
+  var ap_cp_url_share = document.location.origin + '/pages/ap-compare-product?share=true&product=' + aplistCookieShare;
+  jQuery("#ap_cp_page .fb-share-button").attr("data-href", ap_cp_url_share);
+  jQuery("#ap_cp_page td.ap-cp-tt a").attr("data-url", ap_cp_url_share);
+  var apCompareImgShare = "https://cdn.haravan.com/s/files/1/0739/1251/t/2/assets/ap_compare_pinterest.png?560393241542306881";
+  imageExists(apCompareImgShare, function(exists) {
+    if(!exists) {
+      apCompareImgShare = "https://www.thermtest.com/uploads/images/headers/main_img_compare_products.jpg";
+    }
+  });
+  jQuery("#ap_cp_page td.ap-cp-pts a").attr("data-pin-media", apCompareImgShare);
+  jQuery("#ap_cp_page td.ap-cp-pts a").attr("data-pin-url", ap_cp_url_share);
+  jQuery("#ap_cp_page td.ap-cp-gg div.g-plus").attr("data-href", ap_cp_url_share);
+
+  function imageExists(url, callback) {
+    var img = new Image();
+    img.onload = function() { callback(true); };
+    img.onerror = function() { callback(false); };
+    img.src = url;
+  }
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    url = url.toLowerCase();
+    name = name.replace(/[\\[\\]]/g, "\\\$&").toLowerCase();
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\\+/g, " "));
+  }
+
+  jQuery(document).ready(function() {
+    var apCompareImgShare = "{{ 'ap_compare_pinterest.png' | asset_img_url: 'large' }}";
+    var apCpCurrency = "{{ shop.currency }}";
+    // get handle product share or cookie
+    var apLinkShare = getParameterByName('share');
+    if (apLinkShare == '' || apLinkShare == null) {
+      var aplistCookie = GetCookie("apCpProduct");
+    } else {
+      var aplistCookie = getParameterByName('product');
+    }
+    var apExistProduct = false;
+
+    if(aplistCookie != null) {
+      var aplistCookie = aplistCookie.split(',');
+      for(apCpId of aplistCookie) {
+        if(apCpId.length) {
+          var apExistProduct = true;
+          jQuery.ajax({
+            url: apCompareUrl + "/products/" + apCpId + '.json',
+            type: "GET",
+            dataType: "json",
+            success: function(result) {
+              var apCpPrId = result["product"]["id"];
+              var apCpPrHandle = result["product"]["handle"];
+              if (result["product"]["image"] == null) {
+                var apCpImg = "http://hstatic.net/0/0/global/noDefaultImage6_large.gif";
+              } else {
+                var apCpImg = result["product"]["image"]["src"];
+              }
+              var apCpTitle = result["product"]["title"];
+              var apCpVendor = result["product"]["vendor"];
+
+              var apCpType = result["product"]["product_type"];
+              var apCpVarians = "";
+              var apCpCountVariant = result["product"]["variants"].length;
+              for(apCpVariantItem of result["product"]["variants"]) {
+                if (apCpVariantItem["inventory_quantity"] > 0) {
+                  var apCpInstock = "In stock";
+                } else {
+                  var apCpInstock = "Out of stock";
+                }
+                apCpVarians = '<p>' + apCpVarians + apCpVariantItem["title"] + ' - <span class="ap-cp-price">' + apCpVariantItem["price"] + ' ' + apCpCurrency + '</span> - ' + apCpInstock + '</p>';
+                if (apCpCountVariant > 1) {
+                  // nut nay la nut select option
+                  var apCpLinkCart = '<div class="ap-cp-linkcart"><a href="'+apCompareUrl + '/products/' + apCpPrHandle+'"><input type="button" value="SELECT OPTIONS" class="btn"></a></div>';
+                } else {
+                  var apCpLinkCart = '<div class="ap-cp-linkcart"> <form method="post" action="/cart/add"> <input type="hidden" name="id" value="'+apCpVariantItem["id"]+'"> <input type="submit" value="ADD TO CART" class="btn"> </form> </div>';
+                }
+              }
+              var apCpElementImg = '<td class="ap-page-td-img"> <div class="ap-cp-remove"> <a href="#" title="Remove" data-id-product="'+apCpPrHandle+'"> <p class="ap-cp-image-trash"></p> </a> </div> <div> <a href="'+apCompareUrl + '/products/' + apCpPrHandle+'"><img src="'+apCpImg+'"></a> </div> <h5><a href="'+apCompareUrl + '/products/' + apCpPrHandle+'">'+apCpTitle+'</a></h5>'+apCpLinkCart+'</td>';
+              // var apCpElementTitle = '<td class="ap-page-td-title">'+apCpTitle+'</td>';
+              var apCpElementVendor = '<td class="ap-page-td-vendor">'+apCpVendor+'</td>';
+              var apCpElementType = '<td class="ap-page-td-type">'+apCpType+'</td>';
+              var apCpElementVariants = '<td class="ap-page-td-variants">'+apCpVarians+'</td>';
+
+              jQuery("#ap_cp_table tr.ap-page-img").append(apCpElementImg);
+              // jQuery("#ap_cp_table tr.ap-page-title").append(apCpElementTitle);
+              jQuery("#ap_cp_table tr.ap-page-vendor").append(apCpElementVendor);
+              jQuery("#ap_cp_table tr.ap-page-type").append(apCpElementType);
+              jQuery("#ap_cp_table tr.ap-page-variants").append(apCpElementVariants);
+            },
+            error: function() {
+              console.log("There have error data. Please refresh page and try again!");
+            }
+          });
+        }
+      }
+      //show notification when no data product
+      if (!apExistProduct) {
+        jQuery("#ap_cp_page p.ap-cp-no-product").show();
+        jQuery("#ap_cp_page .ap-cp-share").hide();
+        jQuery("#ap_cp_page #ap_cp_table").hide();
+      }
+    }
+
+    jQuery("#ap_compare_paneltool").hide();
+  });
+
+  jQuery(document).on("click", "#ap_cp_page .ap-cp-remove a", function(e) {
+    e.preventDefault();
+    var apIdPr = jQuery(this).attr("data-id-product");
+    var apTd = jQuery(this).parents("td").first();
+    var ap_col_index = apTd.parent().children().index(apTd);
+    //remove td
+    jQuery("#ap_cp_page table#ap_cp_table tr").find("td:eq("+ap_col_index+")").remove();
+    var item = jQuery(".ap-cp-remove").length;
+    var apCompare = '<a class="log-only" title="compare" href="'+apCompareUrl+'/pages/ap-compare-product">Sản Phẩm('+ item +')</a>';
+    jQuery("#ap_compare_item").html(apCompare);
+    //delte cookie item product
+    var aplistCookie = GetCookie("apCpProduct");
+    var aplistCookie = aplistCookie.split(',');
+    //check va bo gia tri product trong mang cookie
+    var index = aplistCookie.indexOf(apIdPr);
+    if (index > -1) {
+      aplistCookie.splice(index, 1);
+    }
+    SetCookie("apCpProduct", aplistCookie, ap_expires, "/");
+    //hien thi element link list compare
+    var aplistCookieElement = GetCookie("apCpProduct");
+    getCountCompare(aplistCookieElement);
+  });
+</script>

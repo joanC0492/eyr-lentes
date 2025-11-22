@@ -1,0 +1,381 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="html no-js {% if settings.theme_rtl_enable %} rtl {% endif %} " {% if settings.theme_rtl_enable %} dir="rtl" {% endif %} lang="{{ shop.locale }}"  > <!--<![endif]-->
+<head>
+{% if settings.theme_loading_enable %}
+  <style>
+      /* fake_initload.liquid */
+    .fake_iniload{
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 99999;
+      background:#fcfefc;
+    }
+    .fake_iniload .load_animaiton{
+      width: 600px;
+      height: 600px;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      background: transparent;
+    }
+ 
+        @-webkit-keyframes spincube {
+            from,to  { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+            16%      { -webkit-transform: rotateY(-90deg);                           }
+            33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg);            }
+            50%      { -webkit-transform: rotateY(-180deg) rotateZ(90deg);           }
+            66%      { -webkit-transform: rotateY(-270deg) rotateX(90deg);           }
+            83%      { -webkit-transform: rotateX(90deg);                            }
+        }
+
+        @keyframes spincube {
+            from,to {
+                -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            16% {
+                -moz-transform: rotateY(-90deg);
+                -ms-transform: rotateY(-90deg);
+                transform: rotateY(-90deg);
+            }
+            33% {
+                -moz-transform: rotateY(-90deg) rotateZ(90deg);
+                -ms-transform: rotateY(-90deg) rotateZ(90deg);
+                transform: rotateY(-90deg) rotateZ(90deg);
+            }
+            50% {
+                -moz-transform: rotateY(-180deg) rotateZ(90deg);
+                -ms-transform: rotateY(-180deg) rotateZ(90deg);
+                transform: rotateY(-180deg) rotateZ(90deg);
+            }
+            66% {
+                -moz-transform: rotateY(-270deg) rotateX(90deg);
+                -ms-transform: rotateY(-270deg) rotateX(90deg);
+                transform: rotateY(-270deg) rotateX(90deg);
+            }
+            83% {
+                -moz-transform: rotateX(90deg);
+                -ms-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+            }
+        }
+
+        .cubespinner {
+            -webkit-animation-name: spincube;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 12s;
+
+            animation-name: spincube;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-duration: 12s;
+
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+            -webkit-transform-origin: 60px 60px 0;
+            -moz-transform-origin: 60px 60px 0;
+            -ms-transform-origin: 60px 60px 0;
+            transform-origin: 60px 60px 0;
+        }
+
+        .cubespinner div {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #ccc;
+            background: rgba(255,255,255,0.8);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            line-height: 120px;
+            text-align: center;
+            font-size: 100px;
+        }
+
+        .cubespinner .face1 {
+            -webkit-transform: translateZ(60px);
+            -moz-transform: translateZ(60px);
+            -ms-transform: translateZ(60px);
+            transform: translateZ(60px);
+        }
+        .cubespinner .face2 {
+            -webkit-transform: rotateY(90deg) translateZ(60px);
+            -moz-transform: rotateY(90deg) translateZ(60px);
+            -ms-transform: rotateY(90deg) translateZ(60px);
+            transform: rotateY(90deg) translateZ(60px);
+        }
+        .cubespinner .face3 {
+            -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+            -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+            -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+            transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+        }
+        .cubespinner .face4 {
+            -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+            -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+            -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+            transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+        }
+        .cubespinner .face5 {
+            -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+            -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+            -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+            transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+        }
+        .cubespinner .face6 {
+            -webkit-transform: rotateX(-90deg) translateZ(60px);
+            -moz-transform: rotateX(-90deg) translateZ(60px);
+            -ms-transform: rotateX(-90deg) translateZ(60px);
+            transform: rotateX(-90deg) translateZ(60px);
+        }
+}
+
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+       0% {
+        -webkit-transform: rotateY(0deg); /* Safari */
+        transform: rotateY(0deg); /* Standard syntax */
+      }
+      25% {
+        -webkit-transform: rotateY(45deg); /* Safari */
+        transform: rotateY(45deg); /* Standard syntax */
+      }
+      35% {
+        -webkit-transform: rotateY(90deg); /* Safari */
+        transform: rotateY(90deg); /* Standard syntax */
+      }
+      45% {
+        -webkit-transform: rotateY(135deg); /* Safari */
+        transform: rotateY(135deg); /* Standard syntax */
+      }
+      55% {
+        -webkit-transform: rotateY(180deg); /* Safari */
+        transform: rotateY(180deg); /* Standard syntax */
+      }
+      65%{
+        -webkit-transform: rotateY(225deg); /* Safari */
+        transform: rotateY(225deg); /* Standard syntax */
+      }
+      75% {
+        -webkit-transform: rotateY(270deg); /* Safari */
+        transform: rotateY(270deg); /* Standard syntax */
+      }
+      85%{
+        -webkit-transform: rotateY(315deg); /* Safari */
+        transform: rotateY(315deg); /* Standard syntax */
+      }
+      100% {
+        -webkit-transform: rotateY(360deg); /* Safari */
+        transform: rotateY(360deg); /* Standard syntax */
+      }
+}
+
+/* Standard syntax */
+    @keyframes example {
+      0% {
+        -webkit-transform: rotateY(0deg); /* Safari */
+        transform: rotateY(0deg); /* Standard syntax */
+      }
+      25% {
+        -webkit-transform: rotateY(45deg); /* Safari */
+        transform: rotateY(45deg); /* Standard syntax */
+      }
+      35% {
+        -webkit-transform: rotateY(90deg); /* Safari */
+        transform: rotateY(90deg); /* Standard syntax */
+      }
+      45% {
+        -webkit-transform: rotateY(135deg); /* Safari */
+        transform: rotateY(135deg); /* Standard syntax */
+      }
+      55% {
+        -webkit-transform: rotateY(180deg); /* Safari */
+        transform: rotateY(180deg); /* Standard syntax */
+      }
+      65%{
+        -webkit-transform: rotateY(225deg); /* Safari */
+        transform: rotateY(225deg); /* Standard syntax */
+      }
+      75% {
+        -webkit-transform: rotateY(270deg); /* Safari */
+        transform: rotateY(270deg); /* Standard syntax */
+      }
+      85%{
+        -webkit-transform: rotateY(315deg); /* Safari */
+        transform: rotateY(315deg); /* Standard syntax */
+      }
+      100% {
+        -webkit-transform: rotateY(360deg); /* Safari */
+        transform: rotateY(360deg); /* Standard syntax */
+      }
+    }
+  </style>
+{% endif %}  
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+  {% capture seo_title %}
+    {{ page_title }}
+    {% if current_tags %}
+      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% endif %}
+    {% if current_page != 1 %}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {% endif %}
+    {% unless page_title contains shop.name %}
+      {% if false %}
+      &ndash; {{ shop.name }}
+      {% endif %}
+    {% endunless %}
+  {% endcapture %}
+  <title>{{ seo_title | strip }}</title>
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+  {% assign keywords = '' %}
+  {% for productTag in product.tags %}
+      {% if productTag contains 'ap_seo_' %}
+          {% if keywords == '' %}
+              {% assign keywords = productTag | replace: 'ap_seo_', '' %}
+          {% else %}
+              {% assign keywords = keywords | append: ', ' %}
+              {% assign keywords = keywords | append: productTag | replace: 'ap_seo_', '' %}
+          {% endif %}
+      {% endif %}
+  {% endfor %}  
+  {% if keywords == '' %}
+  <meta name="keywords" content="{{ settings.apmetakeyword }}"/>
+  {% else %}
+  <meta name="keywords" content="{{ keywords }}"/>
+  {% endif %}
+  {% include 'social-meta-tags' %}
+  <!-- Theme css ================================================================ -->
+  {% include 'head-css' %}
+
+  {% include 'head-js' %}
+  {{ content_for_header }}
+  {%  if template != 'index' %}
+  {% if settings.facebook_appid %}  
+    <meta property="fb:app_id" content="{{ settings.facebook_appid}}" />
+    {% assign adminid = settings.facebook_admin_id | split: ',' %} 
+    {% for id in adminid %}
+      <meta property="fb:admins" content="{{id}}"/>
+    {% endfor %}
+  {% endif %} 
+  {% endif %}
+{% include 'ap-multilang-resources' %}
+  <!-- CUSTOM -->
+  {{ 'jcc-theme.css' | asset_url | stylesheet_tag }}
+</head>
+
+<body class="template-{{ template | split: '.' | first }} {{ settings.theme_float_style }} {{ settings.theme_header_style }} {{ settings.theme_layout_mode }}">
+{% if settings.theme_loading_enable %}
+  <div class="fake_iniload hidden-xs">
+    <div class="load_animaiton">
+      <div class="stage" style="width: 120px; height: 120px;">
+        <div class="cubespinner">
+          <div class="face1">1</div>
+          <div class="face2">2</div>
+          <div class="face3">3</div>
+          <div class="face4">4</div>
+          <div class="face5">5</div>
+          <div class="face6">6</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(window).load(function() {
+      // Animate loader off screen
+      $(".fake_iniload").fadeOut("slow");
+      document.documentElement.style.overflow='scroll';
+    });
+    $( window ).resize(function() {
+      $(".fake_iniload").fadeOut("slow");
+      console.log($(window).height());
+    });
+  </script>
+{% endif %}  
+   {%  if template != 'index' %}
+  <div id="loading" class="loading_site" style="display: none;"></div>
+  {% comment %}
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId={{ settings.facebook_appid }}";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+  {% endcomment %}
+{% endif %}
+
+  {% include 'cart-popup' %}
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>  
+  <div id="page">
+    {% section 'header' %}
+
+    <div class="page-container" id="PageContainer">
+
+      <main class="main-content" id="MainContent">
+        {{ content_for_layout }}
+      </main>
+
+      {% section 'footer' %}
+    </div>
+    {% if settings.theme_backtotop_enable %}
+    <p id="back-top">
+      <a href="#top" title="Scroll To Top">Scroll To Top</a>
+    </p>
+    {% endif %}
+  </div>  
+
+  {% include 'new-currentcies' %}
+  {% if settings.apollo_megamenu_enable %}
+  {% include 'block-menu-canvas' %}
+  {% endif %}  
+  {% if settings.theme_paneltool_enable %}
+  {% include 'paneltool' %}
+  {% endif %}
+  {% if settings.pnewletter_enable and template contains 'index' %}
+  {% include 'block-popup-newletter' %}
+  {% endif %}
+{% include "ap-compare-product" %}
+{% include 'foot-js' %}  
+{% if settings.theme_quickview_enable %}
+  {% include 'product-quickview' %}
+{% endif %}
+{% if settings.theme_loading_enable %}
+  <script>
+    var loadDeferredStyles = function() {
+      var addStylesNode = document.getElementById("deferred-styles");
+      var replacement = document.createElement("div");
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement)
+      addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 1); });
+    else window.addEventListener('load', loadDeferredStyles);
+  </script>
+  
+{% endif %}
+  <!-- CUSTOM -->
+  <script src="{{ 'jcc-theme.js' | asset_url }}" type="module"></script>
+</body>
+</html>

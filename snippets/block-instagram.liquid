@@ -1,0 +1,49 @@
+<div class="block instagram-block">
+    {% if section.settings.instagram_titleimage_enable %}
+        <div class="title_block">
+            <a href="{{ section.settings.instagram_titleimage_link }}" title="Instagram Image">
+                <img class="img-responsive" alt="{{ section.settings.instagram_title }}" src="{{ section.settings.title-instagram | img_url }}" />
+            </a>
+        </div>
+    {% else %}
+        {% if section.settings.instagram_title != blank %}
+            <h4 class="title_block">
+                {{ section.settings.instagram_title }}
+            </h4>
+        {% endif %}
+    {% endif %}
+    <div class="block_content"> 
+        <div id="instafeedBlock"></div>
+      {% if section.settings.linkall_instagram != blank %}
+      <p class="link-instagram"><a href="{{ section.settings.urlto_instagram }}" title="{{ section.settings.linkall_instagram }}"><i class="fa fa-instagram"></i>{{ section.settings.linkall_instagram }}</a></p>        
+      {% endif %}
+    </div>
+    <script type="text/javascript">
+        var feed = new Instafeed({
+            clientId: "{{ section.settings.client-id }}",
+            get: "{{ section.settings.instagram_get }}",
+            {% if section.settings.accessToken != blank %}
+                accessToken: "{{ section.settings.accessToken }}",
+            {% endif %}
+            {% if section.settings.instagram_tag != blank %}
+                tagName: "{{ section.settings.instagram_tag }}",
+            {% endif %}
+            {% if section.settings.instagram_locationId != blank %}
+                locationId: "{{ section.settings.instagram_locationId}}",
+            {% endif %}
+            {% if section.settings.user-id != blank %}
+                userId: {{ section.settings.user-id }},
+            {% endif %}
+            limit: "{{ section.settings.instagram_limit }}",
+          	target: "#instafeedBlock",
+            resolution: "thumbnail",
+            after: function() {
+                jQuery("#instafeedBlock").slick({
+                  slidesToShow: 4,
+                  slidesToScroll: 1       
+          	     });
+          	}
+        });
+        feed.run();
+    </script>
+</div>

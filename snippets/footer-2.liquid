@@ -1,0 +1,49 @@
+<div class="footer-container footer-2">
+    <section id="footercenter" class="footer-center">
+        <div class="container">
+            <div class="footer-center-wrap">
+                <div class="row">
+                    <div class=" col-xs-12">
+                        {% if section.settings.homepage_newsletter_enable %}
+                            {% include 'block-newsletter' %}
+                        {% endif %}
+                        {% if section.settings.footer_quicklinks_enable %}
+                            {% assign footerlinks_name = section.settings.footer_quicklinks_linklist %}
+                            {% assign footerlinks_title = section.settings.footer_quicklinks_title %}
+                            {% include 'block-footerlinks' with '1' %}
+                        {% endif %}
+                        {% if section.settings.footer_social_enable %}
+                            {% include 'block-social' %}
+                        {% endif %}
+                      {% if section.settings.list_contact %}
+                      <div class="col-md-4 col-sm-6 col-xs-12 no-padding border_right col-footer ">
+                        <div class=" box-footer  box-contact">
+                          {% if section.settings.title_adress_footer != blank %}
+                          <h4 class="title-block">{{section.settings.title_adress_footer}}</h4>
+                          {% endif %}
+                          <ul class="list-group list-unstyled list-contact">
+                            {% if section.settings.address_about != blank %}
+                            <li>{{ section.settings.address_about }}</li>
+                            {% endif %}
+                            {% if section.settings.address_number != blank %}
+                            <li>{{ section.settings.address_number }}</li>
+                            {% endif %}
+                            {% if section.settings.address_contact != blank %}
+                            <li>{{ section.settings.address_contact }}</li>
+                            {% endif %}
+                          </ul>
+                        </div>
+                      </div>
+                      {% endif %}
+                        <div id="powered">
+                            <div  class="powered {% if section.settings.animated_enable %}wow animated {{ section.settings.lazyload_fcoppyright }}{% endif %}">
+                                <p>&copy; Copyright {{ "now" | date: "%Y" }} {{ shop.name }}. <strong>{{ powered_by_link }}</strong></p>
+                            </div>
+                            <div id="back-top" style="display: block;"><a href="#" title="Back to top"><i class="fa fa fa-angle-up"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

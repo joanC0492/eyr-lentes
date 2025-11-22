@@ -1,0 +1,44 @@
+{% assign collection_deal = collections[settings.apollo_count_down_dealpages] %}
+{% assign colProductsDeal = 4 %}
+{% if colProductsDeal == 5 %}
+	{% capture grid_item_width %}col-md-2-4 col-xs-6 col-sp-12{% endcapture %}
+{% else %}
+	{% capture grid_item_width %}col-md-4 col-xs-6 col-sp-12{% endcapture %}
+{% endif %}
+{% include 'breadcrumb' %}
+<section id="columns" class="columns-container">
+	<div class="container">
+		<div class="row">
+			<section id="center_column" class="col-sm-12 col-md-12">
+				<div id="deal-pages">
+					{% paginate collection_deal.products by settings.apollo_dealpages_count %}
+	                    <div class="product_list grid">
+	                        {% if settings.apollo_count_down_enable %}
+	                            {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+	                        {% endif %}
+	                        {% for product in collection_deal.products %}
+                          		{% assign modcol = forloop.index | modulo:colProductsDeal %}
+                          		{% if modcol == 1 %}
+                                    <div class="row">
+                                {% endif %}
+	                            	{% include 'product-grid-item' %}
+                                {% if modcol == 0 or forloop.last %}
+                                    </div>
+                                {% endif %}
+	                        {% else %}
+	                            <div class="col-xs-12">
+	                                <p class="bg-warning">{{ 'collections.general.no_matches' | t }}</p>
+	                            </div>
+	                        {% endfor %}
+	                        {% assign dealTime = false %}
+	                    </div>
+	                    {% if paginate.pages > 1 %}
+	                        <div class="content_sortPagiBar">
+	                            {% include 'pagination-custom' %}
+	                        </div>
+	                    {% endif %}
+	                {% endpaginate %}
+                </div>
+			</section>
+		</div>
+	</div>

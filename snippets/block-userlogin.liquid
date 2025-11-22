@@ -1,0 +1,41 @@
+<div class="header_user_login popup-over e-scale">
+  <div data-toggle="dropdown" class="popup-title dropdown-toggle" title="{{ 'header.userinfo.title' | t }}">
+    <i class="fa fa-user"></i><span>{{ 'header.userinfo.title' | t }}</span>
+  </div>
+  <div class="dropdown-menu">
+    {% if customer  %}
+    <ul class="links list-unstyled">
+      <li>
+        {% capture fullname %}{{ customer.first_name }} {{ customer.last_name }}{% endcapture %}
+        <a class="account" rel="nofollow" href="/account" title="{{ 'customer.account.title' | t }}"><span>{{ 'header.general.welcome_html' | t : fullname : fullname }}</span></a>
+      </li>
+      <li>
+        <a id="customer_logout_link" href="/account/logout" title="{{ 'header.general.logout' | t }}"><i class="fa fa-unlock-alt"></i> {{ 'header.general.logout' | t }}</a>
+      </li>
+    </ul>
+    {% else %}
+    <div class="customer_login_wrapper">
+      <form method="post" action="/account/login" id="customer_popup_login" accept-charset="UTF-8">
+
+      <h1 class="text-center">{{ 'customer.login.title' | t }}</h1>
+
+      <div class="errors" style="display:none;"></div>
+
+      <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+      <input type="email" name="customer[email]" id="CustomerEmail" class="{% if form.errors contains 'email' %} input--error{% endif %}" autocorrect="off" autocapitalize="off" autofocus>
+
+      <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+      <input type="password" value="" name="customer[password]" id="CustomerPassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+      <div class="text-center">
+        <input type="submit" class="btn" value="{{ 'customer.login.sign_in' | t }}">
+        <p>
+          {{ 'layout.customer.create_account' | t | customer_register_link }}
+        </p>
+      </div>
+
+      </form>
+    </div>
+    {% endif %}        
+  </div>
+</div>

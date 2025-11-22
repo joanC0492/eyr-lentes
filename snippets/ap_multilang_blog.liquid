@@ -1,0 +1,7 @@
+{% comment %} translate blog {% endcomment %}
+{% include 'ap-multilang-namespace' %}
+{% if current_lang == main_lang %}
+{% assign blog_translate = ap_multilang_blog %}
+{% else %}
+{% assign blog_translate = ap_multilang_blog.metafields[current_lang] %}
+{% endif %}

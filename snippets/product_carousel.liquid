@@ -1,0 +1,58 @@
+{% unless item_in_page %}
+	{% assign item_in_page = 4 %}
+{% endunless %}
+{% unless columns_product %}
+	{% assign columns_product = 4 %}
+{% endunless %}
+{% unless product_in_tab %}
+	{% assign product_in_tab = 16 %}
+{% endunless %}
+{% assign products = collection_produclists %}
+{% assign colProduct = 12 | divided_by:columns_product %}
+{% if columns_product == 5 %}
+	{% capture grid_item_width %}col-md-2-4 col-xs-6 col-sp-12{% endcapture %}
+{% else %}
+	{% capture grid_item_width %}col-md-{{ colProduct }} col-xs-6 col-sp-12{% endcapture %}
+{% endif %}
+
+<div class="carousel slide" id="{{ product_carousel }}">
+	{% if product_in_tab > item_in_page %}
+		{% if enable_nav == "true" %}
+		<a class="carousel-control left" href="#{{ product_carousel }}" data-slide="prev">{{ 'products.carousel.preview' | t }}</a>
+		<a class="carousel-control right" href="#{{ product_carousel }}" data-slide="next">{{ 'products.carousel.next' | t }}</a>
+		{% endif %}
+	{% endif %}
+	<div class="carousel-inner">
+      	{% assign countRow = 0 %}
+		{% for product in products limit:product_in_tab %}
+      		{% assign countRow = countRow | plus: 1 %}
+      		{% assign modpage = forloop.index | modulo:item_in_page %}
+      		{% assign modcol = countRow | modulo:columns_product %}
+      		{% if item_in_page == 1 %}
+      			<div class="item {% if forloop.first %}active{% endif %}">
+					<div class="product_list">
+      		{% elsif modpage == 1 %}
+      			<div class="item {% if forloop.first %}active{% endif %}">
+					<div class="product_list">
+            {% endif %}
+				{% if columns_product == 1 %}
+                    <div class="product-items">
+						<div class="row">
+                {% endif %}
+            	{% if modcol == 1 %}
+					<div class="product-items">
+						<div class="row">
+                {% endif %}
+            		{% include 'product-grid-item' %}
+				{% if modcol == 0 or modpage == 0 or forloop.last %}
+						</div>
+                    </div>
+                {% endif %} 
+            {% if modpage == 0 or forloop.last %}
+                      	{% assign countRow = 0 %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

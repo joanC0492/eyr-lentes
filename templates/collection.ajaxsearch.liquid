@@ -1,0 +1,12 @@
+{% comment %}
+  The contents of the collection.ajaxsearch.liquid using for function ajaxsearch at frontend
+{% endcomment %}
+
+{% layout none %}
+{% paginate collection.products by 1000000 %}
+{% assign products = collection.products %}
+{% for p in products %}
+	{% assign featured_image = p.selected_or_first_available_variant.featured_image | default: p.featured_image %}
+	<div class="aps-ajax" data-handle="{{ p.handle }}" data-title="{{ p.title }}" data-price="{{ p.price | money }}"  data-img="{{ featured_image | img_url: 'small' }}"></div>  
+{% endfor %}
+{% endpaginate %}

@@ -1,0 +1,124 @@
+<div id="social_block" class="social_block block">
+  {% if section.settings.footer_social_title != blank %}
+    <h4 class="title_block">{{ section.settings.footer_social_title }}</h4>
+  {% endif %}
+  <div class="block_content">
+    <ul class="list-unstyled clearfix">
+      {% if section.settings.footer_social_facebook_link != blank %}
+        <li class="facebook">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_facebook_link }}"
+            title="{{ shop.name }} on Facebook"
+            class="btn-tooltip"
+            data-original-title="Facebook"
+          >
+            <i class="fa fa-facebook"></i>
+            <span class="text-social">Facebook</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_twitter_link != blank %}
+        <li class="twitter">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_twitter_link }}"
+            title="{{ shop.name }} on Twitter"
+            class="btn-tooltip"
+            data-original-title="Twitter"
+          >
+            <i class="fa fa-twitter"></i>
+            <span class="text-social">Twitter</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_instagram_link != blank %}
+        <li class="instagram">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_instagram_link }}"
+            title="{{ shop.name }} on Instagram"
+            class="btn-tooltip"
+            data-original-title="Instagram"
+          >
+            <i class="fa fa-instagram"></i>
+            <span class="text-social">Instagram</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_pinterest_link != blank %}
+        <li class="pinterest">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_pinterest_link }}"
+            title="{{ shop.name }} on Pinterest"
+            class="btn-tooltip"
+            data-original-title="Pinterest"
+          >
+            <i class="fa fa-pinterest"></i>
+            <span class="text-social">Pinterest</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_rss_link != blank %}
+        <li class="rss">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_rss_link }}"
+            title="{{ shop.name }} on RSS"
+            class="btn-tooltip"
+            data-original-title="RSS"
+          >
+            <i class="fa fa-rss"></i>
+            <span class="text-social">RSS</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_youtube_link != blank %}
+        <li class="youtube">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_youtube_link }}"
+            title="{{ shop.name }} on Youtube"
+            class="btn-tooltip"
+            data-original-title="Youtube"
+          >
+            <i class="fa fa-youtube"></i>
+            <span class="text-social">Youtube</span>
+          </a>
+        </li>
+      {% endif %}
+      {% if section.settings.footer_social_googleplus_link != blank %}
+        <li class="google-plus">
+          <a
+            target="_blank"
+            href="{{ section.settings.footer_social_googleplus_link }}"
+            title="{{ shop.name }} on Google Plus"
+            class="btn-tooltip"
+            data-original-title="Google Plus"
+          >
+            <i class="fa fa-google-plus"></i>
+            <span class="text-social">Google Plus</span>
+          </a>
+        </li>
+      {% endif %}
+      <li class="tiktok">
+        <a
+          target="_blank"
+          href="https://www.tiktok.com/@eyrlentes"
+          title="EYR Lentes on Tiktok"
+          class="btn-tooltip"
+          data-original-title="Tiktok"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            style="width: 10px;"
+          >
+            <path d="M448.5 209.9c-44 .1-87-13.6-122.8-39.2l0 178.7c0 33.1-10.1 65.4-29 92.6s-45.6 48-76.6 59.6-64.8 13.5-96.9 5.3-60.9-25.9-82.7-50.8-35.3-56-39-88.9 2.9-66.1 18.6-95.2 40-52.7 69.6-67.7 62.9-20.5 95.7-16l0 89.9c-15-4.7-31.1-4.6-46 .4s-27.9 14.6-37 27.3-14 28.1-13.9 43.9 5.2 31 14.5 43.7 22.4 22.1 37.4 26.9 31.1 4.8 46-.1 28-14.4 37.2-27.1 14.2-28.1 14.2-43.8l0-349.4 88 0c-.1 7.4 .6 14.9 1.9 22.2 3.1 16.3 9.4 31.9 18.7 45.7s21.3 25.6 35.2 34.6c19.9 13.1 43.2 20.1 67 20.1l0 87.4z" style="fill: #999;"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

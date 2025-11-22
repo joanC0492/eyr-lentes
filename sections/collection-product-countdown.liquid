@@ -1,0 +1,205 @@
+
+<div class="background-count-down">
+  <div class="image_count_down" style="padding:60px 0px 60px 0px;background-image:url('https://cdn.shopify.com/s/files/1/1799/2125/t/2/assets/bg-widget-deals-min.jpg?8363444532911746770')">
+<div class="container">
+  <div class="row">
+    {% if section.settings.count_down_product%}
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 product-count-down">
+      {% if section.settings.title != blank %}
+      <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </div>
+      {% endif %}
+      {%- assign collection_produclists = collections[section.settings.collection].products -%}
+      {% if settings.apollo_count_down_enable %}
+      
+      {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+      {% else %}
+      {% assign dealTime = false %}
+      {% endif %}
+      {% assign enable_dot = section.settings.enable_dot  %}
+      {% assign enable_nav = section.settings.enable_nav  %}
+      {% assign item_in_page = section.settings.home_productlists_itempage | plus:0 %}
+      {% assign columns_product = section.settings.home_productlists_columntab | plus:0 %}
+      {% assign slidesToScroll = section.settings.home_productlists_toscroll | plus:0 %}
+      {% assign item_laptop = section.settings.home_productlists_toscroll_laptop | plus:0 %}
+      {% assign item_table = section.settings.home_productlists_toscroll_table | plus:0 %}
+      {% assign item_phone = section.settings.home_productlists_toscroll_phone | plus:0 %}
+      {% assign item_phone_min = section.settings.home_productlists_toscroll_phone_min | plus:0 %}
+      {% assign product_in_tab = section.settings.home_productlists_limit | plus:0 %}
+      {% assign product_interval = section.settings.home_productlists_interval %}
+      {% assign type_block = section.settings.home_productlists_type %}
+      {% assign id_productlist = section.id %}
+      {% assign proLazyLoad = section.settings.home_producttabs_lazy %}
+      {% include 'productlist' with id_productlist %}
+    </div>
+    {% endif %}
+    <div class="col-lg-3 col-md-3  hidden-xs hidden-sm">
+      <div class="widget-images">
+         <a href="{{section.settings.link}}" >
+            <img src="{{ section.settings.background_image | img_url: '310x' }}" alt="{{ image.alt | escape }}">
+          </a>
+      </div> 
+  </div>
+</div>
+</div>
+</div>
+</div>
+{% schema %}
+{
+    "name": "Product CountDown",
+  	"class": "index-section",
+    "settings": [
+       {
+        "type": "checkbox",
+        "id": "count_down_product",
+        "label": "Enable count_down_product"
+       
+      },
+  	  {
+        "type": "header",
+        "content": "Product List"
+      },
+     	  {
+        "type": "select",
+        "id": "home_productlists_type",
+        "label": "Product List Display",
+        "options": [
+          {
+            "value": "boostrap_carousel",
+            "label": "Boostrap Carousel"
+          },
+          {
+            "value": "slick_carousel",
+            "label": "Slick Carousel"
+          }
+        ]
+      },
+      {
+          "type": "select",
+          "id": "enable_dot",
+          "label": "Navigator Type",
+          "default": "true",  
+          "options": [
+            {
+              "label": "None",
+              "value": "false"
+            },
+            {
+              "label": "Bullet",
+              "value": "true"
+            }
+          ]
+        },
+      {
+      "type": "select",
+      "id": "enable_nav",
+      "label": "Arrows Style",
+      "default": "true",  
+      "options": [
+        {
+          "label": "None",
+          "value": "false"
+        },
+        {
+          "label": "Next & Preview",
+          "value": "true"
+        }
+      ]
+      },
+      {
+        "type": "text",
+        "id": "home_producttabs_lazy",
+        "label": "Lazyload",
+        "default": "progressive"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_limit",
+        "label": "Limit",
+        "default": "16"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_itempage",
+        "label": "Items Per Page",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_columntab",
+        "label": "Columns In Tab",
+        "default": "4",
+        "info": "Sample: 1, 2, 3, 4, 6, 12"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll",
+        "label": "Slider To Scroll",
+        "default": "4",
+        "info": "for slick slider ex: 1, 2, 3, 4 .."
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll_laptop",
+        "label": "Number Item per Line ( Laptop )",
+        "default": "3",
+        "info": "for screen 1200px"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll_table",
+        "label": "Number Item per Line (Table)",
+        "default": "2",
+        "info": "for screen 990px"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll_phone",
+        "label": "Number Item per Line (Phone)",
+        "default": "2",
+        "info": "for screen 767px"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_toscroll_phone_min",
+        "label": "Number Item per Line (Phone Min )",
+        "default": "1",
+        "info": "for screen 480px"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_interval",
+        "label": "Interval",
+        "default": "8000",
+        "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection Product List"
+      },
+    {
+          "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image "
+     },
+      {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+       },
+     {
+          "type": "image_picker",
+        "id": "background_count_down",
+        "label": "Background Count_Down "
+     }
+  ],
+  "presets": [
+    {
+    "name": "Product CountDown",
+    "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

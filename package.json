@@ -1,0 +1,27 @@
+{
+  "name": "eyr-lentes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "shopify-dev": "dotenv shopify theme dev --theme $SHOPIFY_THEME_ID",
+    "build-js": "esbuild src/scripts/*.js --outdir=assets --minify",
+    "watch-js": "esbuild src/scripts/*.js --outdir=assets --minify --watch",
+    "sass": "sass --watch src/scss:assets --style compressed",
+    "dev": "concurrently \"npm run sass\" \"npm run watch-js\" \"npm run shopify-dev\"",
+    "push": "dotenv shopify theme push --theme $SHOPIFY_THEME_ID",
+    "pull": "dotenv shopify theme pull --theme $SHOPIFY_THEME_ID",
+    "safe-pull": "dotenv shopify theme push --theme $SHOPIFY_THEME_ID && dotenv shopify theme pull --theme $SHOPIFY_THEME_ID",
+    "list": "dotenv shopify theme list"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "dotenv-cli": "^8.0.0",
+    "esbuild": "^0.25.8",
+    "sass": "^1.89.2"
+  }
+}

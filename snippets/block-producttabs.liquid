@@ -1,0 +1,216 @@
+{% comment %}
+	/* Các biến cần truyền vào */
+    {% assign item_in_page = settings.producttabs_itempage | plus:0 %}
+    {% assign columns_product = settings.producttabs_columntab | plus:0 %}
+    {% assign product_in_tab = settings.producttabs_limit | plus:0 %}
+
+    {% assign product_type = settings.producttabs_type %}
+    {% assign product_interval = settings.producttabs_interval %}
+
+    {% assign protab_title_1 = settings.producttabs_title1 %}
+    {% assign protab_title_2 = settings.producttabs_title2 %}
+    {% assign protab_title_3 = settings.producttabs_title3 %}
+    {% assign protab_title_4 = settings.producttabs_title4 %}
+
+    {% assign protab_collections_1 = collections[settings.producttabs_collection_1].products %}
+    {% assign protab_collections_2 = collections[settings.producttabs_collection_2].products %}
+    {% assign protab_collections_3 = collections[settings.producttabs_collection_3].products %}
+    {% assign protab_collections_4 = collections[settings.producttabs_collection_4].products %}
+{% endcomment %}
+{% unless title_block %}
+	{% assign title_block = '' %}
+{% endunless %}
+{% unless proLazyLoad %}
+	{% assign proLazyLoad = false %}
+{% endunless %}
+<div id="productTabs{{ block-producttabs }}" class="products_block exclusive block clearfix">
+	<div class="box-line">
+      <div class="producttabs_left-collumn">
+        <ul class="productTabsNav nav nav-tabs">
+			{% if protab_title_1 != blank %}
+				<li class="icon_tab_1"><a href="#proTab1{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_1 }}</span></a></li>
+			{% endif %}
+			{% if protab_title_2 != blank %}
+          		<li class="icon_tab_2"><a href="#proTab2{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_2 }}</span></a></li>
+			{% endif %}
+      		{% if protab_title_3 != blank %}
+          		<li class="icon_tab_3"><a href="#proTab3{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_3 }}</span></a></li>
+  			{% endif %}
+      		{% if protab_title_4 != blank %}
+      			<li class="icon_tab_4"><a href="#proTab4{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_4 }}</span></a></li>
+      		{% endif %}
+            {% if protab_title_5 != blank %}
+            	<li class="icon_tab_5"><a href="#proTab5{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_5 }}</span></a></li>
+            {% endif %}
+            {% if protab_title_6 != blank %}
+            	<li class="icon_tab_6"><a href="#proTab6{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_6 }}</span></a></li>
+            {% endif %}
+            {% if protab_title_7 != blank %}
+            	<li class="icon_tab_7"><a href="#proTab7{{ block-producttabs }}" data-toggle="tab"><span>{{ protab_title_7 }}</span></a></li>
+            {% endif %}
+		</ul>
+      </div>
+      <div class="producttabs_right-collumn">
+		<div class="block_content">
+			<div class="product_tab_content tab-content">
+				{% if protab_title_1 != blank %}
+              {% assign count_item ="tab_1" %}
+					<div class="tab-pane" id="proTab1{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_1 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab01{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if protab_title_2 != blank %}
+              {% assign count_item ="tab_2" %}
+					<div class="tab-pane" id="proTab2{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_2 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab02{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if protab_title_3 != blank %}
+              		{% assign count_item ="tab_3" %}
+					<div class="tab-pane" id="proTab3{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_3 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab03{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %}
+              	{% if protab_title_4 != blank %}
+               {% assign count_item ="tab_4" %}
+					<div class="tab-pane" id="proTab4{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_4 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab04{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %} 
+              {% if protab_title_5 != blank %}
+               {% assign count_item ="tab_5" %}
+					<div class="tab-pane" id="proTab5{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_5 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab05{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %} 
+              {% if protab_title_6 != blank %}
+               {% assign count_item ="tab_6" %}
+					<div class="tab-pane" id="proTab6{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_6 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab06{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %} 
+              {% if protab_title_7 != blank %}
+               {% assign count_item ="tab_7" %}
+					<div class="tab-pane" id="proTab7{{ block-producttabs }}">
+						{% assign collection_produclists = protab_collections_7 %}
+						{% if product_type == 'boostrap_carousel' %}
+							{% capture product_carousel %}producttab07{{ block-producttabs }}{% endcapture %}
+							{% include 'product_carousel' %}
+						{% else %}
+							{% include 'product_carousel_slick' %}
+						{% endif %}
+	              	</div>
+              	{% endif %} 
+			</div>
+		</div>
+      </div>
+	</div>
+</div>
+<script>
+  $(document).ready(function() {
+    {% if product_type == 'boostrap_carousel' %}
+    $('#productTabs{{ block-producttabs }} .carousel').each(function(){
+      $(this).carousel({
+      pause: 'hover',
+      interval: {{ product_interval }}
+    });
+
+    });
+    {%else%}
+    $('#productTabs{{  block-producttabs }} .slick_carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: {{ columns_product }},
+        slidesToScroll: {{ slidesToScroll }},
+      	autoplay: false,
+        {% if proLazyLoad %}
+        lazyLoadBuffer: 0,
+        lazyLoad: 'ondemand',
+      	{% endif %}
+        {% if settings.theme_rtl_enable %}
+          rtl: true,
+          {% endif %}
+      	responsive: [
+          {
+            breakpoint: 1199,
+            settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+          },
+          {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+    {% endif %}    
+      $("#productTabs{{ block-producttabs }} .nav-tabs li", this).first().addClass("active");
+      console.log( $("#productTabs{{ block-producttabs }} .nav-tabs li",this).first());
+      $("#productTabs{{ block-producttabs }} .tab-content .tab-pane", this).first().addClass("active");
+      $('.nav-tabs a').on('shown.bs.tab', function(event){
+		$('#productTabs{{  block-producttabs }} .slick_carousel').slick("setPosition");
+      });
+    });
+    
+</script>
+{% assign proLazyLoad = false %}

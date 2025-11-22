@@ -1,0 +1,42 @@
+
+    {% include 'block-newsletter' %}
+
+{% schema %}
+  {
+    "name": "Section Newletter",
+	"class": "index-section no-spacing",
+    "settings": [
+	  {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "checkbox",
+        "id": "homepage_newsletter_enable",
+        "label": "Show Newsletter Field"
+      },
+      {
+        "type": "text",
+        "id": "homepage_newsletter_title",
+        "label": "Newsletter Title"
+      },
+      {
+        "type": "text",
+        "id": "homepage_newsletter_des",
+        "label": "Newsletter Description"
+      },
+      {
+        "type": "text",
+        "id": "newsletter_form_action",
+        "label": "MailChimp Form Action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http:\/\/docs.shopify.com\/support\/configuration\/store-customization\/where-do-i-get-my-mailchimp-form-action)"
+      }	
+],
+  "presets": [
+    {
+    "name": "Newletter",
+    "category": "Newletter"
+    }
+  ]
+  }
+{% endschema %}

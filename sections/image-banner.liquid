@@ -1,0 +1,113 @@
+<div class="block___banner" style="margin:{{ section.settings.marginbanner}};padding:{{ section.settings.paddingbaner}};background:{{ section.settings.background }}">
+  {% if section.settings.use_container %}
+  <div class="container">
+  {% endif %}
+         {% include 'block-image-banner' %}
+    {% if section.settings.use_container %}
+    </div>
+    {% endif %}
+  </div>
+
+
+
+{% if section.blocks.size == 0 %}
+  {% include 'no-blocks' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Banner Image",
+  "class": "index-section no-spacing",
+  "max_blocks": 3,
+	"settings": [
+        {
+            "type": "header",
+            "content": "Banner Image"
+        },
+  		{
+          "type": "checkbox",
+          "id": "use_container",
+          "label": "Use container",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "marginbanner",
+          "label": "Setting margin",
+  		  "info": "You can enter : 20px 30px 20px 30px"
+        },
+        {
+          "type": "text",
+          "id": "paddingbaner",
+          "label": "Setting Padding",
+  		  "info": "You can enter : 20px 30px 20px 30px"
+        },
+  		{
+          "type": "color",
+          "id": "background",
+          "label": "Background",
+  		  "info": "Background for section"
+        }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+  		{
+          "type": "text",
+          "id": "class",
+          "label": "Class for column",
+  		  "default": "col-lg-6 col-md-6 col-sm-6 col-xs-12"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_banner_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link_banner_image",
+          "label": "Link",
+          "info": "Optional"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "Caption"
+        },
+  	    {
+          "type": "text",
+          "id": "imgdescription",
+          "label": "Image description"
+        },
+  		  	    {
+          "type": "text",
+          "id": "titlelink",
+          "label": "Title button"
+        },
+  		{
+		  "type": "color",
+          "id": "color",
+          "label": "Color Title",
+		  "default" : "#FFFFFF"
+		}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Image",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

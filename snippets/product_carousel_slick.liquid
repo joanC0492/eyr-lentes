@@ -1,0 +1,34 @@
+
+{% unless product_in_tab %}
+{% assign product_in_tab = 12 %}
+{% endunless %}
+{% if columns_product == blank %}
+{% assign columns_product = 4 %}
+{% endif%}
+{% if slidesToScroll == blank %}
+{% assign slidesToScroll = 4 %}
+{% endif%}
+{% unless row_in_tab%}
+{% assign row_in_tab = 1 %}
+{% endunless%}
+{% assign middle_control = product_carousel | truncate: 13 %}   
+<div class="product_list_owl row">
+  <div class="slick_carousel{% if middle_control == 'producttab...' %} middle{% endif %} slide">
+    {% assign grid_item_width = ' ' %}
+    {% assign products = collection_produclists %}
+    {% for product in products limit:product_in_tab %}    
+    {% assign modpage = forloop.index | minus : 1 | modulo:row_in_tab %}
+    {% assign rowminus = row_in_tab | minus : 1 %}
+     {% unless currenProduct.id == product.id %}
+    {% if forloop.first or modpage == 0 %}
+      <div class="item">          
+      {% endif %}
+        {% include 'product-grid-item' %}   
+      {% if forloop.last or modpage == rowminus %}
+    </div>
+  
+    {% endif %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>

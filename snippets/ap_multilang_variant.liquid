@@ -1,0 +1,13 @@
+{% comment %} translate variant {% endcomment %}
+
+{% include 'ap-multilang-namespace' %}
+
+{% if current_lang == main_lang %}
+
+{% assign variant_translate = ap_multilang_variant %}
+
+{% else %}
+
+{% assign variant_translate = ap_multilang_variant.metafields[current_lang] %}
+
+{% endif %}

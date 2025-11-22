@@ -1,0 +1,6578 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Apollotheme base",
+    "theme_author": "Shopify",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://help.shopify.com/manual/using-themes/sections",
+    "theme_support_email": "apollotheme@gmail.com.com"
+  },
+  {
+    "name": "Apollo Theme Configuration",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_loading_enable",
+        "label": "Loading for Improve SEO"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_retine_enable",
+        "label": "Enable Retina"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_rtl_enable",
+        "label": "Enable Right To Left"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_responsive_enable",
+        "label": "Enable Responsive"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_paneltool_enable",
+        "label": "Enable Panel Tool"
+      },
+      {
+        "type": "text",
+        "id": "theme_newproduct",
+        "label": "Number of days for which the product is considered 'new'",
+        "info": "Ex: 100(days)"
+      },
+      {
+        "type": "header",
+        "content": "Breadcrumbs"
+      },
+      {
+        "type": "image",
+        "id": "bg_breadcrumb.jpg",
+        "label": "Background Breadcrumbs"
+      },
+      {
+        "type": "header",
+        "content": "Product Item Config"
+      },
+      {
+        "type": "checkbox",
+        "id": "ap_collection_product_description",
+        "label": "Show Description",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "ap_collection_swatch_item",
+        "label": "Enable swatch",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_quickview_enable",
+        "label": "Enable Quickview",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_quickview_swatch",
+        "default": false,
+        "label": "Use Swatch Variants for Quickview",
+        "info": "You must use swatch for your products. If you do not use, please disable"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_reviews_detail",
+        "label": "Enable Review",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_wishlist_enable",
+        "label": "Enable Wishlist"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_compare_enable",
+        "label": "Enable Compare"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_collection_variants",
+        "label": "Show Variants",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_collection_quantity",
+        "label": "Show Quantity",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "theme_more_pimages_option",
+        "label": "Show More Type",
+        "options": [
+          {
+            "value": "showone",
+            "label": "Hover change Image"
+          },
+          {
+            "value": "showmore",
+            "label": "More Thumbnail Image"
+          },
+          {
+            "value": "class",
+            "label": "Image Default"
+          }
+        ]
+      },
+      {
+        "type": "page",
+        "id": "theme_wishlist_page",
+        "label": "Wishlist Page",
+        "info": "Choose wishlist page. Goto Pages and Add a page for wishlist. You must select templates \"page.wishlist\"."
+      },
+      {
+        "type": "header",
+        "content": "Back To Top"
+      },
+      {
+        "type": "checkbox",
+        "id": "theme_backtotop_enable",
+        "label": "Enable backtotop"
+      },
+      {
+        "type": "header",
+        "content": "Product Item Animate Loading"
+      },
+      {
+        "type": "checkbox",
+        "id": "productitem_animate_enable",
+        "label": "Enable",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "productitem_animate_delay",
+        "label": "Time Delay",
+        "info": "(ms). Example: 100, 200 or 300",
+        "default": "100"
+      },
+      {
+        "type": "header",
+        "content": "Ajax Search"
+      },
+      {
+        "type": "checkbox",
+        "id": "ajaxsearch_enable",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "ajaxsearch_maxresult",
+        "label": "Max search result",
+        "default": "5"
+      },
+      {
+        "type": "header",
+        "content": "Header Style"
+      },
+      {
+        "type": "select",
+        "id": "theme_float_style",
+        "label": "Float style",
+        "options": [
+          {
+            "value": "",
+            "label": "Default"
+          },
+          {
+            "value": "keep-topbar",
+            "label": "Float Topbar"
+          },
+          {
+            "value": "keep-header",
+            "label": "Float Header"
+          }
+        ],
+        "default": ""
+      },
+      {
+        "type": "select",
+        "id": "theme_header_style",
+        "label": "Header style list",
+        "options": [
+          {
+            "value": "header-default",
+            "label": "Default"
+          }
+        ],
+        "default": "header-default"
+      },
+      {
+        "type": "header",
+        "content": "Layout mode"
+      },
+      {
+        "type": "select",
+        "id": "theme_layout_mode",
+        "label": "Layout mode",
+        "options": [
+          {
+            "value": "layout-default",
+            "label": "Default"
+          },
+          {
+            "value": "layout-boxed-lg",
+            "label": "Boxed Large"
+          }
+        ],
+        "default": "layout-default"
+      },
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "text",
+        "id": "home_product_imagesize",
+        "label": "Home Product Image Size",
+        "default": "270x350"
+      },
+      {
+        "type": "text",
+        "id": "product_count_down",
+        "label": "Product Count_Down Image Size",
+        "default": "480x480"
+      },
+      {
+        "type": "text",
+        "id": "product_page_imagesize",
+        "label": "Product Page Image Size",
+        "default": "480x480"
+      },
+      {
+        "type": "text",
+        "id": "product_sidebar_imagesize",
+        "label": "Sidebar Image Size",
+        "default": "240x240"
+      },
+      {
+        "type": "text",
+        "id": "product_menu_imagesize",
+        "label": "Menu Image Size",
+        "default": "100x100"
+      },
+      {
+        "type": "text",
+        "id": "product_cart_imagesize",
+        "label": "Cart Image Size",
+        "default": "50x50"
+      },
+      {
+        "type": "text",
+        "id": "blogpage_imagesize",
+        "label": "Blogpage Image Size",
+        "default": "1024x1024"
+      },
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Color Apollotheme",
+    "settings": [
+      {
+        "type": "color",
+        "id": "theme_color_primary",
+        "label": "Primary Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_color_secondary",
+        "label": "Secondary Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_color_tertiary",
+        "label": "Tertiary Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "theme_color_four",
+        "label": "Four Color",
+        "default": "#B34A4A"
+      },
+      {
+        "type": "color",
+        "id": "theme_color_body_bg",
+        "label": "Body Background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_color_borders",
+        "label": "Border Colors",
+        "default": "#e4e4e4"
+      },
+      {
+        "type": "header",
+        "content": "Body Text"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_primary",
+        "label": "Primary Text Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_secondary",
+        "label": "Secondary Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_tertiary",
+        "label": "Tertiary Text Color",
+        "default": "#999999"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_banner",
+        "label": "Banner Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Button Color"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_buttonone",
+        "label": "Primary Button Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_bg_color_buttonone",
+        "label": "Primary Button Bg Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_border_color_buttonone",
+        "label": "Primary Button Border Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_buttonone_hover",
+        "label": "Primary Button Text Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_bg_color_buttonone_hover",
+        "label": "Primary Button Bg Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_border_color_buttonone_hover",
+        "label": "Primary Button Border Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_buttontwo",
+        "label": "Secondary Button Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_bg_color_buttontwo",
+        "label": "Secondary Button Bg Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_border_color_buttontwo",
+        "label": "Secondary Button Border Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_text_color_buttontwo_hover",
+        "label": "Secondary Button Text Color Hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "theme_bg_color_buttontwo_hover",
+        "label": "Secondary Button Bg Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "theme_border_color_buttontwo_hover",
+        "label": "Secondary Button Border Color Hover",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Image overlays"
+      },
+      {
+        "type": "color",
+        "id": "color_image_overlay_text",
+        "label": "Text",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "color_image_overlay",
+        "label": "Background",
+        "default": "#3d4246"
+      },
+      {
+        "type": "select",
+        "id": "image_overlay_opacity",
+        "label": "Opacity",
+        "default": "0.25",
+        "options": [
+          {
+            "label": "100%",
+            "value": "1"
+          },
+          {
+            "label": "95%",
+            "value": "0.95"
+          },
+          {
+            "label": "90%",
+            "value": "0.9"
+          },
+          {
+            "label": "85%",
+            "value": "0.85"
+          },
+          {
+            "label": "80%",
+            "value": "0.8"
+          },
+          {
+            "label": "75%",
+            "value": "0.75"
+          },
+          {
+            "label": "70%",
+            "value": "0.7"
+          },
+          {
+            "label": "65%",
+            "value": "0.65"
+          },
+          {
+            "label": "60%",
+            "value": "0.6"
+          },
+          {
+            "label": "55%",
+            "value": "0.55"
+          },
+          {
+            "label": "50%",
+            "value": "0.5"
+          },
+          {
+            "label": "45%",
+            "value": "0.45"
+          },
+          {
+            "label": "40%",
+            "value": "0.4"
+          },
+          {
+            "label": "35%",
+            "value": "0.35"
+          },
+          {
+            "label": "30%",
+            "value": "0.3"
+          },
+          {
+            "label": "25%",
+            "value": "0.25"
+          },
+          {
+            "label": "20%",
+            "value": "0.2"
+          },
+          {
+            "label": "0%",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Typography Apollotheme",
+    "settings": [
+      {
+        "type": "select",
+        "id": "theme_font_family",
+        "label": "Font Family",
+        "options": [
+          {
+            "value": "Google+Arvo",
+            "label": "Arvo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Arimo",
+            "label": "Arimo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Poppins",
+            "label": "Poppins",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Asap",
+            "label": "Asap",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Cabin",
+            "label": "Cabin",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Copse",
+            "label": "Copse",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Sans",
+            "label": "Droid Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Serif",
+            "label": "Droid Serif",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Gentium+Book+Basic",
+            "label": "Gentium Book Basic",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Slab",
+            "label": "Josefin Slab",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Sans",
+            "label": "Josefin Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Kreon",
+            "label": "Kreon",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Merriweather",
+            "label": "Merriweather",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Old+Standard+TT",
+            "label": "Old Standard TT",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Open+Sans",
+            "label": "Open Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Heebo",
+            "label": "Heebo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "info": "Font family base"
+      },
+      {
+        "type": "select",
+        "id": "theme_font_family_tertiary",
+        "label": "Font Family Tertiary",
+        "options": [
+          {
+            "value": "Google+Arvo",
+            "label": "Arvo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Arimo",
+            "label": "Arimo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Poppins",
+            "label": "Poppins",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Asap",
+            "label": "Asap",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Cabin",
+            "label": "Cabin",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Copse",
+            "label": "Copse",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Sans",
+            "label": "Droid Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Serif",
+            "label": "Droid Serif",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Gentium+Book+Basic",
+            "label": "Gentium Book Basic",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Slab",
+            "label": "Josefin Slab",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Sans",
+            "label": "Josefin Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Kreon",
+            "label": "Kreon",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Merriweather",
+            "label": "Merriweather",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Old+Standard+TT",
+            "label": "Old Standard TT",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Open+Sans",
+            "label": "Open Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Heebo",
+            "label": "Heebo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "info": "Font family for Menu"
+      },
+      {
+        "type": "select",
+        "id": "theme_font_family_septenary",
+        "label": "Font Family Septenary",
+        "options": [
+          {
+            "value": "Google+Arvo",
+            "label": "Arvo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Arimo",
+            "label": "Arimo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Poppins",
+            "label": "Poppins",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Asap",
+            "label": "Asap",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Cabin",
+            "label": "Cabin",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Copse",
+            "label": "Copse",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Sans",
+            "label": "Droid Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Serif",
+            "label": "Droid Serif",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Gentium+Book+Basic",
+            "label": "Gentium Book Basic",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Slab",
+            "label": "Josefin Slab",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Sans",
+            "label": "Josefin Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Kreon",
+            "label": "Kreon",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Merriweather",
+            "label": "Merriweather",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Old+Standard+TT",
+            "label": "Old Standard TT",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Open+Sans",
+            "label": "Open Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Heebo",
+            "label": "Heebo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "info": "Font family for Slideshow"
+      },
+      {
+        "type": "select",
+        "id": "theme_font_family_senary",
+        "label": "Font Family Senary",
+        "options": [
+          {
+            "value": "Google+Arvo",
+            "label": "Arvo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Arimo",
+            "label": "Arimo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Poppins",
+            "label": "Poppins",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Asap",
+            "label": "Asap",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Cabin",
+            "label": "Cabin",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Copse",
+            "label": "Copse",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Sans",
+            "label": "Droid Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Droid+Serif",
+            "label": "Droid Serif",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Gentium+Book+Basic",
+            "label": "Gentium Book Basic",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Slab",
+            "label": "Josefin Slab",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Josefin+Sans",
+            "label": "Josefin Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Kreon",
+            "label": "Kreon",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Lato",
+            "label": "Lato",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Merriweather",
+            "label": "Merriweather",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Old+Standard+TT",
+            "label": "Old Standard TT",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Open+Sans",
+            "label": "Open Sans",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Heebo",
+            "label": "Heebo",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Roboto",
+            "label": "Roboto",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Open Sans",
+            "label": "Open Sans",
+            "group": "Web Fonts"
+          },
+          {
+            "value": "Helvetica, Arial, sans-serif",
+            "label": "Helvetica/Arial",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Impact, Charcoal, Helvetica, Arial, sans-serif",
+            "label": "Impact",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif",
+            "label": "Lucida Grande",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Trebuchet MS, sans-serif",
+            "label": "Trebuchet MS",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Verdana, Helvetica, Arial, sans-serif",
+            "label": "Verdana",
+            "group": "Sans-serif"
+          },
+          {
+            "value": "Garamond, Baskerville, Caslon, serif",
+            "label": "Garamond",
+            "group": "Serif"
+          },
+          {
+            "value": "Georgia, Utopia, 'Times New Roman', Times, serif",
+            "label": "Georgia",
+            "group": "Serif"
+          },
+          {
+            "value": "Palatino, 'Palatino Linotype', 'Book Antiqua', serif",
+            "label": "Palatino",
+            "group": "Serif"
+          },
+          {
+            "value": "'Times New Roman', Times, serif",
+            "label": "Times New Roman",
+            "group": "Serif"
+          },
+          {
+            "value": "'Courier New', Courier, monospace",
+            "label": "Courier New",
+            "group": "Monospace"
+          },
+          {
+            "value": "Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace",
+            "label": "Monaco/Lucida Console",
+            "group": "Monospace"
+          }
+        ],
+        "info": "Font family for Price"
+      },
+      {
+        "type": "select",
+        "id": "theme_font_family_special",
+        "label": "Font Family special",
+        "options": [
+          {
+            "value": "Google+Lora",
+            "label": "Lora",
+            "group": "Google Web Fonts"
+          },
+          {
+            "value": "Google+Heebo",
+            "label": "Heebo",
+            "group": "Google Web Fonts"
+          }
+        ],
+        "info": "Font family for Title heading"
+      },
+      {
+        "type": "text",
+        "id": "theme_font_size",
+        "label": "Font Size Default",
+        "default": "16"
+      },
+      {
+        "type": "checkbox",
+        "id": "type_bold_product_titles",
+        "label": "Bold product titles"
+      }
+    ]
+  },
+  {
+    "name": "Apollo Megamenu",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_megamenu_enable",
+        "label": "Enable Megamenu"
+      },
+      {
+        "type": "link_list",
+        "id": "mainmenu",
+        "label": "Main Menu"
+      },
+      {
+        "type": "select",
+        "id": "apollo_canvas_style",
+        "label": "Menu Mobile Style",
+        "options": [
+          {
+            "value": "styleone",
+            "label": "Menu Canvas"
+          },
+          {
+            "value": "styletwo",
+            "label": "Menu Mobile"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Color"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_bgcolor",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_bgoutcolor",
+        "label": "Background Outsite Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_linkcolor",
+        "label": "Menu Link Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_linkhovercolor",
+        "label": "Menu Link Hover Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_linkhoverbgcolor",
+        "label": "Menu Link Hover Background Color"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_bgsub",
+        "label": "Sub-menu dropdown bg",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_textcolorsub",
+        "label": "Sub-menu Text Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_linkcolorsub",
+        "label": "Sub-menu Link Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "apollo_megamenu_linkhoversub",
+        "label": "Sub-menu Link Hover Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "apollo_megamenu_fontsize",
+        "label": "Font Size",
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "apollo_megamenu_fontsizesub",
+        "label": "Sub-menu Font Size",
+        "default": "13px"
+      },
+      {
+        "type": "header",
+        "content": "LABEL MENU"
+      },
+      {
+        "type": "color",
+        "id": "color_label_menu",
+        "label": "Text color label"
+      },
+      {
+        "type": "header",
+        "content": "Label menu 1"
+      },
+      {
+        "type": "text",
+        "id": "title_submenu_1",
+        "label": "title Menu for label 1"
+      },
+      {
+        "type": "text",
+        "id": "id_submenu_label_1",
+        "label": "Label Menu 1"
+      },
+      {
+        "type": "color",
+        "id": "stye_label_1",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Label menu 2"
+      },
+      {
+        "type": "text",
+        "id": "title_submenu_2",
+        "label": "title Menu for label 2"
+      },
+      {
+        "type": "text",
+        "id": "id_submenu_label_2",
+        "label": "Label Menu 2"
+      },
+      {
+        "type": "color",
+        "id": "stye_label_2",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Label menu 3"
+      },
+      {
+        "type": "text",
+        "id": "title_submenu_3",
+        "label": "title Menu for label 3"
+      },
+      {
+        "type": "text",
+        "id": "id_submenu_label_3",
+        "label": "Label Menu 3"
+      },
+      {
+        "type": "color",
+        "id": "stye_label_3",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Label menu 4"
+      },
+      {
+        "type": "text",
+        "id": "title_submenu_4",
+        "label": "title Menu for label 4"
+      },
+      {
+        "type": "text",
+        "id": "id_submenu_label_4",
+        "label": "Label Menu 4"
+      },
+      {
+        "type": "color",
+        "id": "stye_label_4",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "Label menu 5"
+      },
+      {
+        "type": "text",
+        "id": "title_submenu_5",
+        "label": "title Menu for label 5"
+      },
+      {
+        "type": "text",
+        "id": "id_submenu_label_5",
+        "label": "Label Menu 5"
+      },
+      {
+        "type": "color",
+        "id": "stye_label_5",
+        "label": "Background Color"
+      },
+      {
+        "type": "header",
+        "content": "1ST MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_enable_1",
+        "label": "1st Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_title_1",
+        "label": "1st Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\"."
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_fullwidth_1",
+        "label": "1st Megamenu item fullwidth"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_width_1",
+        "label": "1st Megamenu item width",
+        "info": "Used pixcel (eg: 1000px). Leave empty if selected fullwidth."
+      },
+      {
+        "type": "checkbox",
+        "id": "apbgimage_enable_1",
+        "label": "Background enable"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_bg_image_1.jpg",
+        "label": "1st Megamenu  Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eblocklinks_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blocklinks_1",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_1",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_evideo_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockvideo_1",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_cvideo_1",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eproduct_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockproducts_1",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_tproduct_1",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "apmenuitem_cproduct_1",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_nproduct_1",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_ehtml_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockhtml_1",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_thtml_1",
+        "label": "Block html title"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_lchtml_1",
+        "label": "Link Html block"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eihtml_1",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_ihtml_1.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_chtml_1",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "2ND MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_enable_2",
+        "label": "2nd Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_title_2",
+        "label": "2nd Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\"."
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_fullwidth_2",
+        "label": "2nd Megamenu item fullwidth"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_width_2",
+        "label": "2nd Megamenu item width",
+        "info": "Used pixcel (eg: 1000px). Leave empty if selected fullwidth."
+      },
+      {
+        "type": "checkbox",
+        "id": "apbgimage_enable_2",
+        "label": "Background enable"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_bg_image_2.jpg",
+        "label": "2nd Megamenu  Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eblocklinks_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blocklinks_2",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_2",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_evideo_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockvideo_2",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_cvideo_2",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eproduct_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockproducts_2",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_tproduct_2",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "apmenuitem_cproduct_2",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_nproduct_2",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_ehtml_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockhtml_2",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_thtml_2",
+        "label": "Block html title"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_lchtml_2",
+        "label": "Link Html block"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eihtml_2",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_ihtml_2.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_chtml_2",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "3RD MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_enable_3",
+        "label": "3rd Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_title_3",
+        "label": "3rd Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 3 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_fullwidth_3",
+        "label": "3rd Megamenu item fullwidth"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_width_3",
+        "label": "3rd Megamenu item width",
+        "info": "Used pixcel (eg: 1000px). Leave empty if selected fullwidth."
+      },
+      {
+        "type": "checkbox",
+        "id": "apbgimage_enable_3",
+        "label": "Background enable"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_bg_image_3.jpg",
+        "label": "3th Megamenu  Background image"
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eblocklinks_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blocklinks_3",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_3",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_evideo_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockvideo_3",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_cvideo_3",
+        "label": "Megamenu video content 3",
+        "info": "Code video content"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eproduct_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockproducts_3",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_tproduct_3",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "apmenuitem_cproduct_3",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_nproduct_3",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_ehtml_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockhtml_3",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_thtml_3",
+        "label": "Block html title"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_lchtml_3",
+        "label": "Link Html block"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eihtml_3",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_ihtml_3.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_chtml_3",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "4TH MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_enable_4",
+        "label": "4th Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_title_4",
+        "label": "4th Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 4 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_fullwidth_4",
+        "label": "4th Megamenu item fullwidth"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_width_4",
+        "label": "4th Megamenu item width",
+        "info": "Used pixcel (eg: 1000px). Leave empty if selected fullwidth."
+      },
+      {
+        "type": "checkbox",
+        "id": "apbgimage_enable_4",
+        "label": "Background enable"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_bg_image_4.jpg",
+        "label": "4th Megamenu  Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eblocklinks_4",
+        "label": "Megamenu blocklinks enable 4"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blocklinks_4",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_4",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_evideo_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockvideo_4",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_cvideo_4",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eproduct_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockproducts_4",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_tproduct_4",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "apmenuitem_cproduct_4",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_nproduct_4",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_ehtml_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockhtml_4",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_thtml_4",
+        "label": "Block html title"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_lchtml_4",
+        "label": "Link Html block"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eihtml_4",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_ihtml_4.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_chtml_4",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "5TH MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_enable_5",
+        "label": "5th Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_title_5",
+        "label": "5th Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 5 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_fullwidth_5",
+        "label": "5th Megamenu item fullwidth"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_width_5",
+        "label": "5th Megamenu item width",
+        "info": "Used pixcel (eg: 1000px). Leave empty if selected fullwidth."
+      },
+      {
+        "type": "checkbox",
+        "id": "apbgimage_enable_5",
+        "label": "Background enable"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_bg_image_5.jpg",
+        "label": "5th Megamenu  Background Image"
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eblocklinks_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blocklinks_5",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_5",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_evideo_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockvideo_5",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_cvideo_5",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eproduct_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockproducts_5",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_tproduct_5",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "apmenuitem_cproduct_5",
+        "label": "MegamenuBlock products Collection"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_nproduct_5",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_ehtml_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "apmenuitem_columns_blockhtml_5",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_thtml_5",
+        "label": "Block html title"
+      },
+      {
+        "type": "text",
+        "id": "apmenuitem_lchtml_5",
+        "label": "Link Html block"
+      },
+      {
+        "type": "checkbox",
+        "id": "apmenuitem_eihtml_5",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "apmenuitem_ihtml_5.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "apmenuitem_chtml_5",
+        "label": "Block html description"
+      }
+    ]
+  },
+  {
+    "name": "Apollo Vertical Megamenu",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "checkbox",
+        "id": "verticalmenu_enable",
+        "label": "Enable Vertical Megamenu"
+      },
+      {
+        "type": "link_list",
+        "id": "verticalmenu_linklist",
+        "label": "Vertical Menu Link List"
+      },
+      {
+        "type": "text",
+        "id": "verticalmenu_title",
+        "label": "Vertical Menu Title"
+      },
+      {
+        "type": "text",
+        "id": "verticalmenu_class",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "text",
+        "id": "verticalmenu_fontsize",
+        "label": "Font size",
+        "default": "14px"
+      },
+      {
+        "type": "text",
+        "id": "verticalmenu_subfontsize",
+        "label": "Submenu Font size",
+        "default": "14px"
+      },
+      {
+        "type": "header",
+        "content": "Color"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_bgcolor",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_textcolor",
+        "label": "Menu Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_linkcolor",
+        "label": "Menu Link Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_linkhovercolor",
+        "label": "Menu Link Hover Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_linkhoverbgcolor",
+        "label": "Menu Link Hover Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_textcolorsub",
+        "label": "Sub-menu Text Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_linkcolorsub",
+        "label": "Sub-menu Link Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "verticalmenu_linkhoversub",
+        "label": "Sub-menu Link Hover Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Icon Menu Item"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_enable",
+        "label": "Icon Menu Enable"
+      },
+      {
+        "type": "color",
+        "id": "vermenuicon_color",
+        "label": "Icon Menu Color",
+        "default": "#000000"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_1",
+        "label": "Icon Awesome Menu 1",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_1",
+        "label": "Icon Image Menu 1"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_1.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_2",
+        "label": "Icon Awesome Menu 2",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_2",
+        "label": "Icon Image Menu 2"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_2.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_3",
+        "label": "Icon Awesome Menu 3",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_3",
+        "label": "Icon Image Menu 3"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_3.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_4",
+        "label": "Icon Awesome Menu 4",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_4",
+        "label": "Icon Image Menu 4"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_4.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_5",
+        "label": "Icon Awesome Menu 5",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_5",
+        "label": "Icon Image Menu 5"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_5.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_6",
+        "label": "Icon Awesome Menu 6",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_6",
+        "label": "Icon Image Menu 6"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_6.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_7",
+        "label": "Icon Awesome Menu 7",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_7",
+        "label": "Icon Image Menu 7"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_7.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_8",
+        "label": "Icon Awesome Menu 8",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_8",
+        "label": "Icon Image Menu 8"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_8.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_9",
+        "label": "Icon Awesome Menu 9",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_9",
+        "label": "Icon Image Menu 9"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_9.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "text",
+        "id": "vermenuicon_font_10",
+        "label": "Icon Awesome Menu 10",
+        "info": "Use Font Awesome Icon. Input name icon. Ex:\"truck\""
+      },
+      {
+        "type": "paragraph",
+        "content": "[Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuicon_eimage_10",
+        "label": "Icon Image Menu 10"
+      },
+      {
+        "type": "image",
+        "id": "vertical_icon_10.png"
+      },
+      {
+        "type": "paragraph",
+        "content": "Import image icon if you don't use Font Awesome"
+      },
+      {
+        "type": "header",
+        "content": "Menu item description"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_1",
+        "label": "Menu item description 1",
+        "info": "Empty if you don't want it displayed"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_2",
+        "label": "Menu item description 2"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_3",
+        "label": "Menu item description 3"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_4",
+        "label": "Menu item description 4"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_5",
+        "label": "Menu item description 5"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_6",
+        "label": "Menu item description 6"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_7",
+        "label": "Menu item description 7"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_8",
+        "label": "Menu item description 8"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_9",
+        "label": "Menu item description 9"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_menu_desc_10",
+        "label": "Menu item description 10"
+      },
+      {
+        "type": "header",
+        "content": "1ST MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_enable_1",
+        "label": "1st Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_title_1",
+        "label": "1st Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 1 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eimage_1",
+        "label": "1st Menu item use background image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_image_1.png",
+        "label": "1st Menu item background image",
+        "max-width": 1920,
+        "max-height": 1000
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_width_1",
+        "label": "1st Megamenu item width",
+        "default": "600px",
+        "info": "Used pixcel (eg: 1000px)."
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eblocklinks_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blocklinks_1",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_1",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_evideo_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockvideo_1",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_cvideo_1",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eproduct_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockproducts_1",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_tproduct_1",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "vermenuitem_cproduct_1",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_nproduct_1",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_ehtml_1",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockhtml_1",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_thtml_1",
+        "label": "Block html title"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eihtml_1",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_ihtml_1.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_chtml_1",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "2ND MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_enable_2",
+        "label": "2nd Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_title_2",
+        "label": "2nd Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 2 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eimage_2",
+        "label": "2nd Menu item use background image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_image_2.png",
+        "label": "2nd Menu item background image"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_width_2",
+        "label": "2nd Megamenu item width",
+        "default": "600px",
+        "info": "Used pixcel (eg: 1000px)."
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eblocklinks_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blocklinks_2",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_2",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_evideo_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockvideo_2",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_cvideo_2",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eproduct_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockproducts_2",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_tproduct_2",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "vermenuitem_cproduct_2",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_nproduct_2",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_ehtml_2",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockhtml_2",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_thtml_2",
+        "label": "Block html title"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eihtml_2",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_ihtml_2.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_chtml_2",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "3RD MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_enable_3",
+        "label": "3rd Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_title_3",
+        "label": "3rd Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\""
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eimage_3",
+        "label": "3rd Menu item use background image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_image_3.png",
+        "label": "3rd Menu item background image"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_width_3",
+        "label": "3rd Megamenu item width",
+        "default": "600px",
+        "info": "Used pixcel (eg: 1000px)."
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eblocklinks_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blocklinks_3",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_3",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_evideo_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockvideo_3",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_cvideo_3",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eproduct_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockproducts_3",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_tproduct_3",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "vermenuitem_cproduct_3",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_nproduct_3",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_ehtml_3",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockhtml_3",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_thtml_3",
+        "label": "Block html title"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eihtml_3",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_ihtml_3.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_chtml_3",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "4th MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_enable_4",
+        "label": "4th Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_title_4",
+        "label": "4th Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\"."
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eimage_4",
+        "label": "4th Menu item use background image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_image_4.png",
+        "label": "4th Menu item background image"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_width_4",
+        "label": "4th Megamenu item width",
+        "default": "600px",
+        "info": "Used pixcel (eg: 1000px)."
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eblocklinks_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blocklinks_4",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_4",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_evideo_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockvideo_4",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_cvideo_4",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eproduct_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockproducts_4",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_tproduct_4",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "vermenuitem_cproduct_4",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_nproduct_4",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_ehtml_4",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockhtml_4",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_thtml_4",
+        "label": "Block html title"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eihtml_4",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_ihtml_4.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_chtml_4",
+        "label": "Block html description"
+      },
+      {
+        "type": "header",
+        "content": "5th MEGAMENU ITEM"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_enable_5",
+        "label": "5th Enable megamenu item"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_title_5",
+        "label": "5th Menu item",
+        "info": "(*) Enter \"Link Name\" of \"Navigation / Main Menu\" into Menu item 5 box"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eimage_5",
+        "label": "5th Menu item use background image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_image_5.png",
+        "label": "5th Menu item background image"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_width_5",
+        "label": "5th Megamenu item width",
+        "default": "600px",
+        "info": "Used pixcel (eg: 1000px)."
+      },
+      {
+        "type": "header",
+        "content": "Menu block links"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eblocklinks_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blocklinks_5",
+        "label": "Width of the block links than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block links in a row of megamenu"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_5",
+        "label": "Width of the links than block links",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the links(Navigation->Menu) than block links"
+      },
+      {
+        "type": "header",
+        "content": "Menu block video"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_evideo_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockvideo_5",
+        "label": "Width of the block video than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block video in a row of megamenu"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_cvideo_5",
+        "label": "Code video content",
+        "info": "Copy Video CODE from youtube, vimeo and put here"
+      },
+      {
+        "type": "header",
+        "content": "Menu block products"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eproduct_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockproducts_5",
+        "label": "Width of the block products than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block products in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_tproduct_5",
+        "label": "Block products Title"
+      },
+      {
+        "type": "collection",
+        "id": "vermenuitem_cproduct_5",
+        "label": "Block products Collection"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_nproduct_5",
+        "label": "The maximum number of products"
+      },
+      {
+        "type": "header",
+        "content": "Menu block html"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_ehtml_5",
+        "label": "Enable/Disable"
+      },
+      {
+        "type": "select",
+        "id": "vermenuitem_columns_blockhtml_5",
+        "label": "Width of the block html than megamenu",
+        "options": [
+          {
+            "value": "1",
+            "label": "1/12 (8.33%)"
+          },
+          {
+            "value": "2",
+            "label": "2/12 (16.67%)"
+          },
+          {
+            "value": "3",
+            "label": "3/12 (25.00%)"
+          },
+          {
+            "value": "4",
+            "label": "4/12 (33.33%)"
+          },
+          {
+            "value": "5",
+            "label": "5/12 (41.67%)"
+          },
+          {
+            "value": "6",
+            "label": "6/12 (50.00%)"
+          },
+          {
+            "value": "7",
+            "label": "7/12 (58.33%)"
+          },
+          {
+            "value": "8",
+            "label": "8/12 (66.67%)"
+          },
+          {
+            "value": "9",
+            "label": "9/12 (75.00%)"
+          },
+          {
+            "value": "10",
+            "label": "10/12 (83.33%)"
+          },
+          {
+            "value": "11",
+            "label": "11/12 (91.67%)"
+          },
+          {
+            "value": "12",
+            "label": "12/12 (100.00%)"
+          }
+        ],
+        "info": "Width of the block html in a row of megamenu"
+      },
+      {
+        "type": "text",
+        "id": "vermenuitem_thtml_5",
+        "label": "Block html title"
+      },
+      {
+        "type": "checkbox",
+        "id": "vermenuitem_eihtml_5",
+        "label": "Use image"
+      },
+      {
+        "type": "image",
+        "id": "vermenuitem_ihtml_5.jpg",
+        "label": "Block html image",
+        "info": "Max size: 1170px x 500px"
+      },
+      {
+        "type": "textarea",
+        "id": "vermenuitem_chtml_5",
+        "label": "Block html description"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_enable",
+        "label": "Enable Cart",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "apollo_cart_type",
+        "label": "Cart view display",
+        "default": "drawer",
+        "options": [
+          {
+            "value": "default",
+            "label": "default"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_show_cart_hover",
+        "label": "Show Mini Card",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_number_product",
+        "label": "Count Number Product",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_total_price",
+        "label": "Totail Price",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Drawer Setting"
+      },
+      {
+        "type": "select",
+        "id": "apollo_cart_drawer_setting",
+        "label": "Cart view display",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "apollo_cart_drawer_width",
+        "label": "Width",
+        "default": "300",
+        "info": "Setting with cart view display for left and right"
+      },
+      {
+        "type": "header",
+        "content": "Free Ship"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_cart_free_ship",
+        "label": "Enable Free ship",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "apollo_cart_free_ship_total",
+        "label": "Free ship with total price",
+        "default": "100"
+      }
+    ]
+  },
+  {
+    "name": "Block Currencies",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_multiple_currencies",
+        "label": "Allow shopper to see prices in his own currency?"
+      },
+      {
+        "type": "paragraph",
+        "content": "Although you will be able to display prices on your store front in different currencies, Shopify will still process orders in your shop's currency."
+      },
+      {
+        "type": "select",
+        "id": "currency_format",
+        "label": "Money format",
+        "options": [
+          {
+            "value": "money_format",
+            "label": "Without Currency, ex: $10.00"
+          },
+          {
+            "value": "money_with_currency_format",
+            "label": "With Currency, ex: $10 CAD"
+          }
+        ],
+        "default": "money_format"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies_1",
+        "label": "Currencies 1 you wish to support",
+        "default": "USD"
+      },
+      {
+        "type": "image",
+        "id": "currencies_img_1.png",
+        "label": "Currencies 1 icon",
+        "max-width": 16,
+        "max-height": 11,
+        "info": "Size: 16px x 11px"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies_2",
+        "label": "Currencies 2 you wish to support",
+        "default": "EUR"
+      },
+      {
+        "type": "image",
+        "id": "currencies_img_2.png",
+        "label": "Currencies 2 icon",
+        "max-width": 16,
+        "max-height": 11,
+        "info": "Size: 16px x 11px"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies_3",
+        "label": "Currencies 3 you wish to support",
+        "default": "AUD"
+      },
+      {
+        "type": "image",
+        "id": "currencies_img_3.png",
+        "label": "Currencies 3 icon",
+        "max-width": 16,
+        "max-height": 11,
+        "info": "Size: 16px x 11px"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies_4",
+        "label": "Currencies 4 you wish to support",
+        "default": "GBP"
+      },
+      {
+        "type": "image",
+        "id": "currencies_img_4.png",
+        "label": "Currencies 4 icon",
+        "max-width": 16,
+        "max-height": 11,
+        "info": "Size: 16px x 11px"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies_5",
+        "label": "Currencies 5 you wish to support",
+        "default": "JPY"
+      },
+      {
+        "type": "image",
+        "id": "currencies_img_5.png",
+        "label": "Currencies 5 icon",
+        "max-width": 16,
+        "max-height": 11,
+        "info": "Size: 16px x 11px"
+      },
+      {
+        "type": "paragraph",
+        "content": "Use the ISO 4217 3-letter currency code. Click [here](http://www.xe.com/iso4217.php) for a complete list of currency codes. Example: USD."
+      },
+      {
+        "type": "paragraph",
+        "content": "* For this functionality to work in your shop, you are required to edit your money formats as per [these instructions](http://wiki.shopify.com/How_to_Show_Multiple_Currencies#Do_tell_where_the_money_is) (“Do tell where the money is”)."
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "on-off-sidebar",
+        "label": "Enable Sidebar Collection page",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_detail_enable",
+        "label": "Enable Sidebar Product detail"
+      },
+      {
+        "type": "header",
+        "content": "Categories block"
+      },
+      {
+        "type": "checkbox",
+        "id": "categories_block_enable",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "categories_block_title",
+        "label": "Categories block title"
+      },
+      {
+        "type": "text",
+        "id": "categories_block_class",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "checkbox",
+        "id": "categories_block_productcount",
+        "label": "Show Quantity Product of Category"
+      },
+      {
+        "type": "radio",
+        "id": "categories_block_style",
+        "label": "Show all / Only a few categories",
+        "options": [
+          {
+            "value": "show_all",
+            "label": "Show all"
+          },
+          {
+            "value": "show_select",
+            "label": "Only a few categories"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "categories_block_number",
+        "label": "Maximum categories",
+        "default": "10",
+        "info": "Set the maximum categories displayed in this block (If show all)"
+      },
+      {
+        "type": "textarea",
+        "id": "categories_block_items",
+        "label": "List of categories",
+        "info": "Use \",\" to separate categories items if you have multiple categories. For ex: Category, Collections"
+      },
+      {
+        "type": "header",
+        "content": "Product Collections"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_products_enable",
+        "label": "Products List Enable"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_title",
+        "label": "Products List Title"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_class",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "collection",
+        "id": "sidebar_products_collection",
+        "label": "Products List Collection"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_number",
+        "label": "Products List Number",
+        "default": "1"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_more_title",
+        "label": "Products List More Text"
+      },
+      {
+        "type": "header",
+        "content": "Product Recently Viewed"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_products_recently_enable",
+        "label": "Products Recently Enable"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_recently_title",
+        "label": "Products Recently Title"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_recently_class",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_products_recently_number",
+        "label": "Products Recently Number",
+        "default": "1"
+      },
+      {
+        "type": "header",
+        "content": "Banner Sidebar"
+      },
+      {
+        "type": "checkbox",
+        "id": "sidebar_banner_enable",
+        "label": "Show Banner"
+      },
+      {
+        "type": "text",
+        "id": "sidebar_banner_link",
+        "label": "Banner Link To",
+        "default": "#"
+      },
+      {
+        "type": "image",
+        "id": "sidebar_banner.png",
+        "label": "Image banner"
+      }
+    ]
+  },
+  {
+    "name": "Filter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "on-off-filter",
+        "label": "Filter Enable",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "filter-position",
+        "label": "Filter position",
+        "default": "top",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "in-sidebar",
+            "label": "In Sidebar"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "use_multiple_filter",
+        "label": "Multiple Filter",
+        "default": true,
+        "info": "User can select multiple colors (size, color...) or only one color (size, color...)?"
+      },
+      {
+        "type": "header",
+        "content": "Filter with tag"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_filter_tag",
+        "label": "Enable",
+        "info": "[You can view more Guide](http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action)"
+      },
+      {
+        "type": "text",
+        "id": "filter_tag_1",
+        "label": "Filter tag 1"
+      },
+      {
+        "type": "text",
+        "id": "filter_tag_2",
+        "label": "Filter tag 2"
+      },
+      {
+        "type": "text",
+        "id": "filter_tag_3",
+        "label": "Filter tag 3"
+      },
+      {
+        "type": "text",
+        "id": "filter_tag_4",
+        "label": "Filter tag 4"
+      },
+      {
+        "type": "text",
+        "id": "filter_tag_5",
+        "label": "Filter tag 5"
+      },
+      {
+        "type": "header",
+        "content": "Filter Price with price bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "filter_price_bar_enable",
+        "label": "Enable"
+      },
+      {
+        "type": "text",
+        "id": "filter_price_bar_title",
+        "label": "Filter price bar title"
+      }
+    ]
+  },
+  {
+    "name": "Apollo Product Count Down - Daily Deal",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_count_down_enable",
+        "label": "Enable Product Count Down"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_count_down_collections",
+        "label": "Enable Collection Pages"
+      },
+      {
+        "type": "checkbox",
+        "id": "apollo_count_down_prodetails",
+        "label": "Enable Product Detail Pages"
+      },
+      {
+        "type": "collection",
+        "id": "apollo_count_down_dealpages",
+        "label": "Collection In Deal Pages"
+      },
+      {
+        "type": "text",
+        "id": "apollo_dealpages_count",
+        "label": "Collection Product Count",
+        "default": "16"
+      },
+      {
+        "type": "textarea",
+        "id": "home_productdeal_time",
+        "label": "Deal Time",
+        "info": "Product_ID@Time_end(month-day-Year_Hour:Minute:Second). Example: 421783601@10/24/2015_00:00:00 421783565@11/24/2015_00:00:00 421783465@12/24/2015_00:00:00"
+      }
+    ]
+  },
+  {
+    "name": "Apollo Popup Newsletter",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "pnewletter_enable",
+        "label": "Use Popup Newsletter",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_cookie",
+        "label": "Popup TIme Cookie",
+        "default": "60",
+        "info": "Time to popup show again (Minutes)"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_title",
+        "label": "Popup Newsletter Title",
+        "default": "NEWSLETTER SIGN UP"
+      },
+      {
+        "type": "textarea",
+        "id": "pnewletter_message",
+        "label": "Popup Newsletter Message"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_form_action",
+        "label": "MailChimp Form Action URL",
+        "info": "[Where do I find my MailChimp form action URL?](http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action)"
+      },
+      {
+        "type": "image",
+        "id": "pnewletter_bg",
+        "label": "Popup Newletter Background",
+        "max-width": 2000,
+        "max-height": 2000
+      },
+      {
+        "type": "header",
+        "content": "Social In PopupNewLetter"
+      },
+      {
+        "type": "checkbox",
+        "id": "pnewletter_social_enable",
+        "label": "Use Social in Popup NewLetter?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_title",
+        "label": "Social media title"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_rss_link",
+        "label": "Rss link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_googleplus_link",
+        "label": "Google Plus link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "pnewletter_social_pinterest_link",
+        "label": "Pinterest link"
+      }
+    ]
+  },
+  {
+    "name": "404 Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Settings"
+      },
+      {
+        "type": "color",
+        "id": "found_text_color",
+        "label": "Text color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "checkbox",
+        "id": "image_404_enable",
+        "label": "Enable Background Image"
+      },
+      {
+        "type": "image",
+        "id": "404-image.png",
+        "label": "404 Image"
+      },
+      {
+        "type": "textarea",
+        "id": "found_html",
+        "label": "Content Page Html"
+      },
+      {
+        "type": "text",
+        "id": "found_btnleft_text",
+        "label": "Button Left Text"
+      },
+      {
+        "type": "text",
+        "id": "found_btnleft_link",
+        "label": "Button Left Link"
+      },
+      {
+        "type": "text",
+        "id": "found_btnright_text",
+        "label": "Button Right Text"
+      },
+      {
+        "type": "text",
+        "id": "found_btnright_link",
+        "label": "Button Right Link"
+      }
+    ]
+  },
+  {
+    "name": "Password Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "color",
+        "id": "password_bg_color",
+        "label": "Background Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "password_text_color",
+        "label": "Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Background Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "password_bg_image",
+        "label": "Enable Background Image"
+      },
+      {
+        "type": "image",
+        "id": "pwBackground.jpg",
+        "label": "Background Image"
+      }
+    ]
+  },
+  {
+    "name": "About us",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_img_about",
+        "label": "Use image top",
+        "default": false
+      },
+      {
+        "type": "image",
+        "id": "image-abouts.jpg",
+        "label": "Image top"
+      },
+      {
+        "type": "text",
+        "id": "title_page_about_1",
+        "label": "Title 1"
+      },
+      {
+        "type": "textarea",
+        "id": "des_page_about_1",
+        "label": "Description 1 "
+      },
+      {
+        "type": "text",
+        "id": "title_page_about_2",
+        "label": "Title 2"
+      },
+      {
+        "type": "textarea",
+        "id": "des_page_about_2",
+        "label": "Description 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_list_about",
+        "label": "Enable list member",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "title_page_about_3",
+        "label": "Title Member"
+      },
+      {
+        "type": "image",
+        "id": "img_about_1.png",
+        "label": "Image member 1"
+      },
+      {
+        "type": "text",
+        "id": "content_1",
+        "label": "Member name 1"
+      },
+      {
+        "type": "image",
+        "id": "img_about_2.png",
+        "label": "Image member 2"
+      },
+      {
+        "type": "text",
+        "id": "content_2",
+        "label": "Member name 2"
+      },
+      {
+        "type": "image",
+        "id": "img_about_3.png",
+        "label": "Image member 3"
+      },
+      {
+        "type": "text",
+        "id": "content_3",
+        "label": "Member name 3"
+      }
+    ]
+  },
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter",
+        "info": "https://twitter.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook",
+        "info": "https://facebook.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest",
+        "info": "https://pinterest.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram",
+        "info": "http://instagram.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr",
+        "info": "http://shopify.tumblr.com"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat",
+        "info": "https://www.snapchat.com/add/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "YouTube",
+        "info": "https://www.youtube.com/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo",
+        "info": "https://vimeo.com/shopify"
+      },
+      {
+        "type": "header",
+        "content": "Facebook comment manager"
+      },
+      {
+        "type": "text",
+        "id": "facebook_appid",
+        "label": "Facebook AppID",
+        "default": "ID"
+      },
+      {
+        "type": "text",
+        "id": "facebook_admin_id",
+        "label": "Facebook Admin ID",
+        "default": "ID1,ID2",
+        "info": "ex: ID1,ID2,..."
+      }
+    ]
+  },
+  {
+    "name": "SEO",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Setting"
+      },
+      {
+        "type": "textarea",
+        "id": "apmetakeyword",
+        "label": "Meta Key Word",
+        "default": "apollotheme",
+        "info": "Using 5-10 should be max (175 characters). ex: shopify,apollotheme,..."
+      }
+    ]
+  }
+]

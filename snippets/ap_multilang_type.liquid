@@ -1,0 +1,15 @@
+{% comment %} translate type {% endcomment %}
+{% include 'ap-multilang-namespace' %}
+{% if current_lang == main_lang %}
+{% assign type_translate = ap_multilang_type %}
+{% else %}
+    {% for pro in collections.all.products %}
+        {% if pro.type == ap_multilang_type %}
+            {% assign type_translate = pro.metafields[current_lang].type %}
+            {% if type_translate == blank %}
+                {% assign type_translate = pro.type %}
+            {% endif %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

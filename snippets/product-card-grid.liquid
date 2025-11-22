@@ -1,0 +1,84 @@
+{% unless grid_image_width %}
+  {%- assign grid_image_width = '600x600' -%}
+{% endunless %}
+<div class="grid-view-item{% unless product.available %} product-price--sold-out grid-view-item--sold-out{% endunless %}">
+  <a class="grid-view-item__link" href="{{ product.url | within: collection }}">
+    <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: grid_image_width }}" alt="{{ product.featured_image.alt }}">
+    <div class="h4 grid-view-item__title">{{ product.title }}</div>
+    {% if section.settings.show_vendor %}
+      <div class="grid-view-item__vendor">{{ product.vendor }}</div>
+    {% endif %}
+    <div class="grid-view-item__meta">
+      {% include 'product-price' %}
+    </div>
+  </a>
+  
+  <div class='ap_cp_add'>
+    <input type="checkbox" data-img="{{ product.featured_image.src | img_url: grid_image_width }}" data-title="{{product.title}}" data-id="{{ product.handle }}" class="ap-cp-add">
+    <span>Add to compare</span>
+  </div>
+  <div class="add-wishlist">
+    {% include 'wishlist-product' %}
+  </div>
+  
+  {% if settings.apollo_cart_collection_variants %}
+            <div class="cart">
+              {% assign variantCount = product.variants | size %}
+                <div class="action">
+                <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+                    <select name="id" id="productSelect" class="product-single__variants">
+                      {% for variant in product.variants %}
+                        {% if variant.available %}
+
+                          {% comment %}
+                            Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                          {% endcomment %}
+                          <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+                        {% else %}
+                          <option disabled="disabled">
+                            {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                          </option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                      {% if settings.apollo_cart_collection_quantity %}
+                      <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                      <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                      {% endif %}
+                      <button type="submit" name="add" id="AddToCart" class="btn">
+                        <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                      </button>
+                      </form>
+                  </div> 
+              </div>
+        	{% else %}  
+
+               <div class="cart">
+                   {% assign variantCount = product.variants | size %}
+                   <div class="action">
+                     <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart">
+                       <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                       {% if sold_out %}
+                       <button class=" btn btn-outline button ajax_addtocart disabled" type="submit" value="Submit" disabled>
+                         <span>{{ 'products.product.sold_out' | t }}</span>
+                       </button>
+                       {% else %}
+                       {% if variantCount > 1 %}
+                       <a class="btn btn-outline button ajax_addtocart" href="{{ product.url | within: collection }}" title="{{ product.title }}">
+                         <span class="select_options">{{ 'products.product.select_options' | t }}</span>
+                       </a>
+                       {% else %}
+                       <button class="btn btn-outline button ajax_addtocart" type="submit" value="Submit">
+                         <span>{{ 'products.product.add_to_cart' | t }}</span>
+                       </button>
+                       {% endif %}
+                       {% endif %}
+                     </form> 
+                   </div> 
+                </div>
+            {% endif %}  
+    </div>
+  
+  
+</div>

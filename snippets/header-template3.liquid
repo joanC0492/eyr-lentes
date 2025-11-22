@@ -1,0 +1,42 @@
+<div class="header-container header-3">
+    <div id="header-main">
+        <div class="container">
+            <div class="header-wrap">
+                <div class="header-left">
+                    <div id="header_logo">
+                        {% if template == 'index' %}
+                            <h1 class="" itemscope itemtype="http://schema.org/Organization">
+                        {% else %}
+                            <div class="" itemscope itemtype="http://schema.org/Organization">
+                        {% endif %}
+                        {% if section.settings.logo_use_image %}
+                            <a href="/" itemprop="url">
+                                <img src="{{ section.settings.logo | img_url: image_size }}" alt="{{ shop.name }}">
+                              	<span class="hidden">{{ shop.name }}</span>
+                            </a>
+                        {% else %}
+                            <a href="/" itemprop="url">{{ shop.name }}</a>
+                        {% endif %}
+                        {% if template != 'index' %}
+                            </div>
+                        {% else %}
+                            </h1>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="header-right">
+                    {% if settings.apollo_megamenu_enable %}
+                        {% include 'block-menu' %}
+                    {% endif %}
+                </div>
+                <div class="tools__right">
+                    {% include 'ap-multilang-box' %}
+                    {% include 'block-search' %}
+                    {% include 'block-cart' %}
+                    {% include 'block-currentcies' %}
+                    {% include 'block-userlogin' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

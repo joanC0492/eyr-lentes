@@ -1,0 +1,123 @@
+{% assign count_images = product.images | size %}
+{% assign column_center = 'col-sm-12 col-md-12' %}
+<div id="quick-view-product" style="display:none;">
+    <div class="quickview-overlay"></div>
+    <div class="quick-view-product"></div>
+    <div id="quickview-modal" style="display:none;">
+        <div class="block-quickview primary_block row">
+            <div class="product-left-column col-xs-12 col-sm-4 col-md-4">
+                <div class="clearfix image-block">
+                    <span class="view_full_size">
+                      	<a class="img-product" title="" href="#">
+                        	<img id="product-featured-image-quickview" class="img-responsive product-featured-image-quickview" src="{{ 'productDefault.png' | asset_url | split:'?' | first }}" alt="Quickview"  />
+                        </a>
+                    </span>
+                  	<div class="loading-imgquickview" style="display:none;"></div>
+                </div>
+                <div class="more-view-wrapper clearfix">
+                    <div id="thumbs_list_quickview">
+                        <ul class="product-photo-thumbs quickview-more-views-owlslider list-unstyled" id="thumblist_quickview"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="product-center-column product-info col-xs-12 col-sm-4 col-md-5">
+                <h3 class="qwp-name">&nbsp;</h3>
+                <div class="product-description rte"></div>
+              	<h5 class="brand">- </h5>
+              	<div class="availability"></div>
+            </div>
+            <div class="product-right-column product-item col-xs-12 col-sm-4 col-md-3">
+                <div>
+                    <form action="/cart/add" method="post" enctype="multipart/form-data" class="variants form-ajaxtocart">
+                        <span class="prices">
+                            <span class="price h2"></span>
+                        </span>
+                      	<span class="price-product-detail">
+                            <span class="old-price product-price compare-price"></span>
+                      	</span>
+                        <select name='id' style="display:none"></select>
+                        <div class="clearfix"></div>
+                        <div class="quantity_wanted_p">
+                            <label for="quantity-detail" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                            <input type="number" id="quantity-detail" name="quantity" value="1" min="1" class="quantity-selector">
+                        </div>
+                        <div class="total-price">
+                            <label>{{ 'products.product.subtotal' | t }}: </label>
+                          	<span></span>
+                        </div>
+                        <button type="submit" name="add" class="btn add_to_cart_detail ajax_addtocart">
+                            <span >{{ 'products.product.add_to_cart' | t }}</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>      
+        <a title="Close" class="quickview-close fancybox-close" href="javascript:;"></a>
+    </div>    
+</div>
+<script type="text/javascript">  
+    Shopify.doNotTriggerClickOnThumb = false;
+    function changeImageQuickView(img, selector) {
+        var src = $(img).attr("src");
+        src = src.replace("_compact", "");
+        $(selector).attr("src", src);
+    }
+    var selectCallbackQuickView = function(variant, selector) {
+        var productItem = jQuery('.quick-view-product .product-item');
+            addToCart = productItem.find('.add_to_cart_detail'),
+            productPrice = productItem.find('.price'),
+            comparePrice = productItem.find('.old-price'),
+            totalPrice = productItem.find('.total-price span');
+        if (variant) {
+          	console.log(variant.available);
+            if (variant.available) {
+				addToCart.removeClass('disabled').removeAttr('disabled');
+          		$(addToCart).find("span").text("{{ 'products.product.add_to_cart' | t }}");
+            } else {
+                addToCart.addClass('disabled').attr('disabled', 'disabled');
+          		$(addToCart).find("span").text("{{ 'products.product.sold_out' | t }}");
+            }       
+            productPrice.html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
+            if ( variant.compare_at_price > variant.price ) {
+                comparePrice
+                    .html(Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}")).show();         
+                productPrice.addClass('on-sale');
+            } else {
+                comparePrice.hide();
+                productPrice.removeClass('on-sale');
+            }
+            {% if settings.use_color_swatch %}
+                var form = jQuery('#' + selector.domIdPrefix).closest('form');
+                for (var i=0,length=variant.options.length; i<length; i++) {
+                    var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
+                    if (radioButton.size()) {
+                        radioButton.get(0).checked = true;
+                    }
+                }
+            {% endif %}
+            updatePricingQuickView();
+            {% if settings.enable_multiple_currencies %}
+                Currency.convertAll('{{ shop.currency }}', jQuery('#currencies').val(), 'span.money', 'money_format');
+            {% endif %}
+            /*begin variant image*/
+            if (variant && variant.featured_image) {
+                var originalImage = $("#product-featured-image-quickview");
+                var newImage = variant.featured_image;
+                var element = originalImage[0];
+                Shopify.Image.switchImage(newImage, element, function (newImageSizedSrc, newImage, element) {
+                    $('#thumblist_quickview img').each(function() {
+                        var parentThumbImg = $(this).parent();
+                        var productImage = $(this).parent().data("image");
+                        if (newImageSizedSrc.includes(productImage)) {
+                            $(this).parent().trigger('click');
+                            return false;
+                        }
+                    });
+                });
+            }
+        } else {
+            addToCart.addClass('disabled').attr('disabled', 'disabled');
+            $(addToCart).find("span").text("{{ 'products.product.unavailable' | t }}");
+        }
+    };
+</script>

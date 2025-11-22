@@ -1,0 +1,208 @@
+{% unless grid_item_width %}
+    {% assign grid_item_width = 'col-xs-12 col-sp-12' %}
+{% endunless %}
+{% unless current_collection == blank %}
+    {% assign current_collection = collection %}
+{% endunless %}
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+{% endif %}
+{% assign sold_out = true %}
+{% if product.available  %}
+    {% assign sold_out = false %}
+{% endif %}
+{% assign imagesize = settings.home_product_imagesize %}
+
+{% assign new = false %}
+{% assign new_count = settings.theme_newproduct | plus: 0 %}
+{% assign date_published_year = product.published_at | date:'%Y' %}
+{% assign date_published_month = product.published_at | date:'%m' %}
+{% assign date_published_day = product.published_at | date:'%d' %}
+
+{% assign date_now_year = 'now' | date:'%Y' %}
+{% assign date_now_month = 'now' | date:'%m' %}
+{% assign date_now_day = 'now' | date:'%d' %}
+
+{% assign day_year = date_now_year | minus:date_published_year | times: 365 %}
+{% assign day_month = date_now_month | minus:date_published_month | times: 30 %}
+{% assign day_day = date_now_day | minus:date_published_day %}
+
+{% assign date_difference = day_year | plus: day_month | plus: day_day %}
+{% if date_difference <= new_count %}
+	{% assign new = true %}
+{% endif %}
+
+{% assign productIndex = forloop.index | minus:1 %}
+{% if settings.productitem_animate_enable %}
+	{% if settings.productitem_animate_delay != blank %}
+        {% assign delayTime = settings.productitem_animate_delay | times : productIndex %}
+    {% else %}
+        {% assign delayTime = 100 | times : productIndex %}
+    {% endif %}
+	{% capture delayLoadProduct %}data-wow-delay="{{delayTime}}ms"{% endcapture %}
+	{% assign effectLoadProduct = 'wow fadeInUp' %}
+{% else %}
+	{% capture delayLoadProduct %}{% endcapture %}
+	{% assign effectLoadProduct = '' %}
+{% endif %}
+
+<div class="product_block {{ effectLoadProduct }} {{ grid_item_width }}" {{ delayLoadProduct }} data-price="{{ product.price }}">
+    <div class="product-container text-left product-block">
+        <div class="row">
+            <div class="left-block col-md-4 col-sm-5">
+                <div class="product-image-container image">
+                    <a class="grid-view-item__link product_img_link" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+                        <img class="img-product grid-view-item__image replace-2x img-responsive" src="{{ product.featured_image | product_img_url: imagesize }}" alt="{{ product.featured_image.alt | escape }}">
+                      {% if  settings.theme_more_pimages_option == 'showone' %}
+                      {% include 'product-more-image' %}
+                      {% endif %}
+                  </a>
+                  {% if settings.theme_more_pimages_option == 'showmore' %}
+                  {% include 'product-more-image' %}
+                  {% endif %}
+                   
+                    {% if new %}
+                        <span class="new-box">
+                            <span class="label-new label">{{ 'products.product.new_from_html' | t }}</span>
+                        </span>
+                    {% endif %}
+                    {% if on_sale %}
+                        <span class="sale-box">
+                            <span class="label-sale label">{{ 'products.product.on_sale_from_html' | t }}</span>
+                        </span>
+                    {% endif %}
+                   {% if settings.theme_quickview_enable %}
+                    <div class="quickview">
+                      <a class="quick-view btn" href="#quick-view-product" data-handle="{{ product.handle }}" title="{{ 'general.quickview.title' | t }}">
+                        <i class="fa fa-expand"></i>
+                        {% comment %}
+                        <span>{{ 'general.quickview.title' | t }}</span>
+                        {% endcomment %}
+                      </a>
+                    </div>
+                    {% endif %}
+              
+                    {% if dealTime %}
+                        {% include 'block-productdeal' %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="right-block col-md-8 col-sm-7">
+                <div class="product-meta">
+                    <h3 class="name">
+                        <a class="product-name" href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title }}</a>
+                    </h3>
+ 
+                  {% if settings.show_reviews_detail %}
+                  <div class="review">
+                    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                  </div>
+                  {% endif %}
+                  	<div class="content_price">
+                      <span class="price product-price">
+                            {{ product.price | money }}
+                        </span>  
+                      {% if on_sale %}
+                            <span class="old-price product-price">{{ product.compare_at_price | money }}</span>
+                        {% endif %}
+                        
+                    </div>
+                  <div class="product-desc">
+                    {% if product.description contains '[/shortdesc]' %}  
+                    {% assign shortdesc = product.description | split: '[shortdesc]' | last %}
+                    {{ shortdesc | split: '[/shortdesc]' | first | truncatewords: 20 }}
+                    {% endif %}
+                  </div>
+                  {% if settings.apollo_cart_collection_variants %}
+                     <div class="functional-buttons clearfix">
+                      
+                  <div class="cart">
+                    {% assign variantCount = product.variants | size %}
+                    <div class="action">
+                      <form action="/cart/add" method="post" enctype="multipart/form-data"  class="form-ajaxtocart form-vertical" data-pid="{{ product.id }}">
+                        <div class="proVariants clearfix">
+                          <select name="id" data-id="{{ product.id }}" data-handle="{{ product.handle }}" class="product-single__variants">
+                            {% for variant in product.variants %}
+                            {% if variant.available %}
+                            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
+                            {% else %}
+                            <option disabled="disabled">
+                              {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                            </option>
+                            {% endif %}
+                            {% endfor %}
+                          </select>                  
+                          {% if settings.ap_collection_swatch_item %}                      
+                          {% include 'swatch-item' with "Color" %}                      
+                          {% endif %}
+                        </div>
+                        {% if settings.apollo_cart_collection_quantity %}
+                        <label class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                        <input type="number"  name="quantity" value="1" min="1" class="quantity-selector">
+                        {% endif %}
+                        <button type="submit" name="add"  class="ajax_addtocart btn">
+                          <span class="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                        </button>
+                      </form>
+                    </div>
+                       </div>
+                        {% if settings.theme_wishlist_enable %}
+                      <div class="add-wishlist">
+                      {% include 'wishlist-product' %}
+                      </div>
+                  {% endif %}
+                  {% if settings.theme_compare_enable %}        
+                        <div class='ap-cp-add-compare ap_cp_add '>
+                          <input type="checkbox" data-img="{{ product.featured_image.src | img_url: grid_image_width }}" data-title="{{product.title}}" data-id="{{ product.handle }}" class="ap-cp-add" title="Compare">
+                          <i class="zmdi zmdi-refresh-alt"></i>
+                        </div>
+                   {% endif %}
+                  </div>
+                  {% else %}  
+                  <div class="functional-buttons clearfix">
+                   <div class="cart">
+                      {% assign variantCount = product.variants | size %}
+                      <div class="action">
+                        <form action="/cart/add" method="post" enctype="multipart/form-data" class="form-ajaxtocart">
+                          <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                          {% if sold_out %}
+                          <button class="button ajax_addtocart disabled" type="submit" value="Submit" disabled>
+                            <span class="zmdi zmdi-shopping-cart-plus"></span>
+                            <span>{{ 'products.product.sold_out' | t }}</span>
+                          </button>
+                          {% else %}
+                          {% if variantCount > 1 %}
+                          <a class="button ajax_addtocart" href="{{ product.url | within: collection }}" title="{{ product.title }}">
+                            <span class="zmdi zmdi-shopping-cart-plus"></span>
+                            <span class="select_options">{{ 'products.product.select_options' | t }}</span>
+                          </a>
+                          {% else %}
+                          <button class="button ajax_addtocart" type="submit" value="Submit">
+                            <span class="zmdi zmdi-shopping-cart-plus"></span>
+                            <span>{{ 'products.product.add_to_cart' | t }}</span>
+                          </button>
+                          {% endif %}
+                          {% endif %}
+                        </form> 
+                      </div> 
+                    </div>
+                     {% if settings.theme_wishlist_enable %}
+                      <div class="add-wishlist">
+                      {% include 'wishlist-product' %}
+                      </div>
+                  {% endif %}
+                  {% if settings.theme_compare_enable %}        
+                        <div class='ap-cp-add-compare ap_cp_add '>
+                          <input type="checkbox" data-img="{{ product.featured_image.src | img_url: grid_image_width }}" data-title="{{product.title}}" data-id="{{ product.handle }}" class="ap-cp-add" title="Compare">
+                          <i class="zmdi zmdi-refresh-alt"></i>
+                          <span>{{ 'general.compare.title' | t }}</span>
+                        </div>
+                   {% endif %}
+                  </div>
+                  {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

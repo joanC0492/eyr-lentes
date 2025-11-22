@@ -1,0 +1,146 @@
+{% if section.settings.homepage_newsletter_enable %}
+  <div id="footertop" class="footer-top">
+    <div class="footer_top_wrap">
+      {% include 'block-newsletter' %}
+      <div
+        class="block___banner"
+        style="margin:{{ section.settings.marginbanner}};padding:{{ section.settings.paddingbaner}};background:{{ section.settings.background }}"
+      >
+        <div class="container">
+          {% include 'block-image-banner' %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+<div class="footer-container footer-3">
+  <section id="footercenter" class="footer-center">
+    <div class="container">
+      <div class="footer-center-wrap">
+        <div class="row no-margin col--block">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-footer ">
+            <div class=" box-footer ">
+              {% if section.settings.enable_about_footer %}
+                <div class="about__footer">
+                  <a href="{{section.settings.link_about_footer}}">
+                    <img src="{{ section.settings.logo_footer | img_url: '164x48' }}" alt="{{ shop.name }}">
+                  </a>
+                  {% if section.settings.des_about_footer != blank %}
+                    <div class="des_about">
+                      {{ section.settings.des_about_footer }}
+                    </div>
+                  {% endif %}
+                  {% if section.settings.footer_social_enable %}
+                    {% include 'block-social' %}
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 col-footer ">
+            <div class=" box-footer box_links">
+              <div class="row">
+                {% assign footerlinks_title = section.settings.footer_quicklinks_title %}
+                {% if footerlinks_title != blank %}
+                  <div class="footer-title col-md-12">
+                    <h4 class="title_block">{{ footerlinks_title }}</h4>
+                  </div>
+                {% endif %}
+                <div class="col-md-12">
+                  <div class="block-info-footer">
+                    <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+                      {% if section.settings.footer_quicklinks_enable %}
+                        {% assign footerlinks_name = section.settings.footer_quicklinks_linklist %}
+
+                        {% include 'block-footerlinks' with '1' %}
+                      {% endif %}
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+                      {% if section.settings.footer_quicklinks_enable_1 %}
+                        {% assign footerlinks_name = section.settings.footer_quicklinks_linklist_1 %}
+
+                        {% include 'block-footerlinks' with '2' %}
+                      {% endif %}
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+                      {% if section.settings.footer_quicklinks_enable_2 %}
+                        {% assign footerlinks_name = section.settings.footer_quicklinks_linklist_2 %}
+
+                        {% include 'block-footerlinks' with '3' %}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if section.settings.list_contact %}
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 col-footer ">
+              <div class=" box-footer footer-block box-contact">
+                {% if section.settings.title_adress_footer != blank %}
+                  <div class="footer-title">
+                    <h4 class="title_block">{{ section.settings.title_adress_footer }}</h4>
+                  </div>
+                {% endif %}
+                <div class="block_content block-info-footer">
+                  <ul class="list-group list-unstyled list-contact">
+                    {% if section.settings.address_about != blank %}
+                      <li><i class="fa fa-map-marker"></i>{{ section.settings.address_about }}</li>
+                    {% endif %}
+                    {% if section.settings.address_number != blank %}
+                      <li><i class="fa fa-phone"></i>{{ section.settings.address_number }}</li>
+                    {% endif %}
+                    {% if section.settings.address_contact != blank %}
+                      <li><i class="fa fa-envelope-o"></i>{{ section.settings.address_contact }}</li>
+                    {% endif %}
+                    {% if section.settings.Time_contact != blank %}
+                      <li><i class="fa fa-clock-o"></i>{{ section.settings.Time_contact }}</li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="widget clearfix">
+    <div class="container">
+      <div class="row">
+        {% if section.settings.twitter_enable %}
+          {% include 'block-twitter' %}
+        {% endif %}
+        {% if section.settings.facebook_enable %}
+          {% include 'block-facebook' %}
+        {% endif %}
+        {% if section.settings.pinterest_enable %}
+          {% include 'block-pinterest' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <section id="footernav" class="footer-nav">
+    <div id="powered">
+      <div class="container">
+        <div class="row">
+          <div class="powered powered_left col-lg-6 col-md-6 col-sm-7 col-xs-12 {% if section.settings.animated_enable %}wow animated {{ section.settings.lazyload_fcoppyright }}{% endif %}">
+            <p>
+              &copy; Copyright {{ 'now' | date: '%Y' }}
+              {{ shop.name }}. <strong>{{ powered_by_link }}</strong>
+            </p>
+          </div>
+          {% if section.settings.bank_count %}
+            <div class="powered_right col-lg-6 col-md-6 col-sm-5 col-xs-12 ">
+              <div id="bank-account">
+                <a href="{{ section.settings.link_image}}">
+                  <img src="{{ section.settings.image | img_url: '235x'}}" alt="" class="">
+                </a>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,68 @@
+<div class="socialsharing_product no-print">
+    <span class="share-this"> {{'products.Social.title_share' | t}}</span>
+    <ul class="social-sharing list-unstyled">
+        {% if section.settings.product_page_social_twitter_enable %}
+            <li>
+                <a class="btn social-sharing btn-twitter" href="javascript:void(0);" data-type="twitter">
+                    <i class="fa fa-twitter"></i> Tweet
+                </a>
+            </li>
+        {% endif %}
+        {% if section.settings.product_page_social_facebook_enable %}
+            <li>
+                <a class="btn social-sharing btn-facebook" href="javascript:void(0);" data-type="facebook">
+                    <i class="fa fa-facebook"></i> Facebook
+                </a>
+            </li>
+        {% endif %}
+        {% if section.settings.product_page_social_google_enable %}
+            <li>
+                <a class="btn social-sharing btn-google-plus" href="javascript:void(0);" data-type="google-plus">
+                    <i class="fa fa-google-plus-square"></i> Google+
+                </a>
+            </li>
+        {% endif %}
+        {% if section.settings.product_page_social_linkedin_enable %}
+            <li>
+                <a class="btn social-sharing btn-linkedin" href="javascript:void(0);" data-type="linkedin">
+                    <i class="fa fa-linkedin"></i> Linkedin
+                </a>
+            </li>
+        {% endif %}
+        {% if section.settings.product_page_social_pinterest_enable %}
+            <li>
+                <a class="btn social-sharing btn-pinterest" href="javascript:void(0);" data-type="pinterest">
+                    <i class="fa fa-pinterest-square"></i> Pinterest
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.btn.social-sharing').on('click', function(){
+            type = $(this).attr('data-type');
+            if (type.length)
+            {
+                switch(type)
+                {
+                    case 'twitter':
+                        window.open('https://twitter.com/intent/tweet?text={{ product.title | truncate: 30 | url_param_escape }} http%3A%2F%2F{{ shop.domain }}{{ product.url }}', 'sharertwt', 'toolbar=0,status=0,width=640,height=445');
+                        break;
+                    case 'facebook':
+                        window.open('http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F{{ shop.domain }}{{ product.url }}', 'sharer', 'toolbar=0,status=0,width=660,height=445');
+                        break;
+                    case 'google-plus':
+                        window.open('https://plus.google.com/share?url=//{{ shop.domain }}{{ product.url }}', 'sharer', 'toolbar=0,status=0,width=660,height=445');
+                        break;
+                    case 'linkedin':
+                        window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=//{{ shop.domain }}{{ product.url }}&amp;title={{ product.title | truncate: 30 | url_param_escape }}&amp;source=http&#58;&#47;&#47;{{ shop.domain }}{{ product.url }}', 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
+                        break;
+                    case 'pinterest':
+                        window.open('http://pinterest.com/pin/create/button/?url=//{{ shop.domain }}{{ product.url }}&amp;media={{ product.featured_image.src | product_img_url: 'large' }}', 'sharerpinterest', 'toolbar=0,status=0,width=660,height=445');
+                        break;
+                }
+            }
+        });
+    });
+</script>

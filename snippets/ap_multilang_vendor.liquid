@@ -1,0 +1,12 @@
+{% comment %} translate vendor {% endcomment %}
+{% include 'ap-multilang-namespace' %}
+{% if current_lang == main_lang %}
+{% assign vendor_translate = ap_multilang_vendor %}
+{% else %}
+    {% for pro in products %}
+        {% if pro.vendor == ap_multilang_vendor %}
+            {% assign vendor_translate = pro.metafields[current_lang].vendor %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

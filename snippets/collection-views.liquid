@@ -1,0 +1,17 @@
+<div class="collection-view">
+  	{% if settings.on-off-filter and settings.filter-position == "top" %}
+  	<button class="config-filter"><i class="fa fa-cog"></i></button>
+  	{% endif %}
+    <button type="button" title="{{ 'collections.general.grid_view' | t }}" class="change-view{% unless template contains 'list' %} change-view--active{% endunless %}" data-view="grid">
+        <span class="icon-fallback-text">
+            <span class="fa fa-th-large" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'collections.general.grid_view' | t }}</span>
+        </span>
+    </button>
+    <button type="button" title="{{ 'collections.general.list_view' | t }}" class="change-view{% if template contains 'list' %} change-view--active{% endif %}" data-view="list">
+        <span class="icon-fallback-text">
+            <span class="fa fa-list-ul" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'collections.general.list_view' | t }}</span>
+        </span>
+    </button>
+</div>

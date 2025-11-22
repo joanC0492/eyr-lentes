@@ -1,0 +1,86 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+  <header id="header" class="ap-{{ section.settings.header-template-layout }} {% if section.settings.header_bg_transparent_enable%}header-bg-transparent{% endif %}">
+  	{% include section.settings.header-template-layout %}
+    {% if section.settings.header_background_slideshow_enable %}
+    {% endif %}
+  </header>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+      {
+        "type": "header",
+        "content": "Contact Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_infor_enable",
+        "label": "Contact Header Enable"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_bg_transparent_enable",
+        "label": "Background transparent Enable",
+		"default": false
+      },
+      {
+        "type": "select",
+        "id": "header-template-layout",
+        "label": "Layout Header",
+        "default": "header-template1",
+        "options": [
+          {
+          "value": "header-template1",
+          "label": "Template 1"
+          }
+          
+        ],
+        "info": "Select template Header"
+      },
+      {
+        "type": "checkbox",
+        "id": "header_background_slideshow_enable",
+        "label": "Using Slideshow for background",
+		"default": false
+      },
+      {
+        "type": "text",
+        "id": "header_text_infor_phone",
+        "label": "Titie Phone Contact"
+      },
+      {
+        "type": "text",
+        "id": "header_infor_phone",
+        "label": "Phone Contact"
+      },
+   
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "logo_use_image",
+        "label": "Use Custom Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom Logo",
+        "info": "Maximum logo dimensions are 450px wide by 200px high. The uploaded file will be resized to fit within those constraints."
+      },
+	  {
+        "type": "text",
+        "id": "image_size",
+        "label": "Size logo"
+      },   	  
+      {
+        "type": "image_picker",
+        "id": "logo_2x",
+        "label": "Logo image is used when using Retina"
+      }
+  ]
+}
+{% endschema %}

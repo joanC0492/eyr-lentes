@@ -1,0 +1,18 @@
+<div class="col-xs-12 col-sm-4">
+<div class="fb-page" data-href="{{ section.settings.facebook_url}}" data-tabs="timeline" data-small-header="{{ section.settings.show_header }}" data-adapt-container-width="{{ section.settings.fit_the_width }}" data-hide-cover="{{ section.settings.cover_image }}" data-show-facepile="{{ section.settings.list_friend }}">
+  <blockquote cite="{{ section.settings.facebook_facebook_url}}" class="fb-xfbml-parse-ignore">
+    <a href="{{ section.settings.facebook_facebook_url}}"></a>
+  </blockquote>
+</div>
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+    fjs.parentNode.insertBefore(js, fjs);
+  }
+   (document, 'script', 'facebook-jssdk'));
+</script>
+</div>  

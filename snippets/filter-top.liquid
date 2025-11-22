@@ -1,0 +1,53 @@
+ <div class="row">
+    {% if settings.enable_filter_tag %}
+     	<div class="col-xs-12">
+          <div class="filter-group refine-header ">
+            <h4 class="title_block" style="position:relative;">{{ 'collections.general.filter_tag_refine_by' | t }}</h4>
+            <a href="{{ collection.url }}" class="clear-filter">{{ 'collections.general.filter_tag_view_all' | t }}</a>
+            <div class="list-current-tag"></div>        
+            {% if collection.url.size > 0 %}
+                {% assign url = collection.url %}
+            {% else %}
+                {% assign url = "/collections/all" %}
+            {% endif %}
+
+            <div class="root-filter" data-url="{{ url }}">
+              <img class="loadding-filter" src="{{ "loading.gif" | asset_url}}" alt="Loading filter">
+              {% if settings.filter_tag_1 %}
+                  {% assign items = settings.filter_tag_1 | strip | split:"|" %}
+                  <div id="product_{{items[1] | strip }}_filter" class="product_filter_item col-md-4"></div>
+              {% endif%}
+              {% if settings.filter_tag_2 %}
+                  {% assign items = settings.filter_tag_2 | strip | split:"|" %}
+                  <div id="product_{{items[1] | strip }}_filter" class="product_filter_item col-md-4"></div>
+              {% endif%}
+              {% if settings.filter_tag_3 %}
+                  {% assign items = settings.filter_tag_3 | strip | split:"|" %}
+                  <div id="product_{{items[1] | strip }}_filter" class="product_filter_item col-md-4"></div>
+              {% endif%}
+              {% if settings.filter_tag_4 %}
+                  {% assign items = settings.filter_tag_4 | strip | split:"|" %}
+                  <div id="product_{{items[1] | strip }}_filter" class="product_filter_item col-md-4"></div>
+              {% endif%}
+              {% if settings.filter_tag_5 %}
+                  {% assign items = settings.filter_tag_5 | strip | split:"|" %}
+                  <div id="product_{{items[1] | strip }}_filter" class="product_filter_item col-md-4"></div>
+              {% endif%}
+              <div class="col-md-4">
+                {% if settings.filter_price_bar_enable %}
+                  <div class="filter-price-bar block">
+                      {% if settings.filter_price_bar_title != blank %}
+                      <h4 class="title_block">
+                        {{ settings.filter_price_bar_title }}
+                      </h4>
+                      {% endif %}
+                      <div id="slider-range" data-url="{{ collection.url }}"></div>
+                      <div class="amount"><span class="min-price"></span> - <span class="max-price"></span></div>
+                  </div>  
+                {% endif %}  
+              </div>
+            </div>
+          </div>
+      </div>
+    {% endif %}
+</div>

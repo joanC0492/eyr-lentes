@@ -1,0 +1,26 @@
+{% include 'breadcrumb' %}
+<section id="columns" class="columns-container page_404">
+    <div class="container">
+    	<div class="row">
+    		<div id="center_column" class="center_column col-sm-12 col-md-12">
+              	<div class="page-404">
+                    <h1>{{ 'general.404.title' | t }}</h1>
+                    <p>{{ 'general.404.subtext_html' | t }}</p>
+                  	{% if settings.image_404_enable %}
+                    	<img src="{{ '404-image.png' | asset_url }}" alt="404 Image" class="img-responsive"/>
+                  	{% else %}
+                  		<h2>{{ settings.found_html }}</h2>
+                  	{% endif %}
+                    <div class="text-center btn_404">
+                      {% if settings.found_btnleft_text != blank %}
+                            <a href="{{ settings.found_btnleft_link }}" class="btn btn-outline">{{ settings.found_btnleft_text }}</a>
+                        {% endif %}
+                        {% if settings.found_btnright_text != blank %}
+                            <a href="{{ settings.found_btnright_link }}" class="btn btn-outline">{{ settings.found_btnright_text }}</a>
+                        {% endif %}
+                    </div>                      	
+                </div>
+    		</div>
+		</div>
+	</div>
+</section>

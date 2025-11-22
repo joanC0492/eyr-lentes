@@ -1,0 +1,32 @@
+
+<script type="text/javascript">
+    $(document).ready( function(){ 
+         $("#search_block_top").each( function(){
+         	$("#search-icon").click( function(){              	              	
+              $('#search-icon-close').addClass("show");   
+             });
+           $("#search-icon-close").click( function(){
+              $('#search-icon-close').removeClass("show");             
+           });
+         }); 
+    });
+</script>
+
+<div id="search_block_top" class="">
+  <span id="search-icon" class="open-search" title="{{ 'general.search.submit' | t }}" ></span>
+  <span id="search-icon-close" title="{{ 'general.search.submit' | t }}" >x</span>  	
+  <div class="block-form clearfix">
+    <form id="searchbox" class="popup-content" action="/search" method="get">
+      <input type="hidden" name="type" value="product">
+      <input id="search_query_top" class="search_query form-control" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" aria-label="{{ 'general.search.placeholder' | t }}" autocomplete="off" />
+      <button id="search_button" class="btn btn-sm" type="submit" >
+        <span><i class="fa fa-search"></i></span>
+        {% comment %}
+        <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+        {% endcomment %}
+      </button>
+      <div id="ap-ajax-search" class="hidden-sm hidden-xs"><ul class="list-unstyled aps-results"></ul></div>
+    </form>
+  </div>
+  
+</div>

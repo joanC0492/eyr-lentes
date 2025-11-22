@@ -1,0 +1,185 @@
+<div class="container">
+  {% assign enable_dot = section.settings.enable_dot_logo  %}
+  {% assign enable_nav = section.settings.enable_nav_logo  %}
+  {% assign slidesToScroll = section.settings.logobar_toscroll | plus:0 %}
+  {% assign item_laptop = section.settings.logobar_toscroll_laptop | plus:0 %}
+  {% assign item_table = section.settings.logobar_toscroll_table | plus:0 %}
+  {% assign item_phone = section.settings.logobar_toscroll_phone | plus:0 %}
+  {% assign item_phone_min = section.settings.logobar_toscroll_phone_min | plus:0 %}
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+    <div class="logo-bar slick_carousel{% if section.settings.title_enable %} logo-bar--large{% endif %}">
+      {% for block in section.blocks %}
+        <div class="logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="logo-bar__link">
+          {% endif %}
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | img_url: '160x160' | img_tag: block.settings.image.alt , 'logo-bar__image' }}
+          {% else %}
+            {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+          {% if block.settings.link != blank %}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.logo-bar').slick({
+          lazyLoad: 'ondemand',
+          slidesToShow: {{slidesToScroll}},
+          slidesToScroll: {{slidesToScroll}},
+          {% if settings.theme_rtl_enable %}
+          rtl: true,
+          {% endif %}
+          infinite: true,
+          dots: {{enable_dot}},
+          arrows:{{enable_nav}},
+          responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: {{item_laptop}},
+              slidesToScroll: {{item_laptop}},
+            }
+          },
+          {
+            breakpoint: 990,
+            settings: {
+              slidesToShow: {{item_table}},
+              slidesToScroll: {{item_table}}
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: {{item_phone}},
+              slidesToScroll: {{item_phone}}
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: {{item_phone_min}},
+              slidesToScroll: {{item_phone_min}}
+            }
+          }
+      ]
+        });
+      });
+    </script>
+</div>
+
+{% schema %}
+{
+  "name": "Logo list",
+  "class": "index-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Logo list"
+    },
+    {
+      "type": "select",
+      "id": "enable_dot_logo",
+      "label": "Navigator Type",
+      "default": "true",  
+      "options": [
+        {
+          "label": "None",
+          "value": "false"
+        },
+        {
+          "label": "Bullet",
+          "value": "true"
+        }
+      ]
+    },
+    {
+    "type": "select",
+    "id": "enable_nav_logo",
+    "label": "Arrows Style",
+    "default": "true",  
+    "options": [
+      {
+        "label": "None",
+        "value": "false"
+      },
+      {
+        "label": "Next & Preview",
+        "value": "true"
+      }
+    ]
+    },
+    {
+      "type": "text",
+      "id": "logobar_toscroll",
+      "label": "Slider To Scroll",
+      "default": "4",
+      "info": "for slick slider ex: 1, 2, 3, 4 .."
+    },
+    {
+      "type": "text",
+      "id": "logobar_toscroll_laptop",
+      "label": "Number Item per Line ( Laptop )",
+      "default": "3",
+      "info": "for screen 1200px"
+    },
+    {
+      "type": "text",
+      "id": "logobar_toscroll_table",
+      "label": "Number Item per Line (Table)",
+      "default": "2",
+      "info": "for screen 990px"
+    },
+    {
+      "type": "text",
+      "id": "logobar_toscroll_phone",
+      "label": "Number Item per Line (Phone)",
+      "default": "2",
+      "info": "for screen 767px"
+    },
+    {
+      "type": "text",
+      "id": "logobar_toscroll_phone_min",
+      "label": "Number Item per Line (Phone Min )",
+      "default": "1",
+      "info": "for screen 480px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_image",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Optional"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo list",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

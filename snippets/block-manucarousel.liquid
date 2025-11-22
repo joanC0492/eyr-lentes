@@ -1,0 +1,101 @@
+{% assign columns_manucarousel = section.settings.home_vendor_columntab | plus: 0 %}
+{% assign itempage_manucarousel = section.settings.home_vendor_itempage | plus: 0 %}
+
+{% assign colProduct = 12 | divided_by:columns_manucarousel %}
+{% capture grid_manucarousel %}col-md-{{ colProduct }} col-sm-3 col-xs-4 col-sp-12{% endcapture %}
+
+<div id="manucarousel{{ block-manucarousel }}" class="block-manufacture">
+    {% if section.settings.home_vendor_carousel_title != blank %}
+        <h4 class="page-subheading"><span>{{ section.settings.home_vendor_carousel_title }}</span></h4>
+    {% endif %}
+    <div class="block_content {% if section.settings.home_vendor_carousel_type != 'boostrap_carousel' %}owl-row{% endif %}">
+        {% if section.settings.home_vendor_carousel_type == 'boostrap_carousel' %}
+            <div class="carousel slide" id="manu-carousel{{ block-manucarousel }}">
+                {% assign manu_index = 0 %}
+                {% for i in (1..12) %}
+                    {% capture vendor %}home_vendor_enable_{{i}}{% endcapture %}
+                    {% if section.settings[vendor] %}
+                        {% assign manu_index = manu_index | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+                {% if manu_index > itempage_manucarousel %}
+                    <a class="carousel-control left" href="#manu-carousel{{ block-manucarousel }}" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#manu-carousel{{ block-manucarousel }}" data-slide="next">&rsaquo;</a>
+                {% endif %}
+                <div class="carousel-inner">
+                    {% capture vendor_title %}{{ 'products.product.vendor' | t }}{% endcapture %}
+                    {% for i in (1..12) %}
+                        {% capture vendor %}home_vendor_enable_{{i}}{% endcapture %}
+                        {% capture vendor_name %}home_vendor_name_{{i}}{% endcapture %}
+                        {% capture vendor_logo %}section.settings.vendor_logo_{{i}}{% endcapture %}
+                        
+                        {% assign modpage = forloop.index | modulo:itempage_manucarousel %}
+                        {% if modpage == 1 %}
+                            <div class="item {% if forloop.first %}active{% endif %}">
+                                <div class="row">
+                        {% endif %}
+                                  
+                            {% if section.settings[vendor] %}
+                                <div class="logo-manu {{ grid_manucarousel }}">
+                                    <a href="{{ section.settings[vendor_name] }}" title="{{ vendor_title }}">
+                                      {{ vendor_logo }}
+                                      <img src="{{ section.settings.vendor_logo | img_url: image_size }}" alt="{{ vendor_title }}" class="replace-2x img-responsive">
+                                    </a>
+                                </div>
+                            {% endif %}
+                                  
+                        {% if modpage == 0 or forloop.last %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="owl-carousel slide">
+                {% for i in (1..12) %}
+                    {% capture vendor %}home_vendor_enable_{{i}}{% endcapture %}
+                    {% capture vendor_name %}home_vendor_name_{{i}}{% endcapture %}
+                    {% capture vendor_logo %}vendor_logo_{{i}}.png{% endcapture %}
+                    {% if section.settings[vendor] %}
+                        <div class="item">
+                            <div class="logo-manu">
+                                <a href="{{ section.settings[vendor_name] }}" title="{{ section.settings[vendor_name] }}">
+                                  	 <img src="{{ section.settings.vendor_logo | img_url: image_size }}" alt="{{ vendor_title }}" class="replace-2x img-responsive">
+                                    
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        {% if section.settings.home_vendor_carousel_type == 'boostrap_carousel' %}
+            $('#manucarousel{{ block-manucarousel }} .carousel').each(function(){
+                $(this).carousel({
+                    pause: 'hover',
+                    interval: {{ section.settings.home_vendor_carousel_interval }}
+                });
+            });
+        {% else %}
+            $('#manucarousel{{ block-manucarousel }} .owl-carousel').each(function(){
+                $(this).owlCarousel({
+                    items : {{ columns_manucarousel }},
+                    lazyLoad : true,
+                    autoPlay: {{ section.settings.home_vendor_carousel_interval }},
+                    navigation : true,
+                    itemsDesktop: [1199, 5],
+                    itemsDesktopSmall: [979, 4],
+                    itemsTablet: [768, 3],
+                    itemsTabletSmall: [480, 2],
+                    itemsMobile: [360, 1],
+                }); 
+            });
+        {% endif %}
+    });
+</script>

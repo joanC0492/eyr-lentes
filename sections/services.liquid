@@ -1,0 +1,143 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+  <div class="collection-grid-items">
+    <div class="grid-service">
+      {% for block in section.blocks limit: section.blocks.size %}
+        <div class="col-xs-12 col-md-{{ block.settings.columns_section }}" {{ block.shopify_attributes }}>
+          <div class="service row">
+            {% if block.settings.icon != blank %}
+            	{{ block.settings.icon }}
+            {% endif %}
+            {% if block.settings.heading_service != blank %}
+            <h4 class="title_block">{{ block.settings.heading_service }}</h4>
+            {% endif %}
+            {% if block.settings.des_service != blank %}
+            <p class="text_service">{{ block.settings.des_service }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "service",
+  "class": "index-section index-section--flush",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "service",
+      "settings": [
+        {
+			"type": "text",            
+            "id": "heading_service",
+	 	    "label": "Heading service"
+        },
+        {
+		  "type": "textarea",
+		  "id": "des_service",	
+          "label": "Des service"
+                    
+        },
+        {
+        "type": "textarea",
+        "id": "icon",	
+        "label": "icon block"
+        },
+		{
+          "type": "select",
+          "id": "columns_section",
+          "label": "Width of the section",
+          "options": [
+            {
+              "value": "1",
+              "label": "1\/12 (8.33%)"
+            },
+            {
+              "value": "2",
+              "label": "2\/12 (16.67%)"
+            },
+            {
+              "value": "3",
+              "label": "3\/12 (25.00%)"
+            },
+            {
+              "value": "4",
+              "label": "4\/12 (33.33%)"
+            },
+            {
+              "value": "5",
+              "label": "5\/12 (41.67%)"
+            },
+            {
+              "value": "6",
+              "label": "6\/12 (50.00%)"
+            },
+            {
+              "value": "7",
+              "label": "7\/12 (58.33%)"
+            },
+            {
+              "value": "8",
+              "label": "8\/12 (66.67%)"
+            },
+            {
+              "value": "9",
+              "label": "9\/12 (75.00%)"
+            },
+            {
+              "value": "10",
+              "label": "10\/12 (83.33%)"
+            },
+            {
+              "value": "11",
+              "label": "11\/12 (91.67%)"
+            },
+            {
+              "value": "12",
+              "label": "12\/12 (100.00%)"
+            }
+          ],
+          "info": "Width of the block products in a row of megamenu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "service",
+      "category": "service",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

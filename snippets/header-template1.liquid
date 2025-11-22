@@ -1,0 +1,85 @@
+<div class="header-container">
+  	<div id="topbar">
+      <div class=topbar-header>
+      <div class="container">
+        <div class="settings pull-left">
+          {% include 'ap-multilang-box' %}
+          {% include 'block-currentcies' %}
+        </div>
+        <div class="link_user_info pull-right">
+              <div class="header-userinfo">
+                <ul>
+             {% if settings.theme_wishlist_enable %}
+                {% assign pagewishlist = pages[settings.theme_wishlist_page] %}
+				<li>
+					<a class="wishlist-total" title="{{ 'header.general.wishlist' | t }}" href="{{ pagewishlist.url }}"><i class="fa fa-list-alt"></i> {{ 'header.general.wishlist' | t }}</a>
+				</li>
+			{% endif %}
+                {% if customer  %}
+                <li>
+                  {% capture fullname %}{{ customer.first_name }} {{ customer.last_name }}{% endcapture %}
+                  <a class="account" rel="nofollow" href="/account" title="{{ 'customer.account.title' | t }}"><span>{{ 'header.general.welcome_html' | t : fullname : fullname }}</span></a>
+                </li>
+                {% else %}
+                <li>
+					<a class="customer_login_link" href="/account/login" title="{{ 'header.general.login' | t }}"><i class="fa fa-unlock-alt"></i> {{ 'header.general.login' | t }}</a>
+				</li>
+                {% endif %}
+                </ul>
+                </div>
+          {% include 'block-userinfo' %}
+      </div>
+      </div>
+      </div>
+  	</div>
+    <div id="header-main">
+        <div class="header-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">              
+                  <div id="header_logo">
+                    {% if template == 'index' %}
+                    <h1 class="" itemscope itemtype="http://schema.org/Organization">
+                      {% else %}
+                      <div class="" itemscope itemtype="http://schema.org/Organization">
+                        {% endif %}
+                        {% if section.settings.logo_use_image %}
+                        <a href="/" itemprop="url">
+                          <img src="{{ section.settings.logo | img_url: section.settings.image_size }}" alt="{{ shop.name }}">
+                          <span class="hidden">{{ shop.name }}</span>
+                        </a>
+                        {% else %}
+                        <a href="/" itemprop="url">{{ shop.name }}</a>
+                        {% endif %}
+                        {% if template != 'index' %}
+                      </div>
+                      {% else %}
+                    </h1>
+                    {% endif %}
+                  </div>
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
+                {% include 'block-search' %}
+              </div>
+              <div id="box-right" class="col-lg-4 col-md-4 col-sm-2 col-xs-12">
+                {% include 'block-cart' %}
+                <div class="hidden-sm hidden-xs block-header">
+                  <div class="pull-left" style="width: 36px; height: 45px; line-height: 58px;">
+                  	<em class="zmdi zmdi-phone-in-talk">&nbsp;</em>
+                  </div>
+                  <div class="pull-left">
+                  <p> {{section.settings.header_text_infor_phone}}</p>
+                  <h4> {{section.settings.header_infor_phone}}</h4>
+                  </div>
+                </div>                
+              </div>
+           </div>
+          </div>
+        </div>        
+    </div>
+    <div class="bottom-topnav">
+      <div class="container">
+        {% include 'block-menu' %}
+      </div>
+    </div>
+  </div>

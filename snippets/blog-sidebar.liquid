@@ -1,0 +1,50 @@
+<div class="sidebarBlog block">
+    <h4 class="title_block">{{ 'blogs.sidebar.recent_articles' | t }}</h4>
+  	<div class="block_content">
+        <ul class="listSidebar list-unstyled">
+            {% for article in blogs[blog.handle].articles limit:10 %}
+                <li>
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                    <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+                </li>
+            {% endfor %}
+        </ul>
+  	</div>
+</div>
+{% if section.settings.blogsidebar_html_enable %}
+	<div id="blogsidebar-html" class="sidebarBlog block">
+		{% if section.settings.blogsidebar_html_title %}
+      		<h4 class="title_block">{{ section.settings.blogsidebar_html_title }}</h4>
+		{% endif %}
+      	<div class="block_content">
+      		<div class="html_des">
+          		{{ section.settings.blogsidebar_html_des }}
+          	</div>
+          	{% if section.settings.blogsidebar_html_link != blank %}
+                <div class="effect">
+                    <a href="{{ section.settings.blogsidebar_html_link }}">
+                        <div class="image">
+                            {{ section.settings.blogsidebar_html | img_url | img_tag: section.settings.blogsidebar_html_title, "img-responsive" }}
+                        </div>
+                    </a>
+                </div>
+          	{% endif %}
+      	</div>
+	</div>
+{% endif %}
+{% if blog.all_tags.size > 0 %}
+    <div id="categories-blog" class="sidebarBlog block">
+        <h4 class="title_block">{{ 'blogs.sidebar.categories' | t }}</h4>
+      	<div class="block_content">
+            <ul class="listBlogTags list-unstyled">
+                {% for tag in blog.all_tags %}
+                    {% if current_tags contains tag %}
+                        <li>{{ tag }}</li>
+                    {% else %}
+                        <li>{{ tag | link_to_tag: tag }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

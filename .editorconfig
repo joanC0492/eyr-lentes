@@ -1,0 +1,24 @@
+# EditorConfig: estándar para mantener estilos consistentes
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Indentación universal en 2 espacios
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# Archivos que suelen usar tab por defecto (por si querés forzar 2 espacios igual)
+[*.{yml,yaml,json,md,html,css,scss,js,ts,php}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# Makefiles (estos *sí o sí* usan tabs, lo dejo por si algún día lo necesitás)
+[Makefile]
+indent_style = tab
+indent_size = 2
+tab_width = 2

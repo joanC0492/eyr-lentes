@@ -1,0 +1,87 @@
+<div class="footer-container">
+  	{% if section.settings.show_instagram %}
+    {% if template == 'index' %}
+        {% include 'block-instagram' %}
+    {% endif %}
+  	{% endif %}
+    <div id="footercenter" class="footer-center">
+        <div class="container">
+            <div class="footer-center-wrap">
+                <div class="row no-margin col--block">
+                    <div class="col-md-4 col-sm-12 col-xs-12 no-padding col-footer border_right">
+                        <div class=" box-footer ">
+                            {% if section.settings.enable_about_footer %}
+                                <div class="about__footer">
+                                  
+                                    <a href="{{section.settings.link_about_footer}}">
+                                      <img src="{{ section.settings.logo_footer | img_url: image_size }}" alt="{{ shop.name }}">
+                                  	</a>
+                                    {% if section.settings.des_about_footer != blank %}
+                                        <div class="des_about">
+                                            {{ section.settings.des_about_footer }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            {% if section.settings.footer_social_enable %}
+                                {% include 'block-social' %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if section.settings.homepage_newsletter_enable %}
+                        <div class="col-md-4 col-sm-12 col-xs-12 no-padding col-footer border_right">
+                            <div class="box-footer ">
+                                {% include 'block-newsletter' %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if section.settings.footer_quicklinks_enable %}
+                        <div class="col-md-4 col-sm-12 col-xs-12 no-padding col-footer">
+                            <div class="box-footer">
+                                {% assign footerlinks_name = section.settings.footer_quicklinks_linklist %}
+                                {% assign footerlinks_title = section.settings.footer_quicklinks_title %}
+                                {% include 'block-footerlinks' with '1' %}
+                            </div>
+                        </div>
+                    {% endif %}
+                  	{% if section.settings.footer_quicklinks_enable_1%}
+                    <div class="col-md-4 col-sm-4 col-xs-12">                      
+                      <div class="box-footer">
+                        {% assign footerlinks_name = section.settings.footer_quicklinks_linklist_1 %}
+                        {% assign footerlinks_title = section.settings.footer_quicklinks_title_1 %}
+                        {% include 'block-footerlinks' with '2' %}                      
+                      </div>
+                    </div>
+                    {% endif %}
+                  <div class="widget">
+                    {% if section.settings.twitter_enable %}
+                    {% if template == 'index' %}
+                    {% include 'block-twitter' %}
+                    {% endif %}
+                    {% endif %}
+                    {% if section.settings.facebook_enable %}
+                    {% if template == 'index' %}
+                    {% include 'block-facebook' %}
+                    {% endif %}
+                    {% endif %}
+                    {% if section.settings.pinterest_enable %}    	
+                    {% if template == 'index' %}
+                    {% include 'block-pinterest' %}
+                    {% endif %}  
+                    {% endif %}
+                  </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footernav" class="footer-nav">
+        <div id="powered">
+            <div class="container">
+                <div  class="powered {% if section.settings.animated_enable %}wow animated {{ section.settings.lazyload_fcoppyright }}{% endif %}">
+                    <p>&copy; Copyright {{ "now" | date: "%Y" }} {{ shop.name }}. <strong>{{ powered_by_link }}</strong></p>
+                </div>
+                <div id="back-top" style="display: block;"><a href="#" title="Back to top"><i class="fa fa fa-angle-up"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>

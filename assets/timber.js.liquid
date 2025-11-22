@@ -1,0 +1,120 @@
+/* Jonathan Snook - MIT License - https://github.com/snookca/prepareTransition */
+(function(a){a.fn.prepareTransition=function(){return this.each(function(){var b=a(this);b.one("TransitionEnd webkitTransitionEnd transitionend oTransitionEnd",function(){b.removeClass("is-transitioning")});var c=["transition-duration","-moz-transition-duration","-webkit-transition-duration","-o-transition-duration"];var d=0;a.each(c,function(a,c){d=parseFloat(b.css(c))||d});if(d!=0){b.addClass("is-transitioning");b[0].offsetWidth}})}})(jQuery);
+
+/* replaceUrlParam - http://stackoverflow.com/questions/7171099/how-to-replace-url-parameter-with-javascript-jquery */
+function replaceUrlParam(e,r,a){var n=new RegExp("("+r+"=).*?(&|$)"),c=e;return c=e.search(n)>=0?e.replace(n,"$1"+a+"$2"):c+(c.indexOf("?")>0?"&":"?")+r+"="+a};
+// Timber functions
+window.timber = window.timber || {};
+
+timber.cacheSelectors = function () {
+  timber.cache = {
+    // General
+    $html                    : $('html'),
+    $body                    : $(document.body),
+    $changeView              : $('.change-view')
+  };
+};
+timber.init = function () {
+  FastClick.attach(document.body);
+  timber.cacheSelectors();
+
+  timber.drawersInit();
+};
+timber.drawersInit = function () {
+  timber.LeftDrawer = new timber.Drawers('NavDrawer', 'left');
+  {% if settings.apollo_cart_type != "default" %}
+    timber.RightDrawer = new timber.Drawers('CartDrawer', 'right', {
+      'onDrawerOpen': ajaxCart.load
+    });
+  {% endif %}
+};
+/*============================================================================
+  Drawer modules
+  - Docs http://shopify.github.io/Timber/#drawers
+==============================================================================*/
+timber.Drawers=function(){var a=function(a,b,c){var d={close:".js-drawer-close",open:".js-drawer-open-"+b,openClass:"js-drawer-open",dirOpenClass:"js-drawer-open-"+b};return this.$nodes={parent:$("body, html"),page:$("#PageContainer"),moved:$(".is-moved-by-drawer")},this.config=$.extend(d,c),this.position=b,this.$drawer=$("#"+a),!!this.$drawer.length&&(this.drawerIsOpen=!1,void this.init())};return a.prototype.init=function(){$(this.config.open).on("click",$.proxy(this.open,this)),this.$drawer.find(this.config.close).on("click",$.proxy(this.close,this))},a.prototype.open=function(a){var b=!1;return a?a.preventDefault():b=!0,a&&a.stopPropagation&&(a.stopPropagation(),this.$activeSource=$(a.currentTarget)),this.drawerIsOpen&&!b?this.close():(timber.cache.$body.trigger("beforeDrawerOpen.timber",this),this.$nodes.moved.addClass("is-transitioning"),this.$drawer.prepareTransition(),this.$nodes.parent.addClass(this.config.openClass+" "+this.config.dirOpenClass),this.drawerIsOpen=!0,this.trapFocus(this.$drawer,"drawer_focus"),this.config.onDrawerOpen&&"function"==typeof this.config.onDrawerOpen&&(b||this.config.onDrawerOpen()),this.$activeSource&&this.$activeSource.attr("aria-expanded")&&this.$activeSource.attr("aria-expanded","true"),this.$nodes.page.on("touchmove.drawer",function(){return!1}),this.$nodes.page.on("click.drawer",$.proxy(function(){return this.close(),!1},this)),void timber.cache.$body.trigger("afterDrawerOpen.timber",this))},a.prototype.close=function(){this.drawerIsOpen&&(timber.cache.$body.trigger("beforeDrawerClose.timber",this),$(document.activeElement).trigger("blur"),this.$nodes.moved.prepareTransition({disableExisting:!0}),this.$drawer.prepareTransition({disableExisting:!0}),this.$nodes.parent.removeClass(this.config.dirOpenClass+" "+this.config.openClass),this.drawerIsOpen=!1,this.removeTrapFocus(this.$drawer,"drawer_focus"),this.$nodes.page.off(".drawer"),timber.cache.$body.trigger("afterDrawerClose.timber",this))},a.prototype.trapFocus=function(a,b){var c=b?"focusin."+b:"focusin";a.attr("tabindex","-1"),a.focus(),$(document).on(c,function(b){a[0]===b.target||a.has(b.target).length||a.focus()})},a.prototype.removeTrapFocus=function(a,b){var c=b?"focusin."+b:"focusin";a.removeAttr("tabindex"),$(document).off(c)},a}();
+
+// Initialize Timber's JS on docready
+$(timber.init);
+
+//linked-options
+
+var Shopify = Shopify || {};
+    Shopify.optionsMap = {};
+    Shopify.updateOptionsInSelector = function(selectorIndex) {
+        switch (selectorIndex) {
+            case 0:
+                var key = 'root';
+                var selector = jQuery('.single-option-selector:eq(0)');
+                break;
+            case 1:
+                var key = jQuery('.single-option-selector:eq(0)').val();
+                var selector = jQuery('.single-option-selector:eq(1)');
+                break;
+            case 2:
+                var key = jQuery('.single-option-selector:eq(0)').val();  
+                key += ' / ' + jQuery('.single-option-selector:eq(1)').val();
+                var selector = jQuery('.single-option-selector:eq(2)');
+        }
+        var initialValue = selector.val();
+        selector.empty();    
+        var availableOptions = Shopify.optionsMap[key];
+        for (var i=0; i<availableOptions.length; i++) {
+            var option = availableOptions[i];
+            var newOption = jQuery('<option></option>').val(option).html(option);
+            selector.append(newOption);
+        }
+        jQuery('.swatch[data-option-index="' + selectorIndex + '"] .swatch-element').each(function() {
+            if (jQuery.inArray($(this).attr('data-value'), availableOptions) !== -1) {
+                $(this).removeClass('soldout').show().find(':radio').removeAttr('disabled','disabled').removeAttr('checked');
+            }
+            else {
+                $(this).addClass('soldout').hide().find(':radio').removeAttr('checked').attr('disabled','disabled');
+            }
+        });
+        if (jQuery.inArray(initialValue, availableOptions) !== -1) {
+            selector.val(initialValue);
+        }
+        selector.trigger('change');  
+    };
+    Shopify.linkOptionSelectors = function(product) {
+        // Building our mapping object.
+        for (var i=0; i<product.variants.length; i++) {
+            var variant = product.variants[i];
+            if (variant.available) {
+                // Gathering values for the 1st drop-down.
+                Shopify.optionsMap['root'] = Shopify.optionsMap['root'] || [];
+                Shopify.optionsMap['root'].push(variant.option1);
+                Shopify.optionsMap['root'] = Shopify.uniq(Shopify.optionsMap['root']);
+                // Gathering values for the 2nd drop-down.
+                if (product.options.length > 1) {
+                    var key = variant.option1;
+                    Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+                    Shopify.optionsMap[key].push(variant.option2);
+                    Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+                }
+                // Gathering values for the 3rd drop-down.
+                if (product.options.length === 3) {
+                    var key = variant.option1 + ' / ' + variant.option2;
+                    Shopify.optionsMap[key] = Shopify.optionsMap[key] || [];
+                    Shopify.optionsMap[key].push(variant.option3);
+                    Shopify.optionsMap[key] = Shopify.uniq(Shopify.optionsMap[key]);
+                }
+            }
+        }
+        // Update options right away.
+        Shopify.updateOptionsInSelector(0);
+        if (product.options.length > 1) Shopify.updateOptionsInSelector(1);
+        if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+        // When there is an update in the first dropdown.
+        jQuery(".single-option-selector:eq(0)").change(function() {
+            Shopify.updateOptionsInSelector(1);
+            if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+            return true;
+        });
+        // When there is an update in the second dropdown.
+        jQuery(".single-option-selector:eq(1)").change(function() {
+            if (product.options.length === 3) Shopify.updateOptionsInSelector(2);
+            return true;
+        });
+    };

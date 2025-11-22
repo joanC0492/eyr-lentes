@@ -1,0 +1,49 @@
+    <div id="block_currencies_lang" class="popup-over e-scale">
+        <div data-toggle="dropdown" class="popup-title dropdown-toggle" title="{{"general.setting.title" | t}}">
+          <div class="ap-lang-content"><span class="dropdown-heading multilang-heading setting_title"><i class="fa fa-cog" aria-hidden="true"></i></span></div>          
+          {% comment %}
+          <i class="fa fa-cog">{{"general.setting.title" | t}}</i>
+            {% for i in (1..5) %}
+                {% capture currency_t %}supported_currencies_{{ i }}{% endcapture %}
+                {% capture currency_img_t %}currencies_img_{{ i }}.png{% endcapture %}
+                {% if settings[currency_t] == shop.currency %}
+                    {% assign currency_img_current = currency_img_t %}
+                    {% assign currency_current = settings[currency_t] %}
+                {% endif %}
+            {% endfor %}
+            <span id="pre-currencies" class="hidden-xs">{{ currency_img_current | asset_url | img_tag: currency_current }} {{ currency_current }}</span>
+          {% endcomment %}
+      </div>
+      <div class="dropdown-menu">  
+        {% include 'ap-multilang-box' %}
+     {% if settings.show_multiple_currencies %}
+        <div class="ap-lang-content"><span class="dropdown-heading multilang-heading">{{"general.currencies.title" | t}}</span></div>
+        <div class="currencies-content">
+          <ul id="currencies" class="currencies_ul toogle_content list-unstyled">
+            {% for i in (1..5) %}
+            {% capture currency %}supported_currencies_{{ i }}{% endcapture %}
+            {% capture currency_img %}currencies_img_{{ i }}.png{% endcapture %}
+            {% assign currency_size = settings[currency] | size %}
+            {% if currency_size > 0 %}
+            <li class="item_currencies">
+              <a data-currency="{{ settings[currency] }}" class="{% if shop.currency == settings[currency] %}selected{% endif %}" href="javascript:void(0);" rel="nofollow">
+                {{ currency_img | asset_url | img_tag: settings[currency] }}
+                {{settings[currency]}}
+              </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>    
+        {% endif %}
+        </div>
+    </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".ap-multilang-box").before('<div class="ap-lang-content"><span class="dropdown-heading multilang-heading">{{'general.language.title' | t}}</span></div>');
+    $(".ap-multilang-box").find('.popup-title ').css({'display' : 'none'});
+    $(".ap-multilang-box").find('.list-lang').removeClass('dropdown-menu');
+    $(".icon-language").find('span').css({'display' : 'none'});
+  });
+</script>

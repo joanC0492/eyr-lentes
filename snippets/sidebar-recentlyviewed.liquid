@@ -1,0 +1,62 @@
+{% if settings.sidebar_products_recently_enable %}
+ {% assign product_sidebar_limit = settings.sidebar_products_recently_number %}
+ {% assign imagesize_sidebar = settings.product_sidebar_imagesize %}
+ <div id="products_viewed_block" class="block products_block {{ settings.product_sidebar_class }}" style="display: none;">
+  {% if settings.sidebar_products_recently_title != blank %}
+   <h4 class="title_block">
+    {{ settings.sidebar_products_recently_title }}
+   </h4>
+  {% endif %}
+  <div class="block_content products-block">
+   <ul id="recently-products" class="products products-block product_list_widget list-unstyled" style="display: none;">
+    
+   </ul>
+  </div>
+ </div>
+    {% raw %}
+    <script id="recently-template"  type="text/x-jquery-tmpl">
+        <li id="product-${handle}" class="media clearfix">
+            <div class="product-block">
+                <div class="product-container media">
+                    <a class="products-block-image img pull-left" href="${url}" title="${title}">
+                        <img class="replace-2x img-responsive" src="${Shopify.Products.resizeImage(featured_image, "small")}" alt="${title}">
+                    </a>
+                    <div class="media-body">
+                        <div class="product-content">
+                            <h5 class="name media-heading">
+                                <a class="product-name" href="${url}" title="${title}">${title}</a>
+                            </h5>
+                            <div class="content_price price">
+                                {{if price_varies}}
+                                    <span class="old-price product-price">
+                                        <span>
+                                         {{html Shopify.formatMoney(compare_at_price, theme.money_currency_format)}}
+                                        </span>
+                                    </span>
+                                {{/if}}
+                                <span class="price product-price">
+                                    <span>
+                                     {{html Shopify.formatMoney(price, theme.money_currency_format)}}
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </script>
+    {% endraw %}
+    <script>
+        $(document).ready(function() {
+            Shopify.Products.showRecentlyViewed( {
+              howManyToShow:{{ product_sidebar_limit }},
+              onComplete: function() {
+                {% if settings.show_multiple_currencies %}                   
+                  Currency.convertAll(theme.shop_currency, $("#currencies a.selected").data("currency"), "span.money", "money_format")
+                {% endif %}
+              }
+            } );
+        });
+    </script>
+{% endif %}

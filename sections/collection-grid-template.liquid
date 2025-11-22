@@ -1,0 +1,294 @@
+
+{% assign column_center = 'col-xs-12 col-sm-12 col-md-12' %}
+{% include 'breadcrumb' %}
+<section id="columns" class="columns-container">
+  <div class="container">
+    
+    <div class="row">
+      {% if settings.on-off-sidebar %}
+      <aside>
+         <div {% if section.settings.layout-sidebar == 'left' %}id="left_column" {% else section.settings.layout-sidebar == 'right'%}id="right_column" {% endif %} class=" sidebar col-xs-12 col-sm-4 col-md-3 {% if section.settings.layout-sidebar == 'left' %}left_column pull-left {% else section.settings.layout-sidebar == 'right' %}right_column pull-right{%endif%}">
+          {% include 'sidebar' %}
+        </div>
+      </aside>
+      {% endif %}
+      {% if section.settings.collection_product_per_page != blank %}
+      {% assign product_per_page = section.settings.collection_product_per_page | plus: 0 %}
+      {% else %}
+      {% assign product_per_page = 12 %}
+      {% endif %}
+      
+      {% if section.settings.layout-grid-list == 'grid' %}
+      {% assign columns_product_collections = section.settings.collection_product_per_row | plus: 0 %}
+      {% endif %}
+      
+      {% if settings.apollo_count_down_enable and settings.apollo_count_down_collections %}
+      {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+      {% else %}
+      {% assign dealTime = false %}
+      {% endif %}
+      
+      {% if section.settings.layout-grid-list == 'grid' %}
+      {% assign colProduct = 12 | divided_by:columns_product_collections %}
+      {% if columns_product_collections == 5 %}
+      {% capture grid_item_width %}col-md-2-4 col-xs-6 col-sp-12{% endcapture %}
+      {% else %}
+      {% capture grid_item_width %}col-md-{{ colProduct }} col-xs-6 col-sp-12{% endcapture %}
+      {% endif %}
+      {% endif %}
+      
+      {% assign product_per_page = product_per_page | plus: 0 %}
+      {% assign all_products_count = collection.all_products_count | plus: 0 %}
+      {%if product_per_page > all_products_count %}
+      {% assign product_per_page = collection.all_products_count %}
+      {% endif %}
+
+      <script>
+        $( document ).ready(function() {
+          countproducttop(window.location.href);
+        });
+      </script>
+      
+      {% if section.settings.layout-grid-list == 'grid' %}
+      <div id="center_column" class="center_column col-xs-12 {% if settings.on-off-sidebar %}col-sm-8 col-md-9{% endif %}">
+        <div class="content_scene_cat">
+          <div class="content_scene_cat_bg clearfix row">
+            {% comment %}
+            {% if collection.image %}
+            <div class="image">
+              <img class="img-responsive" alt="{{ collection.title }}" src="{{ collection.image | img_url: '1024x1024' | split:'?' | first }}" />
+            </div>
+            {% else %}
+            {% if settings.collection_imgdefault_enable %}
+            <div class="image">
+              {{ 'list_collection_default.png' | asset_url | img_tag: collection.title, "img-responsive" | split:'?' | first }}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% if collection.description != blank %}
+            <div class="cat_desc">
+              <div class="rte">
+                {% include 'shortcode' load: collection.description %}
+              </div>
+            </div>
+            {% endif %}
+            {% endcomment %}
+          </div>
+        </div>
+        {% comment %}
+        <h1 class="page-heading product-listing cat-name">{{ collection.title }}</h1>
+        {% endcomment %}
+          <div class="category-image"> 
+         <a href="{{section.settings.link_link_banner_top}}" >
+            <img src="{{ section.settings.banner_top | img_url: '970x' }}" alt="{{ image.alt | escape }}">
+          </a>
+        </div>
+        <div class="category-heading clearfix">
+          <div class="sortPagiBar clearfix row">
+            <div class="col-md-2 col-sm-3 col-xs-4 col-sp-12 nopadding">
+              {% include 'collection-views' %}
+            </div>          
+            <div class="col-md-10 col-sm-9 col-xs-8 col-sp-12 nopadding">
+              {% include 'collection-sorting' %}
+            </div>
+            {% if settings.on-off-filter and settings.filter-position == "top" %}
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="top-filter">
+                  {% include 'filter-top' %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        {% paginate collection.products by product_per_page %}
+        {% if section.settings.collection_product_userow %}
+        <div id="product_list" class="product_list grid">
+          {% for product in collection.products %}
+          {% assign modcol = forloop.index | modulo:columns_product_collections %}
+          {% if columns_product_collections == 1 %}
+          <div class="product-items">
+            <div class="row row-flex">
+          {% endif %}
+          {% if modcol == 1 %}
+              <div class="product-items">
+                <div class="row row-flex">
+                  {% endif %}
+                  {% include 'product-grid-item' %}
+                  {% if modcol == 0 or forloop.last %}
+                </div>
+              </div>
+          {% endif %}
+          {% else %}
+              <div class="warring">
+                <p>{{ 'collections.general.no_matches' | t }}</p>
+              </div>
+          {% endfor %}
+          {% assign dealTime = false %}
+        </div>
+        {% else %}
+        <div id="product_list" class="product-border product_list grid">
+           <div class="row row-flex">
+           {% for product in collection.products %}
+           {% include 'product-grid-item' %}
+           {% else %}
+           <div class="warring col-xs-12">
+              <p>{{ 'collections.general.no_matches' | t }}</p>
+           </div>
+           {% endfor %}
+           {% assign dealTime = false %}
+          </div>
+        </div>
+        {% endif %}
+        <div class="pagi-block">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6 col-sp-12">
+              <div class=" pagination-top-showing" data-per-page="{{product_per_page}}" data-all-product="{{ collection.all_products_count }}" data-content="{{ 'collections.general.show_item_per_page' | t }}"></div>
+            </div>
+            {% if paginate.pages > 1 %}
+            <div class="col-md-6 col-sm-6 col-xs-6 col-sp-12">
+              <div class="content_sortPagiBar">
+                {% include 'pagination-custom' %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endpaginate %}
+      </div>
+      {% else %}
+      <div id="center_column" class="center_column col-xs-12 {% if settings.on-off-sidebar  %} col-sm-8 col-md-9" {% endif %}>
+              {% comment %}
+                <h1 class="page-heading product-listing cat-name">{{ collection.title }}</h1>
+              {% endcomment %}
+                <div class="content_scene_cat">
+                    <div class="content_scene_cat_bg clearfix">
+                      {% comment %}
+                        {% if collection.image %}
+                            <div class="image">
+                                <img class="img-responsive" alt="{{ collection.title }}" src="{{ collection.image | img_url: '1024x1024' | split:'?' | first }}" />
+                            </div>
+                      	{% else %}
+                      		{% if settings.collection_imgdefault_enable %}
+                                <div class="image">
+                                    {{ 'list_collection_default.png' | asset_url | img_tag: collection.title, "img-responsive" | split:'?' | first }}
+                                </div>
+                      		{% endif %}
+                        {% endif %}
+                        <div class="cat_desc">
+                            {% if collection.description != blank %}
+                                <div class="rte">
+                                    {% include 'shortcode' load: collection.description %}
+                                </div>
+                            {% endif %}
+                        </div>
+                      {% endcomment %}
+                    </div>
+                </div>
+          
+        <a href="{{section.settings.link_link_banner_top}}" >
+          <img src="{{ section.settings.banner_top | img_url: '870x' }}" alt="{{ image.alt | escape }}">
+        </a>
+     
+                <div class="category-heading clearfix">
+                    <div class="sortPagiBar clearfix row">
+                        <div class="col-md-6 col-sm-6 col-xs-4">
+                            {% include 'collection-views' %}
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-8">
+                          	{% include 'collection-sorting' %}
+                        </div>
+                    </div>
+                </div>
+                {% paginate collection.products by product_per_page %}
+                    <div id="product_list" class="product_list list">
+                      	<div class="row">
+                            {% if settings.apollo_count_down_enable and settings.apollo_count_down_collections %}
+                                {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' ' %}
+                            {% endif %}
+                            {% for product in collection.products %}
+                                {% include 'product-list-item' %}
+                            {% else %}
+                                <div class="warring col-xs-12">
+                                    <p>{{ 'collections.general.no_matches' | t }}</p>
+                                </div>
+                            {% endfor %}
+                            {% assign dealTime = false %}
+                      	</div>
+                    </div>
+                    <div class=" pagination-top-showing" data-per-page="{{product_per_page}}" data-all-product="{{ collection.all_products_count }}" data-content="{{ 'collections.general.show_item_per_page' | t }}"></div>
+                    {% if paginate.pages > 1 %}
+                    <div class="content_sortPagiBar">
+                      {% include 'pagination-custom' %}
+                    </div>
+                    {% endif %}
+                {% endpaginate %}
+            </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection pages",
+  "settings": [
+	 {
+      "type": "select",
+      "id": "layout-grid-list",
+      "label": "Layout Sidebar",
+      "default": "grid",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ]
+     },
+     {
+        "type": "select",
+        "id": "layout-sidebar",
+        "label": "Layout Sidebar",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+     },
+     {
+        "type": "text",
+        "id": "collection_product_per_page",
+        "label": "Product per page",
+        "default": "12"
+      },
+      {
+        "type": "text",
+        "id": "collection_product_per_row",
+        "label": "Product per row",
+        "default": "3",
+        "info": "Only applies to products list grid(Ex:1, 2, 3, 4, 6, 12)"
+      },
+    {
+    "type": "image_picker",
+    "id": "banner_top",
+    "label": "Banner Top"
+    },
+    {
+    "type": "url",
+    "id": "link_banner_top",
+    "label": "Link banner top"
+    },
+      {
+        "type": "checkbox",
+        "id": "collection_product_userow",
+        "label": "Use row for each product line",
+        "info": "The products remain aligned as you input in the dimensions different product images"
+      }
+  ]
+}
+{% endschema %}

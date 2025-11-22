@@ -1,0 +1,37 @@
+{% capture slick %}{% include 'shortcode-render' render:'action' %}{% endcapture %}
+{% capture slickitem %}{% include 'shortcode-render' render:'columns_item' default:'5'%}{% endcapture %}
+{% capture slickAutoPlay %}{% include 'shortcode-render' render:'autoplay' default:'false'%}{% endcapture %}
+{% comment %}
+{% capture slickNavigation %}{% include 'shortcode-render' render:'navigation' default:'false' %}{% endcapture %}
+{% capture slickPagination %}{% include 'shortcode-render' render:'pagination' default:'true' %}{% endcapture %}
+{% endcomment %}
+{% capture slickLazyLoad %}{% include 'shortcode-render' render:'lazyLoad' default:'false' %}{% endcapture %}
+{% capture slickClass %}{% include 'shortcode-render' render:'class' default:'' %}{% endcapture %}
+
+{% case slick %}
+    {% when 'new slicks' %}
+		{% capture shortCodeId %}{{shortCodeId}}-{{ 'now' | date: "%N" }}{% endcapture %}
+		<div id="slick-{{shortCodeId | split : '-' | last}}">
+          	<div class="slick-shortcode{% if slickClass != '' %} {{slickClass}}{% endif %}">
+    {% when 'end slicks' %}
+          	</div>
+		</div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#slick-{{shortCodeId | split : '-' | last}} .slick-shortcode').each(function(){
+                  	$(this).slick({
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                      {% if settings.theme_rtl_enable %} rtl:true {% endif %}  
+                  	});
+                });
+            });
+        </script>
+    	{% capture lastTime %}-{{shortCodeId | split : '-' | last}}{% endcapture %}
+    	{% capture shortCodeId %}{{shortCodeId | remove: lastTime}}{% endcapture %}
+    {% when 'new slick' %}
+    	<div class="item">
+    {% when 'end slick' %}
+    	</div>
+    {% else %}
+{% endcase %}

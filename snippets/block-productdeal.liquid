@@ -1,0 +1,40 @@
+{% assign dealTag = true %}
+{% for tag in product.tags %}
+    {% if tag contains 'dealday' %}
+        {% assign dealTag = false %}
+        {% assign dealProTime = tag | replace: 'dealday','' | replace: '_','' %}
+        <div class="deal-clock lof-clock-{{ product.id }}-detail"></div>
+        <script>
+        //<![CDATA[
+        jQuery(document).ready(function($){
+            $(".lof-clock-{{ product.id }}-detail").lofCountDown({
+                TargetDate:"{{ dealProTime }}",
+                DisplayFormat:"<ul class='list-inline'><li class='day'>%%D%%<span>Days</span></li><li>%%H%%<span>Hours</span></li><li>%%M%%<span>Mins</span></li><li>%%S%%<span>Secs</span></li></ul>",
+                FinishMessage: "End Deal"
+            });
+        });
+        //]]>
+     </script>
+    {% endif %}
+{% endfor %}
+{% if dealTag %}
+    {% for dealPro in dealTime %}
+        {% capture currentProducID %}{{ product.id }}@{% endcapture %}
+        {% if dealPro contains currentProducID %}
+            {% assign dealProTime = dealPro | replace: currentProducID,'' | replace: '_',' ' %}
+            <div class="deal-clock lof-clock-{{ product.id }}-detail"></div>
+            <script>
+            //<![CDATA[
+            jQuery(document).ready(function($){
+                $(".lof-clock-{{ product.id }}-detail").lofCountDown({
+                    TargetDate:"{{ dealProTime }}",
+                    DisplayFormat:"<ul class='list-inline'><li class='day'>%%D%%<span>Days</span></li><li>%%H%%<span>Hours</span></li><li>%%M%%<span>Mins</span></li><li>%%S%%<span>Secs</span></li></ul>",
+                    FinishMessage: "End Deal"
+                });
+            });
+            //]]>
+            </script>
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

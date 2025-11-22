@@ -1,0 +1,17 @@
+{% unless banner_name %}
+	{% assign banner_name = 'banner_default.png' %}
+{% endunless %}
+{% unless banner_link %}
+	{% assign banner_link = '/collections/all' %}
+{% endunless %}
+<div class="widget-banner block">
+  	<div class="block_content">
+		<div class="image-box">
+			<div class="img-banner effect">
+				<a href="{{ banner_link }}">
+					{{ banner_name | asset_url | img_tag: "Adv Banner", "img-responsive" }}
+               </a>
+			</div>
+		</div>
+	</div>
+</div>

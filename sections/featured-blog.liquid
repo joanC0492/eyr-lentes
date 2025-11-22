@@ -1,0 +1,181 @@
+<div class="container blogs-post" data-section-id="{{ section.id }}" data-section-type="blogs">
+  {% if section.settings.title != blank %}
+    <header class="section-header">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </header>
+  {% endif %}
+
+  {%- assign blog = blogs[section.settings.blog] -%}
+
+  {% unless blog.empty? %}
+  	<div class="blogs-wrapper row">
+    	<div class="blogs_slide slick_carousel" id="Blogs-{{ section.id }}"  data-count="{{ blog.articles.size }}">
+      {% for article in blog.articles limit: section.settings.post_limit %}
+        <div class="blogs-slide--{{ article.id }}" {{ block.shopify_attributes }}>
+          {% if article.image %}
+            <a href="{{ article.url }}" class="article__grid-image">
+              {{ article | img_url: '600x' | img_tag: article.title }}
+            </a>
+          {% endif %}
+
+          <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+           <div class="article__meta">
+              {% if section.settings.blog_show_author %}
+              <span class="article__author"><i class="fa fa-user"></i>{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+              {% endif %}
+
+              {% if section.settings.blog_show_date %}
+                <span class="article__date">
+                 <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}"></time>
+                   <span class="day_post">
+                  <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%d' }}</time>
+                </span>
+                  <span class="month_post"> 
+                  <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%b' }}</time>
+                  </span>
+                 </span>
+              {% endif %}
+             </div>
+             <h2 class="h3 article__title">
+              <a href="{{ article.url }}">{{ article.title | truncate: 50 }}</a>
+            </h2>
+            <ul class="list--inline article__meta-buttons">
+                <li>
+                  <a href="{{ article.url }}" class="btn btn--secondary btn--small">
+                    {{ 'blogs.article.read_more' | t }}
+                  </a>
+                </li>
+              </ul>
+            {% if blog.comments_enabled? and article.comments_count > 0 %}
+                  <a href="{{ article.url }}#comments" class="article__comment">  <i class="fa fa-comment-o"></i>
+                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                  </a>
+              {% endif %}
+
+            {% if article.tags.size > 0 %}
+              <div class="article__tags rte">
+                {% for tag in article.tags %}
+                  <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__grid-tag">{{ tag }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+            
+          </div>
+          <div class="rte article__grid-excerpt">
+              {% if article.excerpt.size > 0 %}
+                {{ article.excerpt }}
+              {% else %}
+                {{ article.content | strip_html | truncate: 100 }}
+              {% endif %}
+              
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  	</div>
+  {% else %}
+    <div class="row grid--blog">
+      {% for i in (1..section.settings.post_limit) %}
+        <div class="col-xs-12 col-md-4">
+          <div class="article__grid-meta">
+            <h2 class="h3 article__title">
+              <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
+            </h2>
+
+            {% if section.settings.blog_show_author %}
+              <span class="article__author">{{ 'homepage.onboarding.blog_author' | t }}</span>
+            {% endif %}
+
+            <div class="rte article__grid-excerpt">
+              {{ 'homepage.onboarding.blog_excerpt' | t }}
+            </div>
+
+            <ul class="list--inline article__meta-buttons">
+              <li>
+                <a href="{{ article.url }}" class="btn btn--secondary btn--small">
+                  {{ 'blogs.article.read_more' | t }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endunless %}
+
+  {% if section.settings.show_view_all %}
+    <div class="text-center btn_view_blog">
+      <a href="{{ blog.url }}" class="btn btn-outline">
+        <b>
+        {{ 'blogs.article.view_all' | t }}
+        </b>
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Blog posts"
+    },
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "select",
+      "id": "post_limit",
+      "label": "Posts",
+      "default": "3",
+      "options": [
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "9",
+          "label": "9"
+        },
+        {
+          "value": "12",
+          "label": "12"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View all' button",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": "3"
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+
+{% include 'sidebar-categories' %}
+{% if template == "collection" or template == "collection.list" %}
+  {% if settings.on-off-filter and settings.filter-position == "in-sidebar" %}
+  	{% include 'sidebar-shopby' %}
+  {% endif %}
+{% endif %}
+{% if settings.sidebar_productlists_enable and template == 'index' %}
+    {% assign item_in_page = settings.sidebar_productlists_itempage | plus:0 %}
+    {% assign columns_product = 1 | plus:0 %}
+    {% assign product_in_tab = settings.sidebar_productlists_limit | plus:0 %}
+    {% assign title_block = settings.sidebar_productlists_titletab %}
+    {% assign interval = settings.sidebar_productlists_interval %}
+    {% assign type_block = settings.sidebar_productlists_type %}
+    {% assign collection_produclists = collections[settings.sidebar_productlists_collection].products %}
+    <div class="products_sidebar">
+      {% include 'productlist' with 'sidebar' %}
+    </div>
+{% endif %}
+{% include 'sidebar-products' with '' %}
+{% include 'sidebar-recentlyviewed' %}
+{% if settings.sidebar_banner_enable %}
+  	{% assign banner_name = 'sidebar_banner.png' %}
+  	{% assign banner_link = settings.sidebar_banner_link %}
+  	{% include 'block-banner' %}
+{% endif %}

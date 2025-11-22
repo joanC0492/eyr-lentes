@@ -1,0 +1,17 @@
+{% capture linklists_name %}{{ footerlinks_name }}{% endcapture %}
+<div class="block footer-block footerAccordion" id="block_links_footer_{{ block-footerlinks }}">
+  {% comment %}  
+  {% if footerlinks_title != blank %}
+        <h4 class="title_block">{{ footerlinks_title }}</h4>
+    {% endif %}
+  {% endcomment %}
+    <div class="">
+        <ul style="" class="toggle-footer list-group list-unstyled">
+            {% for link in linklists[linklists_name].links %}
+                <li class="item">
+                    <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

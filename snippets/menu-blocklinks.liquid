@@ -1,0 +1,42 @@
+
+<div class="row">
+	{% if linklists[mega_link_handle] != empty %}
+		{% for bocklink_title in linklists[mega_link_handle].links %}
+			<div class="col-sm-{{ settings[ap_col_links] }}">
+				<div class="mega-col-inner ">
+					<div class="menu-title">
+                      	<a href="{{ bocklink_title.url }}" title="{{ bocklink_title.title }}">
+                      		{{ bocklink_title.title }}
+                      	</a>
+                  	</div>
+					<div class="widget-inner">
+						<ul class="nav-links">
+							{% if linklists[bocklink_title.handle] != empty %}
+								{% for sub_link in linklists[bocklink_title.handle].links %}
+									<li><a href="{{ sub_link.url }}" title="{{ sub_link.title }}">
+                                      
+                                      <span>{{ sub_link.title }}</span>
+                                      {% assign title_link_megamenu = sub_link.title | handle %}                                    
+                                      {% for i in (1..5) %}
+                                      {% capture style_label_menu %}stye_label_{{i}}{%endcapture%}
+                                      {% capture style_label %}style="background-color: {{ settings[style_label_menu] }}"{%endcapture%}
+                                      {%capture id_title_submenu_label%}title_submenu_{{i}}{% endcapture%}
+                                      {% assign title_submenu = settings[id_title_submenu_label] | handle %} 
+                                      {%capture id_submenu_label%}id_submenu_label_{{i}}{% endcapture%}   
+                                      {% if  title_submenu  == title_link_megamenu  %}
+                                      {% if  settings[id_submenu_label] != blank %}
+                                      <span class="label_submenu" {{ style_label }}>{{ settings[id_submenu_label] }}</span>
+                                      {% endif %}
+                                      {% endif %}
+                                      {% endfor %}
+                                      
+                                      </a></li>
+								{% endfor %}
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	{% endif %}
+</div>

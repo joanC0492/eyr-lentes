@@ -1,0 +1,117 @@
+  <div class="container">
+    <div class="row">
+      <div id="center_column" class="center_column col-xs-12">
+        <div class="center_wrap">
+          {% if settings.home_productlists_enable %}
+          <div class="row {{ settings.home_productlists_class }}">
+            <div class="products_top col-xs-12 col-sm-12">
+              {% if settings.apollo_count_down_enable %}
+              {% assign dealTime = settings.home_productdeal_time | split: ' ' | join: ' ' | split: ' '%}
+              {% endif %}
+              {% assign item_in_page = settings.home_productlists_itempage | plus:0 %}
+              {% assign columns_product = settings.home_productlists_columntab | plus:0 %}
+              {% assign product_in_tab = settings.home_productlists_limit | plus:0 %}
+              {% assign title_block = settings.home_productlist_titletab %}
+              {% assign product_interval = settings.home_productlists_interval %}
+              {% assign type_block = settings.home_productlists_type %}
+              {% assign collection_produclists = collections[settings.home_productlists_collection].products %}
+              {% assign proLazyLoad = settings.home_productlists_lazy %}
+              {% include 'block-productlist' with '1' %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% schema %}
+  {
+    "name": "Product List",
+    "settings": [
+		 {
+        "type": "header",
+        "content": "Product List"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_productlists_enable",
+        "label": "Enable Product List"
+      },
+      {
+        "type": "checkbox",
+        "id": "home_productlists_lazy",
+        "label": "Use Lazyload",
+        "info": "Only applicable for owl-carousel"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_class",
+        "label": "Class",
+        "info": "You can input \"hidden-xs\" to hidden block on mobile"
+      },
+      {
+        "type": "select",
+        "id": "home_productlists_type",
+        "label": "Product List Display",
+        "options": [
+          {
+            "value": "boostrap_carousel",
+            "label": "Boostrap Carousel"
+          },
+          {
+            "value": "owl_carousel",
+            "label": "Owl Carousel"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_limit",
+        "label": "Limit",
+        "default": "16"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_itempage",
+        "label": "Items Per Page",
+        "default": "8"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_columntab",
+        "label": "Columns In Tab",
+        "default": "4",
+        "info": "Sample: 1, 2, 3, 4, 6, 12"
+      },
+      {
+        "type": "text",
+        "id": "home_productlists_interval",
+        "label": "Interval",
+        "default": "8000",
+        "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
+      },
+      {
+        "type": "text",
+        "id": "home_productlist_titletab",
+        "label": "Title Product list"
+      },
+      {
+        "type": "text",
+        "id": "des_productlist_home",
+        "label": "Description Product list"
+      },
+      {
+        "type": "collection",
+        "id": "home_productlists_collection",
+        "label": "Collection Product List"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

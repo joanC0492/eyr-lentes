@@ -1,0 +1,148 @@
+<!--code send mail sell home  -->
+<script type="text/javascript">
+  $(document).on("click",(".modal-header .closeModalQuote"), function(e){
+    $('#modalQuote').modal('hide');
+  })
+  $(document).on("click",(".modal-header .closeAlertEmailModal"), function(e){
+    $('#alert_email_modal').modal('hide');
+  })
+  
+  $(document).on("click",(".sidebar-getquocte"), function(e){
+    $('#modalQuote').modal('show');
+    var data_title = $(this).data("title");
+    var data_href = $(this).data("href");
+    $("#btn_get_quote").attr('data-title', data_title);
+    $("#btn_get_quote").attr('data-href', data_href);
+  })
+  
+  function validateEmailQuote(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+  $(document).on("click",("#btn_get_quote"), function(e){
+    e.preventDefault();
+    var quocte_title = $(this).data("title");
+    var quocte_link = '{{ shop.url}}' + $(this).data("href");
+    var quote_name = $('#quote_fname').val().trim() + ' ' + $('#quote_lname').val().trim();
+    var quote_email = $('#quote_email').val().trim();
+    
+     $.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+            var check = false;
+            return this.optional(element) || regexp.test(value);
+        },
+        "Please provide a valid email address."
+    );
+    
+    $('#form_get_quote').validate({
+      rules: {
+        quote_fname: 'required',
+        quote_lname: 'required',
+        quote_phone: 'required',
+        quote_email: { required: true, 'regex': /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ }
+      }
+    });                                   
+    
+    /*if ($('#quote_fname').val().trim() == "" | $('#quote_fname').val().trim() == null ) {
+      $("#msg_error_quote").text('Please enter first name');
+      $('#quote_fname').focus();
+      return false;
+    }
+    if ($('#quote_lname').val().trim() == "" | $('#quote_lname').val().trim() == null ) {
+      $("#msg_error_quote").text('Please enter last name');
+      $('#quote_lname').focus();
+      return false;
+    }
+    if ($('#quote_phone').val().trim() == "" | $('#quote_phone').val().trim() == null ) {
+      $("#msg_error_quote").text('Please enter phone');
+      $('#quote_phone').focus();
+      return false;
+    }
+    if (!validateEmailQuote(quote_email)) {
+      $("#msg_error_quote").text('Please provide a valid email address');
+      $('#quote_email').focus();
+      return false;
+    }*/
+    
+    if(!$('#form_get_quote').valid()) {
+    	return false;
+    }  
+    
+    var quote_phone = $('#quote_phone').val().trim();
+
+    var quote_content = 'Company: ' + $('#quote_company').val().trim() + '<br>' + 
+        'Zip/Postal Code: ' + $('#quote_zip').val().trim() + '<br>' +
+        'Line speed in bpm: ' + $('#quote_line').val().trim() + '<br>' +
+        'Container dimensions: ' + $('#quote_dimension').val().trim() + '<br>' +
+        'Container material: ' + $('#quote_material').val().trim() + '<br>' +
+        'Comments: ' + $('#quote_cmt').val().trim() + 
+        '<br><b>GET A QUOTE: Send from Product: </b>' + '<a href="'+quocte_link+'">' + quocte_title + '</a>';
+    $("#contact_form #ContactFormName").val(quote_name);
+    $("#contact_form #ContactFormEmail").val(quote_email);
+    $("#contact_form #ContactFormPhone").val(quote_phone);
+    $("#contact_form #ContactFormMessage").val(quote_content);
+ //   debugger
+    $('#contact_form').submit();
+  })
+  $(document).on("click",("#btn_send_question"), function(e){
+    e.preventDefault();
+    var quocte_title = $(this).data("title");
+    var quocte_link = '{{ shop.url}}' + $(this).data("href");
+    
+    $("#list_err_question").empty();
+    
+    var faq_name = $('#faq_name').val().trim();
+    var faq_email = $('#faq_email').val().trim();
+    var faq_title = $('#faq_title').val().trim();
+    var faq_question = $('#faq_question').val().trim();
+    /*
+    if(!$('#form_faq').valid()) {
+      	return false;
+    }
+   */ 
+    if (faq_name == "" | faq_name ==null ) {
+      $("#list_err_question").append('<p>Please enter your name.</p>');
+      $('#faq_name').focus();
+      return false;
+    }
+    if (!validateEmailQuote(faq_email)) {
+      $("#list_err_question").append('<p>Please enter a valid e-mail address.</p>');
+      $('#faq_email').focus();
+      return false;
+    }
+    if (faq_title == "" | faq_title ==null ) {
+      $("#list_err_question").append('<p>Please enter a question title.</p>');
+      $('#faq_title').focus();
+      return false;
+    }
+    if (faq_question == "" | faq_question ==null || faq_question.length < 20) {
+      $("#list_err_question").append('<p>Please ask your question. It should have at least 20 characters.</p>');
+      $('#faq_question').focus();
+      return false;
+    }
+    
+    var faq_content = 'Subject Line: ' + faq_title + '<br>' + 
+        				'Content: ' + faq_question + '<br>' +
+        '<br><b>Send from FAQs: </b>' + '<a href="'+quocte_link+'">' + quocte_title + '</a>';
+    $("#contact_form #ContactFormName").val(faq_name);
+    $("#contact_form #ContactFormEmail").val(faq_email);
+    $("#contact_form #ContactFormPhone").val('');
+    $("#contact_form #ContactFormMessage").val(faq_content);
+ //   debugger
+    
+    $('#contact_form').submit();
+  })
+  $(document).ready(function() {
+    var getQueryString = function (field) {
+      var href = window.location.href;
+      var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+      var string = reg.exec(href);
+      return string ? string[1] : null;
+    };
+    var contact_posted = getQueryString('contact_posted');
+    if(contact_posted == 'true') {
+      $("#alert_email_modal").modal('show');
+    }
+  })
+</script>

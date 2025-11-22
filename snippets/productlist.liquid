@@ -1,0 +1,88 @@
+
+{% unless product_interval %}
+	{% assign product_interval = 8000 %}
+{% endunless %}
+{% unless type_block %}
+	{% assign type_block = 'slick_carousel' %}
+{% endunless %}
+{% unless collection_produclists %}
+	{% assign collection_produclists = collections.all.products %}
+{% endunless %}
+<div id="productlist{{ productlist }}" class="products_block exclusive block" >
+	<div class="block_content">
+		{% if type_block == 'boostrap_carousel' %}
+			{% capture product_carousel %}product_list_00{{ productlist }}{% endcapture %}
+			{% include 'product_carousel' %}
+		{% else %}
+			{% include 'product_carousel_slick' %}
+		{% endif %}
+	</div>
+</div>
+{% capture string_with_newlines %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		{% if type_block == 'boostrap_carousel' %}
+	    $('#productlist{{ productlist }}').each(function(){
+	        $(this).carousel({
+	            pause: 'hover',
+	            interval: {{ product_interval }}
+	        });
+	    });
+      {%else%}
+        {% assign number_interval = product_interval | plus: 0 %}
+        $('#productlist{{ productlist }} .slick_carousel').slick({
+          dots: {{enable_dot}},
+          arrows:{{enable_nav}},
+          infinite: true,
+          {% if number_interval > 0 %}
+          autoplay: true,
+          autoplaySpeed: {{ number_interval }},
+          {% else %}
+          autoplay: false,
+          {% endif %}      
+          slidesToShow: {{ columns_product }},
+          slidesToScroll: {{ slidesToScroll }},
+          {% if proLazyLoad %}
+          lazyLoad: 'ondemand',
+          {% endif %}
+          touchThreshold:10,
+          {% if settings.theme_rtl_enable %}
+          rtl: true,
+          {% endif %}
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: {{item_laptop}},
+                slidesToScroll: {{item_laptop}}
+              }
+            },
+            {
+            breakpoint: 990,
+            settings: {
+              slidesToShow: {{item_table}},
+              slidesToScroll: {{item_table}}
+          	  }
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: {{item_phone}},
+                slidesToScroll: {{item_phone}}
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: {{item_phone_min}},
+                slidesToScroll: {{item_phone_min}}
+              }
+            }
+          ]
+        });
+	    {% endif %}
+	});
+</script>
+{% endcapture %}
+{{ string_with_newlines | strip_newlines | replace:'  ','' | replace:'    ','' | replace:'  ',' ' }}
+{% assign proLazyLoad = false %}

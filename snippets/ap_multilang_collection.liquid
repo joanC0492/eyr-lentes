@@ -1,0 +1,7 @@
+{% comment %} translate collection {% endcomment %}
+{% include 'ap-multilang-namespace' %}
+{% if current_lang == main_lang %}
+{% assign collection_translate = ap_multilang_collection %}
+{% else %}
+{% assign collection_translate = ap_multilang_collection.metafields[current_lang] %}
+{% endif %}

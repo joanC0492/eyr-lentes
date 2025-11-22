@@ -1,0 +1,273 @@
+{% assign column_center = 'col-xs-12 col-sm-12 col-md-12' %}
+{% include 'breadcrumb' %}
+<section id="columns" class="columns-container">
+  <div class="container">
+    <div class="row">
+      {% if section.settings.blog-sidebar-enable %}
+      <aside>
+        <div {% if section.settings.layout-sidebar == 'left' %}id="left_column" {% else section.settings.layout-sidebar == 'right'%}id="right_column" {% endif %} class=" sidebar col-xs-12 col-sm-4 col-md-3 {% if section.settings.layout-sidebar == 'left' %}left_column pull-left {% else section.settings.layout-sidebar == 'right' %}right_column pull-right{%endif%}">
+          {% include 'blog-sidebar' %}
+        </div>
+      </aside>
+      {% endif %}
+      {% paginate blog.articles by 9 %}
+      
+        {% comment %}
+        <header class="section-header text-center">
+          <h1>{{ page_title }}</h1>
+          {% if blog.tags.size > 0 %}
+            <select id="BlogTagFilter">
+              <option value="/blogs/{{ blog.handle }}">{{ 'blogs.article.all_topics' | t }}</option>
+              {% for tag in blog.all_tags %}
+                <option value="/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
+              {% endfor %}
+            </select>
+          {% endif %}
+        </header>
+		{% endcomment %}
+        <div class="{% if section.settings.layout == 'list' %}blog--list-view{% endif %}">
+          {% if section.settings.layout == 'grid' %}
+          	<div id="center_column" class="center_column col-xs-12 {% if section.settings.blog-sidebar-enable %}col-sm-8 col-md-9{% endif %}">
+              <div class="row row-flex grid--blog">
+                {% for article in blog.articles %}
+                <div class="col-sp-12 col-sm-12 col-xs-6 col-md-6 col-lg-4">
+                  <div class="blog-template">
+                  {% if article.image %}
+                  <a href="{{ article.url }}" class="article__grid-image">
+                    {{ article | img_url: '360x' | img_tag: article.title }}
+                  </a>
+                  {% endif %}
+                  <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+                    <h2 class="article__title h3">
+                      <a href="{{ article.url }}">{{ article.title }}</a>
+                    </h2>
+
+                    {% if section.settings.blog_show_author %}
+                    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                    {% endif %}
+
+                   <div class="rte article__grid-excerpt">
+                      {% if article.excerpt.size > 0 %}
+                      {{ article.excerpt }}
+                      {% else %}
+                      {{ article.content | strip_html | truncate: 145 }}
+                      {% endif %}
+                    <span>
+                        <a href="{{ article.url }}" class="btn btn--secondary btn--small">
+                          {{ 'blogs.article.read_more' | t }}
+                        </a>
+                      </span>
+                    </div>
+                    
+                    
+                    
+                    {% if article.tags.size > 0 %}
+                    <div class="article__tags rte">
+                      {% for tag in article.tags %}
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__grid-tag">{{ tag }}</a>
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                   <div class="list-info">
+                    <ul class="list--inline">
+                      {% if blog.comments_enabled? and article.comments_count > 0 %}
+                      <li>
+                        <a href="{{ article.url }}#comments" class="btn btn--small btn--link">
+                          {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                        </a>
+                      </li>
+                      {% endif %}
+                    </ul>
+                     {% if section.settings.blog_show_date %}
+                    <span class="article__date">
+                      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+                    </span>
+                    {% endif %}
+                    </div>
+                  </div>
+                </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% else %}
+          	<div id="center_column" class="center_column col-xs-12 {% if section.settings.blog-sidebar-enable %}col-sm-8 col-md-9"{% endif %}>
+              {% for article in blog.articles %}
+              <div class="border-top">
+                <div class="row">
+                  <div class="col-xs-12 col-md-12">
+                    <div class="article--listing">
+                      <h2 class="article__title h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                      {% if section.settings.blog_show_author %}
+                      <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+                      {% endif %}
+
+                      {% if section.settings.blog_show_date %}
+                      <span class="article__date ">
+                        <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+                      </span>
+                      {% endif %}
+
+                      {% if article.image %}
+                      <p>
+                        <a href="{{ article.url }}">
+                          {{ article | img_url: '905x600' | img_tag: article.title, 'article__list-image' }}
+                        </a>
+                      </p>
+                      {% endif %}
+
+                      <div class="rte">
+                        {% if article.excerpt.size > 0 %}
+                        {{ article.excerpt }}
+                        {% else %}
+                        {{ article.content | strip_html | truncate: 80 }}
+                        {% endif %}
+                      </div>
+
+                      {% if article.tags.size > 0 %}
+                      <div class="article__tags article__tags--list rte">
+                        {{ 'blogs.article.posted_in' | t }}
+                        {% for tag in article.tags %}
+                        <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                      </div>
+                      {% endif %}
+
+                      <ul class="list--inline article__meta-buttons">
+                        {% if article.excerpt.size > 0 %}
+                        <li>
+                          <a href="{{ article.url }}" class="btn btn--secondary btn--small">
+                            {{ 'blogs.article.read_more' | t }}
+                          </a>
+                        </li>
+                        {% endif %}
+
+                        {% if blog.comments_enabled? and article.comments_count == 0 %}
+                        <li>
+                          <a href="{{ article.url }}#comment_form" class="btn btn--secondary btn--small">
+                            {{ 'blogs.comments.title' | t }}
+                          </a>
+                        </li>
+                        {% endif %}
+
+                        {% if blog.comments_enabled? and article.comments_count > 0 %}
+                        <li>
+                          <a href="{{ article.url }}#comments" class="btn btn--secondary btn--small">
+                            {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                          </a>
+                        </li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+		
+          {% if paginate.pages > 1 %}
+            <div class="col-xs-12 col-md-12">
+          	{% include 'pagination' %}
+            </div>          
+          {% endif %}        
+        </div>
+      
+    {% endpaginate %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Blog pages",
+  "settings": [
+	{
+      "type": "header",
+      "content": "Sidebar Setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog-sidebar-enable",
+      "label": "Sidebar Enable",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "layout-sidebar",
+      "label": "Layout Sidebar",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },	
+	{
+      "type": "header",
+      "content": "Content Setting"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "list",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "list",
+          "label": "List"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+          {
+        "type": "header",
+        "content": "Blog Sidebar"
+      },
+      {
+        "type": "checkbox",
+        "id": "blogsidebar_html_enable",
+        "label": "Block Html Enable"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_html_title",
+        "label": "Block Html Title"
+      },
+      {
+        "type": "textarea",
+        "id": "blogsidebar_html_des",
+        "label": "Block Html Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "blogsidebar_html",
+        "label": "Block Html Image"
+      },
+      {
+        "type": "text",
+        "id": "blogsidebar_html_link",
+        "label": "Block Html Link"
+      }
+  ]
+}
+{% endschema %}

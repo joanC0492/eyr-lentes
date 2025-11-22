@@ -1,0 +1,9 @@
+{% comment %} translate product {% endcomment %}
+{% include 'ap-multilang-namespace' %}
+{% if current_lang == main_lang %}
+{% assign product_translate = ap_multilang_product %}
+{% else %}
+{% assign product_translate = ap_multilang_product.metafields[current_lang] %}
+{% assign product_translate_item = product_sidebar.metafields[current_lang] %}
+{% assign product_translate_sidebar = product_sidebar.metafields[current_lang] %}
+{% endif %}

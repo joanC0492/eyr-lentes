@@ -1,0 +1,33 @@
+# Dependencias de Node
+node_modules/
+package-lock.json
+
+# Archivos de entorno
+.env
+
+# Archivos de Shopify CLI
+.shopify/
+
+# Configuración específica de la tienda
+config/settings_data.json
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos del sistema operativo
+*.swp
+*.swo
+
+# Archivos de VSCode (opcional)
+.vscode/
+
+# Archivos de distribución (si los hay)
+dist/
+build/

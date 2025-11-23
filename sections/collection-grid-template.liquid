@@ -78,10 +78,15 @@
         {% comment %}
         <h1 class="page-heading product-listing cat-name">{{ collection.title }}</h1>
         {% endcomment %}
-          <div class="category-image"> 
-         <a href="{{section.settings.link_link_banner_top}}" >
-            <img src="{{ section.settings.banner_top | img_url: '970x' }}" alt="{{ image.alt | escape }}">
-          </a>
+        <!-- Muestra imagen de cada colección -->
+        <div class="category-image">
+          {% if collection.image %}
+            <img src="{{ collection.image | img_url: '970x' }}" alt="{{ collection.title }}" class="img-responsive">
+          {% elsif section.settings.banner_top %}
+            <a href="{{section.settings.link_banner_top}}">
+              <img src="{{ section.settings.banner_top | img_url: '970x' }}" alt="{{ collection.title }}" class="img-responsive">
+            </a>
+          {% endif %}
         </div>
         <div class="category-heading clearfix">
           <div class="sortPagiBar clearfix row">
@@ -185,9 +190,15 @@
                     </div>
                 </div>
           
-        <a href="{{section.settings.link_link_banner_top}}" >
-          <img src="{{ section.settings.banner_top | img_url: '870x' }}" alt="{{ image.alt | escape }}">
-        </a>
+        <div class="category-image">
+          {% if collection.image %}
+            <img src="{{ collection.image | img_url: '870x' }}" alt="{{ collection.title }}" class="img-responsive">
+          {% elsif section.settings.banner_top %}
+            <a href="{{section.settings.link_banner_top}}">
+              <img src="{{ section.settings.banner_top | img_url: '870x' }}" alt="{{ collection.title }}" class="img-responsive">
+            </a>
+          {% endif %}
+        </div>
      
                 <div class="category-heading clearfix">
                     <div class="sortPagiBar clearfix row">

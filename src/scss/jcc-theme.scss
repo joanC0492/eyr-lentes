@@ -9,6 +9,11 @@ $xl: map-get($breakpoints, "xl");
 $lg: map-get($breakpoints, "lg");
 $md: map-get($breakpoints, "md");
 //
+$xxl-1: calc(#{$xxl} - 1px);
+$xl-1: calc(#{$xl} - 1px);
+$lg-1: calc(#{$lg} - 1px);
+$md-1: calc(#{$md} - 1px);
+
 @media (min-width: 1480px) {
   .container {
     width: 1480px;
@@ -17,34 +22,61 @@ $md: map-get($breakpoints, "md");
 
 //
 #header {
-  #search_block_top {
-    border: 1px solid #272727;
-    border-radius: 50px;
+  // row 1
+  #topbar {
   }
+  // row 2
   #header-main {
     background-color: white !important;
-  }
-
-  .pull-left {
-    color: #272727;
-    > p {
-      color: #272727;
+    #search_block_top {
+      border: 1px solid #272727;
+      border-radius: 50px;
     }
-    h4 {
+    .cart-right {
+      color: #272727;
+      p {
+        color: #272727;
+      }
+    }
+    #CartCost {
       text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     }
-  }
-  .cart-right {
-    color: #272727;
-    p {
+    .zmdi-shopping-cart-plus {
       color: #272727;
     }
+    .pull-left {
+      color: #272727;
+      > p {
+        color: #272727;
+      }
+      h4 {
+        text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      }
+    }
   }
-  .zmdi-shopping-cart-plus {
-    color: #272727;
-  }
-  #CartCost {
-    text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  // row 3
+  #bottom-topnav {
+    #apollo-top-menu {
+      display: flex !important;
+      justify-content: center;
+    }
+    .navbar-nav.megamenu {
+      > li {
+        > a {
+          padding: 18px 16px;
+          @media (max-width: $xxl-1) {
+            padding: 18px 15px;
+            font-size: 12px;
+          }
+          @media (max-width: $xl-1) {
+            // padding: 18px 12px;
+            // font-size: 11px;
+            background-color: red;
+            font-size: 10px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -97,5 +129,50 @@ $md: map-get($breakpoints, "md");
     @media (min-width: $xxl) {
       font-size: 12px;
     }
+  }
+}
+
+// WhatsApp Chat Button
+.whatsapp-chat {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  z-index: 9999;
+  &__img {
+    max-width: 70px;
+    height: auto;
+  }
+}
+
+// Footer
+#footernav {
+  #bank-account {
+    display: none !important;
+  }
+}
+
+// Collection
+.category-image {
+  height: 200px;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: -1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  .img-responsive {
+    width: 100%;
+    //
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+#categories_block {
+  &.sidebarCategories {
+    display: none !important;
   }
 }

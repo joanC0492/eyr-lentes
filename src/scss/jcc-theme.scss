@@ -19,11 +19,29 @@ $md-1: calc(#{$md} - 1px);
     width: 1480px;
   }
 }
+@media (min-width: 992px) and (max-width: $lg-1) {
+  .container {
+    width: 100%;
+  }
+}
 
 //
 #header {
   // row 1
   #topbar {
+    .settings {
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+
+    .header-userinfo {
+      li:has(> .wishlist-total) {
+        display: none !important;
+      }
+      .wishlist-total {
+        display: none !important;
+      }
+    }
   }
   // row 2
   #header-main {
@@ -71,7 +89,7 @@ $md-1: calc(#{$md} - 1px);
           @media (max-width: $xl-1) {
             // padding: 18px 12px;
             // font-size: 11px;
-            background-color: red;
+            // background-color: red;
             font-size: 10px;
           }
         }

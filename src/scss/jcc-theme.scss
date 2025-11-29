@@ -58,6 +58,8 @@ $md-1: calc(#{$md} - 1px);
     }
     #CartCost {
       text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      color: #e6b800 !important;
+      font-weight: 600 !important;
     }
     .zmdi-shopping-cart-plus {
       color: #272727;
@@ -69,6 +71,17 @@ $md-1: calc(#{$md} - 1px);
       }
       h4 {
         text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        a {
+          color: #e6b800 !important;
+          font-weight: 600 !important;
+        }
+      }
+    }
+
+    .row-header {
+      display: flex;
+      &__col {
+        flex: 0 0 auto;
       }
     }
   }
@@ -194,3 +207,5 @@ $md-1: calc(#{$md} - 1px);
     display: none !important;
   }
 }
+
+//

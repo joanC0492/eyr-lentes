@@ -1,0 +1,22 @@
+<div class="home-tiktok">
+  <div class="home-tiktok__content container">
+    <h2 class="home-tiktok__title">Síguenos en TikTok</h2>
+    <p class="home-tiktok__subtitle">Aprende, diviértete y descubre el mundo que hay detrás de tus lentes.</p>
+    <div class="home-tiktok__embed">
+      {{ section.settings.tiktok_embed }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "TikTok Section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tiktok_embed",
+      "label": "Código del widget/iframe"
+    }
+  ]
+}
+{% endschema %}

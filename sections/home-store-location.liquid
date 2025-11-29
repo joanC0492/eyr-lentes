@@ -1,0 +1,35 @@
+<div class="home-store">
+  <div class="home-store__wrapper container">
+    <h2 class="home-store__title">
+      Compra online las 24 horas, hacemos envíos a todo el Perú y el mundo o visítanos en:
+    </h2>
+    <div class="home-store__details">
+      <div class="home-store__info">
+        <h3 class="home-store__city">{{ section.settings.city }}</h3>
+        <div class="home-store__content">
+          <p><strong>Dirección:</strong> {{ section.settings.address }}</p>
+          <p><strong>Horario:</strong> {{ section.settings.schedule }}</p>
+        </div>
+      </div>
+      <div class="home-store__map">
+        {{ section.settings.map_embed }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Store Location",
+  "settings": [
+    { "type": "text", "id": "city", "label": "Sucursal", "default": "Lince" },
+    { "type": "text", "id": "address", "label": "Dirección" },
+    { "type": "text", "id": "schedule", "label": "Horario" },
+    {
+      "type": "textarea",
+      "id": "map_embed",
+      "label": "Código iframe del mapa"
+    }
+  ]
+}
+{% endschema %}

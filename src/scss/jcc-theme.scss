@@ -102,10 +102,12 @@ $md-1: calc(#{$md} - 1px);
     .navbar-nav.megamenu {
       > li {
         > a {
-          padding: 18px 16px;
+          // padding: 18px 16px;
+          padding: 16px 14px;
           @media (max-width: $xxl-1) {
-            padding: 18px 15px;
+            // padding: 18px 15px;
             font-size: 12px;
+            padding: 14px 12px;
           }
           @media (max-width: $xl-1) {
             // padding: 18px 12px;

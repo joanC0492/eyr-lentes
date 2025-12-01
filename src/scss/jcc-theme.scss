@@ -361,3 +361,16 @@ $md-1: calc(#{$md} - 1px);
     display: none !important;
   }
 }
+
+.template-product {
+  .product-single__meta {
+    .ap-cp-add-compare,
+    .wishlist {
+      display: none !important;
+    }
+
+    .social-sharing {
+      display: none !important;
+    }
+  }
+}

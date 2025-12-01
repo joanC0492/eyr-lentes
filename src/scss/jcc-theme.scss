@@ -268,6 +268,13 @@ $md-1: calc(#{$md} - 1px);
   padding: 60px 0;
   background: #f7f7f7;
 
+  &__text {
+    margin-top: 8rem;
+    text-align: center;
+    @media (max-width: $md-1) {
+      margin-top: 0rem;
+    }
+  }
   &__title {
     font-size: 36px;
     font-weight: 700;
@@ -283,7 +290,18 @@ $md-1: calc(#{$md} - 1px);
     }
   }
   &__embed {
-    margin-top: 30px;
+    // margin-top: 30px;
+    @media (max-width: $md-1) {
+      margin-top: 20px;
+    }
+    blockquote {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      @media (max-width: $md-1) {
+        margin-inline: auto;
+      }
+    }
   }
 }
 
@@ -304,11 +322,13 @@ $md-1: calc(#{$md} - 1px);
   }
   &__title {
     flex: 0 0 100%;
-    font-size: 36px;
     font-weight: 700;
     margin-bottom: 20px;
-    @media (max-width: $md-1) {
-      font-size: 28px;
+    // font-size: 36px;
+    font-size: 24px;
+    @media (max-width: $xxl-1) {
+      // font-size: 28px;
+      font-size: 20px;
     }
   }
   &__details {
@@ -332,5 +352,12 @@ $md-1: calc(#{$md} - 1px);
       height: 448px;
       border: 0;
     }
+  }
+}
+
+// Card Product
+.product_block {
+  .product-item-actions {
+    display: none !important;
   }
 }

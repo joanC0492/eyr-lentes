@@ -310,6 +310,7 @@ var ajaxCart = (function(module, $) {
         itemMinus: cartItem.quantity - 1,
         itemQty: cartItem.quantity,
         price: Shopify.formatMoney(cartItem.price, settings.moneyFormat),
+        // price: 10,
         vendor: cartItem.vendor,
         linePrice: Shopify.formatMoney(cartItem.line_price, settings.moneyFormat),
         originalLinePrice: Shopify.formatMoney(cartItem.original_line_price, settings.moneyFormat),

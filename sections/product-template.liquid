@@ -2,6 +2,421 @@
 <div class="product-template-detail">
   {% include section.settings.product-template-layout %}
 </div>
+{% comment %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "select",
+        "id": "product-template-layout",
+        "label": "Layout Product Detail",
+        "default": "product-template1",
+        "options": [
+          {
+          "value": "product-template1",
+          "label": "Template 1"
+          }
+        ],
+        "info": "Select template Product detail"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Image size",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "full",
+            "label": "Full-width"
+          }
+        ],
+        "default": "medium"
+      },
+      {
+          "type": "select",
+          "id": "zoom_detail_image",
+          "label": "Zoom Image",
+          "options": [
+            {
+              "value": "Nome",
+              "label": "Nome"
+            },
+            {
+              "value": "Tints",
+              "label": "Tints"
+            },
+            {
+              "value": "Lightbox",
+              "label": "Lightbox"
+            },
+            {
+              "value": "Inner_Zoom",
+              "label": "Inner Zoom"
+            },
+    		  {
+              "value": "Lens_Zoom",
+              "label": "Lens Zoom"
+            }
+          ],
+          "default": "Nome"
+        },
+    	{
+          "type": "select",
+          "id": "thumb_detail_position",
+          "label": "Thumb position",
+          "options": [
+            {
+              "value": "Left",
+              "label": "Left"
+            },
+            {
+              "value": "Right",
+              "label": "Right"
+            },
+            {
+              "value": "Bottom",
+              "label": "Bottom"
+            }
+          ],
+          "default": "Bottom"
+        },
+  	{
+        "type": "checkbox",
+        "id": "product_page_swatch",
+        "label": "Use swatch variant",
+  	  "info": "Enable swatch or using dropdown"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_quantity_selector",
+        "label": "Show quantity selector",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_zoom",
+        "label": "Enable image zoom",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "product_page_tabs_enable",
+        "label": "Enable Tab in product Detail"
+      },
+    	{
+        "type": "header",
+        "content": "Product More Info"
+      },
+  	{
+        "type": "select",
+        "id": "product_description_type",
+        "label": "Tab type",
+        "options": [
+          {
+            "value": "tab",
+            "label": "Tab"
+          },
+          {
+            "value": "accordion",
+            "label": "Accordion"
+          }
+        ],
+        "default": "tab"
+      },
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab1title",
+        "label": "1st Title Tab",
+        "default": "More info"
+      },
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab2title",
+        "label": "2st Title Tab",
+        "default": "Custom Tab 2"
+    	},
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab3title",
+        "label": "3st Title Tab",
+        "default": "Custom Tab 3"
+      },
+      {
+          "type": "text",
+          "id": "product_moreinfo_tab4title",
+          "label": "4st Title Tab",
+          "default": "Custom Tab 4"
+        },
+      {
+          "type": "text",
+          "id": "product_moreinfo_tab5title",
+          "label": "5st Title Tab",
+          "default": "Custom Tab 5"
+        },
+   	{
+        "type": "header",
+        "content": "FAQs setting"
+      },
+    	{
+        "type": "checkbox",
+        "id": "show_faqs_detail",
+        "label": "Show FAQs",
+        "default": true
+      },
+    	{
+        "type": "checkbox",
+        "id": "show_faqs_detail_tab",
+        "label": "Show FAQs in Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab_faqs_title",
+        "label": "FAQs Label",
+        "default": "FAQs"
+      },
+    	{
+        "type": "header",
+        "content": "Review setting"
+      },
+  	{
+  		"type": "checkbox",
+  		"id": "show_reviews_detail_tab",
+  		"label": "Show Reviews detail tabs",
+  		"default": true
+  	},
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab_reviews_title",
+        "label": "Reviews Label",
+        "default": "Reviews"
+      },
+    	{
+        "type": "header",
+        "content": "Comment setting"
+      },
+    	{
+        "type": "checkbox",
+        "id": "show_comment_detail",
+        "label": "Show Comment",
+        "default": true
+      },
+    	{
+        "type": "checkbox",
+        "id": "show_comment_detail_tab",
+        "label": "Show Comment in Tab",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "product_moreinfo_tab_comment_title",
+        "label": "Comment Label",
+        "default": "Comment"
+      },
+    	{
+        "type": "text",
+        "id": "facebook_appid",
+        "label": "Facebook AppID",
+        "default": "ID"
+      },
+    	{
+        "type": "text",
+        "id": "facebook_admin_id",
+        "label": "Facebook Admin ID",
+        "default": "ID1,ID2",
+    		"info": "ex: ID1,ID2,..."
+      },
+    	{
+        "type": "text",
+        "id": "facebook_comment_display",
+        "label": "Number comment display",
+        "default": "10"
+      },
+     {
+          "type": "header",
+          "content": "Product Related"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+  	  {
+          "type": "text",
+          "id": "idproductlist",
+          "label": "Id product list"
+  	  },
+        {
+          "type": "select",
+          "id": "home_productlists_type",
+          "label": "Product List Display",
+          "options": [
+            {
+              "value": "boostrap_carousel",
+              "label": "Boostrap Carousel"
+            },
+            {
+              "value": "slick_carousel",
+              "label": "Slick Carousel"
+            }
+          ]
+        },
+   	  {
+            "type": "select",
+            "id": "enable_dot",
+            "label": "Navigator Type",
+            "default": "true",
+            "options": [
+              {
+                "label": "None",
+                "value": "false"
+              },
+              {
+                "label": "Bullet",
+                "value": "true"
+              }
+            ]
+          },
+        {
+        "type": "select",
+        "id": "enable_nav",
+        "label": "Arrows Style",
+        "default": "true",
+        "options": [
+          {
+            "label": "None",
+            "value": "false"
+          },
+          {
+            "label": "Next & Preview",
+            "value": "true"
+          }
+        ]
+        },
+        {
+          "type": "text",
+          "id": "home_producttabs_lazy",
+          "label": "Lazyload",
+          "default": "progressive"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_limit",
+          "label": "Limit",
+          "default": "16"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_itempage",
+          "label": "Items Per Page",
+          "default": "8"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_columntab",
+          "label": "Columns In Tab",
+          "default": "4",
+          "info": "Sample: 1, 2, 3, 4, 6, 12"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_toscroll",
+          "label": "Slider To Scroll",
+          "default": "4",
+          "info": "for slick slider ex: 1, 2, 3, 4 .."
+        },
+        {
+          "type": "text",
+          "id": "row_in_tab",
+          "label": "Row in tab",
+          "default": "1",
+          "info": "for slick slider ex: 1, 2, 3, 4 .."
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_interval",
+          "label": "Interval",
+          "default": "8000",
+          "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
+        },
+  	  {
+          "type": "text",
+          "id": "home_productlists_toscroll_laptop",
+          "label": "Number Item per Line ( Laptop )",
+          "default": "3",
+          "info": "for screen 1200px"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_toscroll_table",
+          "label": "Number Item per Line (Table)",
+          "default": "2",
+          "info": "for screen 990px"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_toscroll_phone",
+          "label": "Number Item per Line (Phone)",
+          "default": "2",
+          "info": "for screen 767px"
+        },
+        {
+          "type": "text",
+          "id": "home_productlists_toscroll_phone_min",
+          "label": "Number Item per Line (Phone Min )",
+          "default": "1",
+          "info": "for screen 480px"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection Product List"
+        },
+    	  {
+    		"type" : "header",
+    		"content" : "Sidebar"
+    	  },
+  	  {
+          "type": "select",
+          "id": "position_sidebar",
+          "label": "Position Sidebar",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        }
+    ]
+  }
+{% endcomment %}
 {% schema %}
 {
   "name": "Product pages",
@@ -13,8 +428,8 @@
       "default": "product-template1",
       "options": [
         {
-        "value": "product-template1",
-        "label": "Template 1"
+          "value": "product-template1",
+          "label": "Template 1"
         }
       ],
       "info": "Select template Product detail"
@@ -44,58 +459,58 @@
       "default": "medium"
     },
     {
-        "type": "select",
-        "id": "zoom_detail_image",
-        "label": "Zoom Image",
-        "options": [
-          {
-            "value": "Nome",
-            "label": "Nome"
-          },
-          {
-            "value": "Tints",
-            "label": "Tints"
-          },
-          {
-            "value": "Lightbox",
-            "label": "Lightbox"
-          },
-          {
-            "value": "Inner_Zoom",
-            "label": "Inner Zoom"
-          },
-  		  {
-            "value": "Lens_Zoom",
-            "label": "Lens Zoom"
-          }
-        ],
-        "default": "Nome"
-      },
-  	{
-        "type": "select",
-        "id": "thumb_detail_position",
-        "label": "Thumb position",
-        "options": [
-          {
-            "value": "Left",
-            "label": "Left"
-          },
-          {
-            "value": "Right",
-            "label": "Right"
-          },
-          {
-            "value": "Bottom",
-            "label": "Bottom"
-          }
-        ],
-        "default": "Bottom"
-      },
-	{
+      "type": "select",
+      "id": "zoom_detail_image",
+      "label": "Zoom Image",
+      "options": [
+        {
+          "value": "Nome",
+          "label": "Nome"
+        },
+        {
+          "value": "Tints",
+          "label": "Tints"
+        },
+        {
+          "value": "Lightbox",
+          "label": "Lightbox"
+        },
+        {
+          "value": "Inner_Zoom",
+          "label": "Inner Zoom"
+        },
+        {
+          "value": "Lens_Zoom",
+          "label": "Lens Zoom"
+        }
+      ],
+      "default": "Nome"
+    },
+    {
+      "type": "select",
+      "id": "thumb_detail_position",
+      "label": "Thumb position",
+      "options": [
+        {
+          "value": "Left",
+          "label": "Left"
+        },
+        {
+          "value": "Right",
+          "label": "Right"
+        },
+        {
+          "value": "Bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "Bottom"
+    },
+    {
       "type": "checkbox",
       "id": "product_page_swatch",
       "label": "Use swatch variant",
-	  "info": "Enable swatch or using dropdown"
+      "info": "Enable swatch or using dropdown"
     },
     {
       "type": "checkbox",
@@ -126,11 +541,11 @@
       "id": "product_page_tabs_enable",
       "label": "Enable Tab in product Detail"
     },
-  	{
+    {
       "type": "header",
       "content": "Product More Info"
     },
-	{
+    {
       "type": "select",
       "id": "product_description_type",
       "label": "Tab type",
@@ -157,7 +572,7 @@
       "id": "product_moreinfo_tab2title",
       "label": "2st Title Tab",
       "default": "Custom Tab 2"
-  	},
+    },
     {
       "type": "text",
       "id": "product_moreinfo_tab3title",
@@ -165,28 +580,28 @@
       "default": "Custom Tab 3"
     },
     {
-        "type": "text",
-        "id": "product_moreinfo_tab4title",
-        "label": "4st Title Tab",
-        "default": "Custom Tab 4"
-      },
+      "type": "text",
+      "id": "product_moreinfo_tab4title",
+      "label": "4st Title Tab",
+      "default": "Custom Tab 4"
+    },
     {
-        "type": "text",
-        "id": "product_moreinfo_tab5title",
-        "label": "5st Title Tab",
-        "default": "Custom Tab 5"
-      },
- 	{
+      "type": "text",
+      "id": "product_moreinfo_tab5title",
+      "label": "5st Title Tab",
+      "default": "Custom Tab 5"
+    },
+    {
       "type": "header",
       "content": "FAQs setting"
     },
-  	{
+    {
       "type": "checkbox",
       "id": "show_faqs_detail",
       "label": "Show FAQs",
       "default": true
     },
-  	{
+    {
       "type": "checkbox",
       "id": "show_faqs_detail_tab",
       "label": "Show FAQs in Tab",
@@ -198,33 +613,33 @@
       "label": "FAQs Label",
       "default": "FAQs"
     },
-  	{
+    {
       "type": "header",
       "content": "Review setting"
     },
-	{
-		"type": "checkbox",
-		"id": "show_reviews_detail_tab",
-		"label": "Show Reviews detail tabs",
-		"default": true
-	},
+    {
+      "type": "checkbox",
+      "id": "show_reviews_detail_tab",
+      "label": "Show Reviews detail tabs",
+      "default": true
+    },
     {
       "type": "text",
       "id": "product_moreinfo_tab_reviews_title",
       "label": "Reviews Label",
       "default": "Reviews"
     },
-  	{
+    {
       "type": "header",
       "content": "Comment setting"
     },
-  	{
+    {
       "type": "checkbox",
       "id": "show_comment_detail",
       "label": "Show Comment",
       "default": true
     },
-  	{
+    {
       "type": "checkbox",
       "id": "show_comment_detail_tab",
       "label": "Show Comment in Tab",
@@ -236,75 +651,75 @@
       "label": "Comment Label",
       "default": "Comment"
     },
-  	{
+    {
       "type": "text",
       "id": "facebook_appid",
       "label": "Facebook AppID",
       "default": "ID"
     },
-  	{
+    {
       "type": "text",
       "id": "facebook_admin_id",
       "label": "Facebook Admin ID",
       "default": "ID1,ID2",
-  		"info": "ex: ID1,ID2,..."
+      "info": "ex: ID1,ID2,..."
     },
-  	{
+    {
       "type": "text",
       "id": "facebook_comment_display",
       "label": "Number comment display",
       "default": "10"
     },
-   {
-        "type": "header",
-        "content": "Product Related"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title"
-      },
-	  {
-        "type": "text",
-        "id": "idproductlist",
-        "label": "Id product list"
-	  },
-      {
-        "type": "select",
-        "id": "home_productlists_type",
-        "label": "Product List Display",
-        "options": [
-          {
-            "value": "boostrap_carousel",
-            "label": "Boostrap Carousel"
-          },
-          {
-            "value": "slick_carousel",
-            "label": "Slick Carousel"
-          }
-        ]
-      },
- 	  {
-          "type": "select",
-          "id": "enable_dot",
-          "label": "Navigator Type",
-          "default": "true",  
-          "options": [
-            {
-              "label": "None",
-              "value": "false"
-            },
-            {
-              "label": "Bullet",
-              "value": "true"
-            }
-          ]
+    {
+      "type": "header",
+      "content": "Product Related"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "idproductlist",
+      "label": "Id product list"
+    },
+    {
+      "type": "select",
+      "id": "home_productlists_type",
+      "label": "Product List Display",
+      "options": [
+        {
+          "value": "boostrap_carousel",
+          "label": "Boostrap Carousel"
         },
-      {
+        {
+          "value": "slick_carousel",
+          "label": "Slick Carousel"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "enable_dot",
+      "label": "Navigator Type",
+      "default": "true",
+      "options": [
+        {
+          "label": "None",
+          "value": "false"
+        },
+        {
+          "label": "Bullet",
+          "value": "true"
+        }
+      ]
+    },
+    {
       "type": "select",
       "id": "enable_nav",
       "label": "Arrows Style",
-      "default": "true",  
+      "default": "true",
       "options": [
         {
           "label": "None",
@@ -315,119 +730,116 @@
           "value": "true"
         }
       ]
-      },
-      {
-        "type": "text",
-        "id": "home_producttabs_lazy",
-        "label": "Lazyload",
-        "default": "progressive"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_limit",
-        "label": "Limit",
-        "default": "16"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_itempage",
-        "label": "Items Per Page",
-        "default": "8"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_columntab",
-        "label": "Columns In Tab",
-        "default": "4",
-        "info": "Sample: 1, 2, 3, 4, 6, 12"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_toscroll",
-        "label": "Slider To Scroll",
-        "default": "4",
-        "info": "for slick slider ex: 1, 2, 3, 4 .."
-      },
-      {
-        "type": "text",
-        "id": "row_in_tab",
-        "label": "Row in tab",
-        "default": "1",
-        "info": "for slick slider ex: 1, 2, 3, 4 .."
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_interval",
-        "label": "Interval",
-        "default": "8000",
-        "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
-      },
-	  {
-        "type": "text",
-        "id": "home_productlists_toscroll_laptop",
-        "label": "Number Item per Line ( Laptop )",
-        "default": "3",
-        "info": "for screen 1200px"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_toscroll_table",
-        "label": "Number Item per Line (Table)",
-        "default": "2",
-        "info": "for screen 990px"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_toscroll_phone",
-        "label": "Number Item per Line (Phone)",
-        "default": "2",
-        "info": "for screen 767px"
-      },
-      {
-        "type": "text",
-        "id": "home_productlists_toscroll_phone_min",
-        "label": "Number Item per Line (Phone Min )",
-        "default": "1",
-        "info": "for screen 480px"
-      },
-      {
-        "type": "collection",
-        "id": "collection",
-        "label": "Collection Product List"
-      },
-  	  {
-  		"type" : "header",
-  		"content" : "Sidebar"
-  	  },
-	  {
-        "type": "select",
-        "id": "position_sidebar",
-        "label": "Position Sidebar",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          },
-          {
-            "value": "right",
-            "label": "Right"
-          }
-        ]
-      }
+    },
+    {
+      "type": "text",
+      "id": "home_producttabs_lazy",
+      "label": "Lazyload",
+      "default": "progressive"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_limit",
+      "label": "Limit",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_itempage",
+      "label": "Items Per Page",
+      "default": "8"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_columntab",
+      "label": "Columns In Tab",
+      "default": "4",
+      "info": "Sample: 1, 2, 3, 4, 6, 12"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_toscroll",
+      "label": "Slider To Scroll",
+      "default": "4",
+      "info": "for slick slider ex: 1, 2, 3, 4 .."
+    },
+    {
+      "type": "text",
+      "id": "row_in_tab",
+      "label": "Row in tab",
+      "default": "1",
+      "info": "for slick slider ex: 1, 2, 3, 4 .."
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_interval",
+      "label": "Interval",
+      "default": "8000",
+      "info": "Enter Time(miniseconds) to play carousel. Value 0 to stop."
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_toscroll_laptop",
+      "label": "Number Item per Line ( Laptop )",
+      "default": "3",
+      "info": "for screen 1200px"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_toscroll_table",
+      "label": "Number Item per Line (Table)",
+      "default": "2",
+      "info": "for screen 990px"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_toscroll_phone",
+      "label": "Number Item per Line (Phone)",
+      "default": "2",
+      "info": "for screen 767px"
+    },
+    {
+      "type": "text",
+      "id": "home_productlists_toscroll_phone_min",
+      "label": "Number Item per Line (Phone Min )",
+      "default": "1",
+      "info": "for screen 480px"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection Product List"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "select",
+      "id": "position_sidebar",
+      "label": "Position Sidebar",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
 
-  
-
-
 {% include 'apollo_send_mail_quote' %}
 <script type="text/javascript">
-  $(document).ready(function() {
-    $(document).on('click', '#get_more_info', function(e) {
+  $(document).ready(function () {
+    $(document).on('click', '#get_more_info', function (e) {
       e.preventDefault();
 
-      if($('#get_more_info').valid()) {
+      if ($('#get_more_info').valid()) {
         $('#contact_form').submit();
       }
     });
@@ -457,7 +869,7 @@
                 comparePrice.hide();
               	$('.product-price__sale-label').hide();
                 productPrice.removeClass("sale-price");
-            }        
+            }
             var form = $('#' + selector.domIdPrefix).closest('form');
             for (var i=0,length=variant.options.length; i<length; i++) {
                 var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] +'"]');
@@ -470,16 +882,16 @@
                 Currency.convertAll('{{ shop.currency }}', $('#currencies').val(), 'span.money', 'money_format');
             {% endif %}
             if (variant.available) {
-				$('.product-single .availability').html("<p class='available instock'>" + "{{'products.product.available' | t }}" + "</p>");
+  		$('.product-single .availability').html("<p class='available instock'>" + "{{'products.product.available' | t }}" + "</p>");
             } else{
             	$('.product-single .availability').html("<p class='available outstock'>" + "{{'products.product.unavailable' | t }}" + "</p>");
             }
-		} else {
-			addToCart.addClass('disabled').attr('disabled', 'disabled');
-			$(addToCart).find("span").text("{{ 'products.product.unavailable' | t }}");
-		}
-        //find thumb and click on it                                   
-		if (variant && variant.featured_image) {
+  } else {
+  	addToCart.addClass('disabled').attr('disabled', 'disabled');
+  	$(addToCart).find("span").text("{{ 'products.product.unavailable' | t }}");
+  }
+        //find thumb and click on it
+  if (variant && variant.featured_image) {
             $('.product-single__thumbnail').each(function(){
               if(variant.featured_image.src.indexOf($(this).data('zoom-image')) !== -1){
                 $(this).trigger("click");
@@ -490,7 +902,7 @@
     }
     $(document).ready(function() {
         new Shopify.OptionSelectors('productSelect', {
-            product: {{ product | json }},              
+            product: {{ product | json }},
             onVariantSelected: selectCallback,
             enableHistoryState: true
         });
@@ -503,11 +915,11 @@
         {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
             $('.product-single .selector-wrapper').hide();
       		$('.product-single .swatch').hide();
-        {% endif %}   
+        {% endif %}
         {% if product.available == false %}
             $(".product-single .add_to_cart_detail").addClass("disabled").attr("disabled", "disabled");
             $("#AddToCartText").text("{{ 'products.product.unavailable' | t }}");
         {% endif %}
-		$('.more_info_block .page-product-heading li:first, .more_info_block .tab-content .page-product-box:first').addClass('active');
+  $('.more_info_block .page-product-heading li:first, .more_info_block .tab-content .page-product-box:first').addClass('active');
     });
 </script>

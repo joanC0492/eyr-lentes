@@ -29,7 +29,7 @@
     </div>
   {% endraw %}{% endif %}
   {% raw %}
-  	<div class="mini-cart-total">{% endraw %}{{ 'cart.general.subtotal' | t }}:{% raw %}<span class="money">{{{ total_price }}}</span></div>
+  	<div class="mini-cart-total">{% endraw %}{{ 'cart.general.subtotal' | t }}:{% raw %}<span class="money" data-price={{ total_price }}>{{{ total_price }}}</span></div>
   	<p class="text-left">{% endraw %}{{ 'cart.general.shipping_at_checkout' | t }}{% raw %}</p>
     <div class="gotocart"><a class="btn" href="/cart">{% endraw %}{{ 'cart.general.gotocart' | t }}{% raw %}</a></div>  
     <button type="submit" class="btn btn--secondary btn--full cart__checkout" name="checkout">

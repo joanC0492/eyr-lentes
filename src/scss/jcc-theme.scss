@@ -465,3 +465,10 @@ $md-1: calc(#{$md} - 1px);
     opacity: 0 !important;
   }
 }
+
+#searchbox {
+  .product_img_link {
+    height: auto;
+    display: inline;
+  }
+}

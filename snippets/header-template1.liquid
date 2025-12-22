@@ -67,7 +67,7 @@
           <div class="row-header__col row-header__col--2 col-lg-6 col-md-6 col-sm-7 col-xs-12">
             {% include 'block-search' %}
           </div>
-          <div class="row-header__col row-header__col--3 col-lg-4 col-md-4 col-sm-2 col-xs-12" id="box-right" >
+          <div class="row-header__col row-header__col--3 col-lg-4 col-md-4 col-sm-2 col-xs-12" id="box-right">
             {% include 'block-cart' %}
             <div class="hidden-sm hidden-xs block-header">
               {% comment %}
@@ -80,7 +80,10 @@
               </div>
               <div class="pull-left">
                 <p>{{ section.settings.header_text_infor_phone }}</p>
-                <h4>{{ section.settings.header_infor_phone }}</h4>
+                {% comment %} <h4>{{ section.settings.header_infor_phone }}</h4> {% endcomment %}
+                <h4>
+                  <a style="color: #ffd300;" href="https://api.whatsapp.com/send?phone={{ section.settings.whatsapp_phone }}&amp;text={{ section.settings.whatsapp_message | url_encode }}" target="_blank" rel="noopener">{{ section.settings.header_infor_phone }}</a>
+                </h4>
               </div>
             </div>
           </div>

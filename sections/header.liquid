@@ -4,6 +4,11 @@
     {% if section.settings.header_background_slideshow_enable %}
     {% endif %}
   </header>
+  <div class="whatsapp-chat"> 
+    <a href="https://api.whatsapp.com/send?phone={{ section.settings.whatsapp_phone }}&amp;text={{ section.settings.whatsapp_message | url_encode }}" target="_blank" rel="noopener" aria-describedby="a11y-new-window-message">
+      <img src="{{ 'whatsapp.svg' | asset_url }}"  class="whatsapp-chat__img" alt="WhatsApp" width="70" height="70" />
+    </a>
+  </div>
 </div>
 
 {% schema %}
@@ -80,6 +85,22 @@
         "type": "image_picker",
         "id": "logo_2x",
         "label": "Logo image is used when using Retina"
+      },
+      {
+        "type": "header",
+        "content": "WhatsApp"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_phone",
+        "label": "Número de WhatsApp",
+        "default": "51965364135"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Mensaje de WhatsApp",
+        "default": "¡Hola! Quiero información de sus productos"
       }
   ]
 }

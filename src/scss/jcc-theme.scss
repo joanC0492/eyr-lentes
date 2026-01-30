@@ -58,7 +58,7 @@ $md-1: calc(#{$md} - 1px);
     }
     #CartCost {
       text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      color: #e6b800 !important;
+      color: #0979b0 !important;
       font-weight: 600 !important;
     }
     .zmdi-shopping-cart-plus {
@@ -72,7 +72,7 @@ $md-1: calc(#{$md} - 1px);
       h4 {
         text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         a {
-          color: #e6b800 !important;
+          color: #0979b0 !important;
           font-weight: 600 !important;
         }
       }
@@ -118,7 +118,7 @@ $md-1: calc(#{$md} - 1px);
           &:hover {
             @media (max-width: $md-1) {
               background-color: #1e1e1e;
-              color: #e6b800 !important;
+              color: #0979b0 !important;
             }
           }
         }
@@ -143,7 +143,7 @@ $md-1: calc(#{$md} - 1px);
           @media (max-width: $md-1) {
             // background-color: rgba(30, 30, 30, 0.75);
             background-color: #1e1e1e;
-            color: #e6b800 !important;
+            color: #0979b0 !important;
           }
 
           + .dropdown-toggle {
@@ -386,8 +386,8 @@ $md-1: calc(#{$md} - 1px);
       width: 51px;
       height: 51px;
       text-transform: uppercase;
-      background-color: #ffd300;
-      color: #333;
+      background-color: #0979b0;
+      color: #fff;
       font-family: Heebo;
       font-weight: 300;
       font-size: 14px;
@@ -472,3 +472,112 @@ $md-1: calc(#{$md} - 1px);
     display: inline;
   }
 }
+
+.new-box {
+  background-color: #0979b0;
+}
+.ajax_addtocart {
+  background-color: #0979b0;
+  color: #fff;
+}
+.banner-left-productTabs {
+  background-color: #0979b0;
+}
+.banner-left-productTabs .block .title_block {
+  color: #fff;
+}
+.banner-left-productTabs a {
+  color: #fff;
+}
+.btn-outline {
+  background-color: #0979b0;
+}
+.product-block .grid-view-item__title a:hover {
+  color: #0979b0;
+}
+
+.productTabsNav > li.active > a,
+.productTabsNav > li.active > a:hover,
+.productTabsNav > li.active > a:focus {
+  border-bottom: 3px solid #0979b0;
+}
+.collection-product-list .section-header {
+  border-bottom: 3px solid #0979b0;
+}
+.footer-3 .footer-center-wrap h4 {
+  border-bottom: 3px solid #0979b0;
+}
+.footer-3 .footer-center-wrap .box-contact ul li i {
+  color: #0979b0;
+}
+.slideshow__slide--slideshow-1 .slideshow__button {
+  background: #0979b0 !important;
+  color: white !important;
+}
+.slideshow__slide--image_qyjNNr .slideshow__button {
+  background: #0979b0 !important;
+  color: white !important;
+}
+.pull-left h4 a {
+  color: #0979b0 !important;
+}
+#apollo-menu .navbar-nav > li > a:hover,
+#apollo-menu .navbar-nav > li > a:focus,
+#apollo-menu .navbar-nav > li > a:active {
+  color: #0979b0 !important;
+}
+#apollo-menu .navbar-nav > li > a:after {
+  background: #0979b0 !important;
+}
+#apollo-menu .navbar-nav > li > a:after {
+  background: #0979b0 !important;
+}
+#apollo-menu .dropdown-menu li a:hover {
+  color: #0979b0 !important;
+}
+#apollo-menu .navbar-nav > li > a {
+  font-size: 12px;
+}
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  background-color: #0979b0 !important;
+}
+.product-block .quickview .quick-view {
+  background-color: #0979b0;
+  color: #fff;
+}
+.btn-outline {
+  color: #fff;
+}
+.breadcrumb > .active span {
+  color: #0979b0;
+}
+.sidebar .block .title_block {
+  border-bottom: 3px solid #0979b0;
+}
+.ui-state-default::before {
+  background-color: #0979b0 !important;
+}
+.collection-view .change-view:hover,
+.collection-view .config-filter:hover,
+.collection-view .change-view.change-view--active,
+.collection-view .change-view--active.config-filter {
+  background: #0979b0;
+}
+#CartContainer .ajaxcart__footer .btn--secondary:hover,
+#CartContainer .ajaxcart__footer .gotocart:hover {
+  background: #0979b0;
+  border-color: #0979b0;
+}
+.btn-primary {
+  background-color: #0979b0;
+  border-color: #0979b0;
+}
+.product-template-detail .section-header {
+  border-bottom: 3px solid #0979b0;
+}
+ 
